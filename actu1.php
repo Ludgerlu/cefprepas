@@ -48,7 +48,7 @@
                                 <div class="navxtBreads">
                                     <!-- Breadcrumb NavXT 7.3.0 -->
                                     <span property="itemListElement" typeof="ListItem">
-                                        <a property="item" typeof="WebPage" title="Go to Ingenieurs2000.com." href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
+                                        <a property="item" typeof="WebPage" title="Go to CEFPREPAS.com." href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
                                     </span>
                                     &gt;
                                     <span property="itemListElement" typeof="ListItem">
@@ -154,47 +154,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="wpb_column vc_column_container col-sm-4 col-lg-offset-1 col-sm-offset-1">
-                                    <aside id="stm_recent_posts-2" class="widget widget_stm_recent_posts">
-                                        <div class="widget_title"><h3>Articles récents</h3></div>
-                                        <div class="widget_media clearfix widget_media_style_1">
-                                            <a href="../admission-session3-candidature-ingenieurs2000-com/index.html">
-                                                <img
-                                                    width="140"
-                                                    height="95"
-                                                    src="../../wp-content/uploads/2024/04/LinkedIn-Inscriptions-13-140x95.png"
-                                                    class="img-responsive wp-post-image"
-                                                    alt="Candidature en session 3 : clôture des inscriptions le 12 mai !"
-                                                    decoding="async"
-                                                    srcset="
-                                                        https://www.ingenieurs2000.com/wp-content/uploads/2024/04/LinkedIn-Inscriptions-13-140x95.png  140w,
-                                                        https://www.ingenieurs2000.com/wp-content/uploads/2024/04/LinkedIn-Inscriptions-13-270x183.png 270w
-                                                    "
-                                                    sizes="(max-width: 140px) 100vw, 140px"
-                                                />
-                                                <span class="h6">Candidature en session 3 : clôture des inscriptions le 12 mai !</span>
-                                            </a>
-                                        </div>
-                                        <div class="widget_media clearfix widget_media_style_1">
-                                            <a href="../session-2-candidature-ingenieurs2000/index.html">
-                                                <img
-                                                    width="140"
-                                                    height="95"
-                                                    src="../../wp-content/uploads/2024/04/LinkedIn-Inscriptions-14-140x95.png"
-                                                    class="img-responsive wp-post-image"
-                                                    alt="Candidature en ligne en session 2 : clôture des inscriptions le 14 avril !"
-                                                    decoding="async"
-                                                    srcset="
-                                                        https://www.ingenieurs2000.com/wp-content/uploads/2024/04/LinkedIn-Inscriptions-14-140x95.png  140w,
-                                                        https://www.ingenieurs2000.com/wp-content/uploads/2024/04/LinkedIn-Inscriptions-14-270x183.png 270w
-                                                    "
-                                                    sizes="(max-width: 140px) 100vw, 140px"
-                                                />
-                                                <span class="h6">Candidature en ligne en session 2 : clôture des inscriptions le 14 avril !</span>
-                                            </a>
-                                        </div>
-                                    </aside>
-                                </div> -->
                             </div>
                         </div>
                     </article>

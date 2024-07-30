@@ -33,11 +33,11 @@
                             <div class="navxtBreads">
                                 <!-- Breadcrumb NavXT 7.3.0 -->
                                 <span property="itemListElement" typeof="ListItem">
-                                    <a property="item" typeof="WebPage" title="Go to Ingenieurs2000.com." href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
+                                    <a property="item" typeof="WebPage" title="Go to CEFPREPAS.com." href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
                                 </span>
                                 &gt;
                                 <span property="itemListElement" typeof="ListItem">
-                                    <span property="name" class="post post-page current-item">CEFPREPAS</span><meta property="url" content="https://www.ingenieurs2000.com/ingenieurs2000/" /><meta property="position" content="2" />
+                                    <span property="name" class="post post-page current-item">CEFPREPAS</span><meta property="url" content="https://www.CEFPREPAS.com/"/><meta property="position" content="2" />
                                 </span>
                             </div>
                         </div>

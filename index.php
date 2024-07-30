@@ -170,13 +170,11 @@
                                                                     <a href="etudiant.php" class="btn XXXbtn-default">
                                                                         <img
                                                                             decoding="async"
-        
                                                                             class=""
                                                                             src="cef/istockphoto-1407520358-612x612.jpg"
                                                                             width="217"
                                                                             height="217"
-                                                                            alt="partenaires écoles d'ingénieurs - Ingenieurs2000.com"
-                                                                            title="EMultiracial students are walking in university hall during break."
+                                                                            alt="partenaires écoles d'ingénieurs - CEFPREPAS.com"
 																			style="height: 217px;"
                                                                         />
                                                                         <div class="image-overlay-special"></div>
@@ -342,7 +340,7 @@
                                         </div>
 
 										<div class="vc_grid-container-wrapper vc_clearfix vc_grid-animation-fadeIn">
-											<div class="vc_grid-container vc_clearfix wpb_content_element vc_basic_grid" data-initial-loading-animation="fadeIn" data-vc-grid-settings="{&quot;page_id&quot;:3163,&quot;style&quot;:&quot;all&quot;,&quot;action&quot;:&quot;vc_get_vc_grid_data&quot;,&quot;shortcode_id&quot;:&quot;1711646967361-b1e67aa1-bfc1-2&quot;,&quot;tag&quot;:&quot;vc_basic_grid&quot;}" data-vc-request="https://www.ingenieurs2000.com/wp-admin/admin-ajax.php" data-vc-post-id="3163" data-vc-public-nonce="165c1f9ea4">
+											<div class="vc_grid-container vc_clearfix wpb_content_element vc_basic_grid" data-initial-loading-animation="fadeIn" data-vc-grid-settings="{&quot;page_id&quot;:3163,&quot;style&quot;:&quot;all&quot;,&quot;action&quot;:&quot;vc_get_vc_grid_data&quot;,&quot;shortcode_id&quot;:&quot;1711646967361-b1e67aa1-bfc1-2&quot;,&quot;tag&quot;:&quot;vc_basic_grid&quot;}" data-vc-post-id="3163" data-vc-public-nonce="165c1f9ea4">
 												<div class="vc_grid vc_row vc_grid-gutter-30px vc_pageable-wrapper vc_hook_hover" data-vc-pageable-content="true">
 													<div class="vc_pageable-slide-wrapper vc_clearfix" data-vc-grid-content="false">
                                                         <?php
@@ -670,11 +668,3 @@
             </div>
         </div>
 <?php include("share/footer.php")?>
-<!--
-Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
-
-Object Caching 869/1130 objects using Disk
-Page Caching using Disk: Enhanced 
-
-Served from: www.ingenieurs2000.com @ 2024-05-03 15:53:48 by W3 Total Cache
--->

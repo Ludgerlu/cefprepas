@@ -170,70 +170,9 @@
             window.RS_MODULES.type = "compiled";
         </script>
         
-        <script>
-            var authorization_data, authorization_settings;
-
-            if (typeof authorization_data === "undefined") {
-                authorization_data = {
-                    register_nonce: "377bb35445",
-                    instructor_nonce: "c1e94aeae2",
-                    login_nonce: "97502c0973",
-                    restore_nonce: "1e63d49c97",
-                    ajax_url: "https://www.ingenieurs2000.com/wp-admin/admin-ajax.php",
-                    email_confirmation: "",
-                    recaptcha_site_key: "",
-                    default_fields: [],
-                    additional_fields: [],
-                    instructor_fields: [],
-                    only_for_instructor: "",
-                    user_account_page: "https://www.ingenieurs2000.com/user-account/",
-                    instructor_premoderation: "1",
-                };
-            }
-            if (typeof authorization_settings === "undefined") {
-                authorization_settings = {
-                    register_mode: "",
-                    titles: { login: { main: "Sign In", account: "No account?", separator: "or sign in with email" }, register: { main: "S'inscrire", account: "Have account?", separator: "or sign up with email" } },
-                };
-            }
-        </script>
+       
         
-        <!-- Matomo -->
-        <script type="text/javascript">
-            var _paq = (window._paq = window._paq || []);
-            _paq.push(["trackPageView"]);
-            _paq.push(["enableLinkTracking"]);
-            _paq.push(["alwaysUseSendBeacon"]);
-            _paq.push(["setTrackerUrl", "\/\/www.ingenieurs2000.com\/wp-content\/plugins\/matomo\/app\/matomo.php"]);
-            _paq.push(["setSiteId", "1"]);
-            var d = document,
-                g = d.createElement("script"),
-                s = d.getElementsByTagName("script")[0];
-            g.type = "text/javascript";
-            g.async = true;
-            g.src = "\/\/www.ingenieurs2000.com\/wp-content\/uploads\/matomo\/matomo.js";
-            s.parentNode.insertBefore(g, s);
-        </script>
-        <!-- End Matomo Code -->
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                document.addEventListener(
-                    "wpcf7mailsent",
-                    function (event) {
-                        if (event.detail.contactFormId == "5") {
-                            if ($("body #wpcf7-f5-o1 .documentation-required").length) {
-                                window.open($("body #wpcf7-f5-o1 .documentation-required option:selected").val(), "_blank");
-                            }
-                        } else {
-                            if ($("body .documentation-required").length) {
-                                window.open($("body .documentation-required option:selected").val(), "_blank");
-                            }
-                        }
-                    },
-                    false
-                );
-            });
-        </script>
+       
         <script type="text/html" id="wpb-modifications"></script>
         <link rel="stylesheet" id="vc_google_fonts_abril_fatfaceregular-css" href="http://fonts.googleapis.com/css?family=Abril+Fatface%3Aregular&amp;subset=latin&amp;ver=6.5" type="text/css" media="all" />
         <link rel="stylesheet" id="stm-image_box-style_3-css" href="wp-content/themes/md3/assets/css/vc_modules/image_box/style_36aec.css?ver=3.0" type="text/css" media="all" />
@@ -265,11 +204,7 @@
         <script type="text/javascript" src="wp-content/plugins/masterstudy-lms-learning-management-system/_core/assets/vendors/bootstrap.min3d36.js?ver=3.3.1" id="masterstudy-bootstrap-js"></script>
         <script type="text/javascript" src="wp-content/plugins/masterstudy-lms-learning-management-system/_core/assets/vendors/ms-bootstrap-custom3d36.js?ver=3.3.1" id="masterstudy-bootstrap-custom-js"></script>
         <script type="text/javascript" src="wp-content/plugins/contact-form-7/includes/swv/js/index7404.js?ver=5.9.3" id="swv-js"></script>
-        <script type="text/javascript" id="contact-form-7-js-extra">
-            /* <![CDATA[ */
-            var wpcf7 = { api: { root: "https:\/\/www.ingenieurs2000.com\/wp-json\/", namespace: "contact-form-7\/v1" }, cached: "1" };
-            /* ]]> */
-        </script>
+        
         <script type="text/javascript" src="wp-content/plugins/contact-form-7/includes/js/index7404.js?ver=5.9.3" id="contact-form-7-js"></script>
         <script type="text/javascript" src="wp-content/plugins/masterstudy-lms-learning-management-system/_core/assets/js/countdown3d36.js?ver=3.3.1" id="lms_countdown.js-js"></script>
         <script type="text/javascript" src="wp-content/plugins/revslider/public/assets/js/rbtools.minadc6.js?ver=6.5.5" defer async id="tp-tools-js"></script>
@@ -315,11 +250,7 @@
             /* ]]> */
         </script>
         <script type="text/javascript" src="wp-includes/js/wp-util.min8f99.js?ver=6.5" id="wp-util-js"></script>
-        <script type="text/javascript" id="wpb-pcf-scripts-js-extra">
-            /* <![CDATA[ */
-            var WPB_PCF_Vars = { ajaxurl: "https:\/\/www.ingenieurs2000.com\/wp-admin\/admin-ajax.php", nonce: "ec0189b713" };
-            /* ]]> */
-        </script>
+       
         <script type="text/javascript" src="wp-content/plugins/wpb-popup-for-contact-form-7/assets/js/frontend5243.js?ver=5.4.5" id="wpb-pcf-scripts-js"></script>
         <script type="text/javascript" src="wp-content/plugins/vc_carousel_anything/assets/libs/slick/slick.minf24c.js?ver=1.6" id="slick-js"></script>
         <script type="text/javascript" src="wp-content/plugins/vc_carousel_anything/assets/js/script.js" id="bb-vcuc-js"></script>
