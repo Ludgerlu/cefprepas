@@ -1,6 +1,6 @@
 <?php
 $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$index = "//localhost/cefprepas/index.php";
+$index = "//localhost/prepas/index.php";
 ?>
 
 <?php
