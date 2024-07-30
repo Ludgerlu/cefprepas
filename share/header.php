@@ -1623,10 +1623,7 @@ include('./condb.php');
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-
         <script type="text/javascript" src="wp-content/plugins/wpcf7-recaptcha/assets/js/wpcf7-recaptcha-controls62ea.js?ver=1.2" id="wpcf7-recaptcha-controls-js"></script>
-        
-
         <!-- Google Tag Manager -->
         <script>
             function getCookie(name) {
