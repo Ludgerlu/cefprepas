@@ -68,7 +68,7 @@
 
                         <!--Start single footer widget-->
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 wow animated fadeInUp" data-wow-delay="0.3s">
-                            <div class="single-footer-widget single-footer-widget--explore">
+                            <div class="single-footer-widget single-footer-widget--links">
                                 <div class="footer-widget-links">
                                     <ul>
                                         <li> <a href="index.php">Accueil</a></li>
