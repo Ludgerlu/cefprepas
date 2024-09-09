@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 28 juil. 2024 à 18:34
+-- Généré le : mar. 30 juil. 2024 à 03:28
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -78,9 +78,7 @@ CREATE TABLE `evenements` (
 --
 
 INSERT INTO `evenements` (`id`, `TITRE`, `TYPE`, `CHEMIN_IMAGE`, `DESCRIPTION`, `DATE_EVENEMENT`, `created_at`, `updated_at`) VALUES
-(1, 'Vente de poisson', 'vie d\'etudiant', '317/A_IMAGE_519.jpg', 'heeelo comment tu vas', '2021-04-16 00:00:00', '2024-06-09 20:50:25', NULL),
-(2, 'hello', 'Actualités', '318/A_IMAGE_581.jpg', 'tentative de vole', '2024-07-11 00:00:00', '2024-06-09 22:36:35', '2024-06-10 09:47:49'),
-(3, 'hello', 'vie d\'etudiant', '803/A_IMAGE_649.jpg', 'okay', '2024-06-05 00:00:00', '2024-06-09 22:57:58', NULL),
+(1, 'Construction des dortoirs ', 'vie d\'etudiant', '317/A_IMAGE_519.jpg', 'Les dortoirs sont conçus pour accueillir plusieurs lits, avec un espace de rangement attribué à chaque occupant. Un soin particulier est apporté à l\'éclairage, à la ventilation et à l\'insonorisation de ces espaces, pour garantir le confort et la tranquill', '2021-04-16 00:00:00', '2024-06-09 20:50:25', NULL),
 (4, 'Rentree du 08 Juillet 2024', 'Actualités', '741/A_IMAGE_332.JPG', 'Une Rentrée est prévu a CEFPREPAS le 08 Juillet prochain', '2024-07-08 00:00:00', '2024-06-19 10:16:58', NULL),
 (5, 'Journée porte ouverte au CEFPREPAS', 'Actualités', '110/A_IMAGE_511.jpg', 'Une journée porte ouverte sera réalisée le samedi 29 juin 2024', '2024-06-29 00:00:00', '2024-06-25 11:46:16', NULL);
 
@@ -227,7 +225,7 @@ CREATE TABLE `partenaires` (
 --
 
 INSERT INTO `partenaires` (`id`, `TITLE`, `CHEMIN_IMAGE`, `LINK`, `created_at`, `updated_at`) VALUES
-(2, 'ludgerlu', '488/A_IMAGE_833.ico', 'ludger.com', '2024-06-12 14:05:34', NULL),
+(2, 'ludgerlu', '488/A_IMAGE_833.ico', '#', '2024-06-12 14:05:34', NULL),
 (3, 'ISTAPA', '226/A_IMAGE_339.jpg', 'https://istapa.net/', '2024-06-17 14:56:23', '2024-06-17 15:05:24');
 
 -- --------------------------------------------------------
@@ -305,9 +303,9 @@ CREATE TABLE `temoignages` (
 --
 
 INSERT INTO `temoignages` (`TEMOIGNAGE_ID`, `NAME`, `FILIERE`, `TEMOIGNAGE`, `IMAGE`, `ACTIVE`, `UPDATOR_ID`, `UPDATOR_NAME`, `LAST_UPDATE_DATE`, `CREATOR_ID`, `CREATOR_NAME`, `CREATION_DATE`, `DELETED`, `DELETOR_ID`, `DELETOR_NAME`, `DELETED_DATE`) VALUES
-('T20240524195600_442_913', 'test', 'test', 'test', '901/A_IMAGE_375.jpg', '1', '', '', '2024-05-24 19:56:00', '', '', '2024-05-24 19:56:00', '0', '', '', '2024-05-24 19:56:00'),
-('T20240526192856_769_437', 'hello', 'piciculture', 'sdfghjkl;hh', '893/A_IMAGE_603.jpg', '1', '', '', '2024-05-26 19:28:56', '', '', '2024-05-26 19:28:56', '0', '', '', '2024-05-26 19:28:56'),
-('T20240604184101_417_535', 'test', 'test', 'qwertyuio', '150/A_IMAGE_164.jpg', '1', '', '', '2024-06-04 18:41:01', '', '', '2024-06-04 18:41:01', '0', '', '', '2024-06-04 18:41:01');
+('T20240524195600_442_913', 'Ludger', 'Pisciculture', 'En tant qu\'ancien élève, je recommande chaudement CEFPREPAS. Dès mon arrivée, l\'équipe enseignante a su m\'accompagner avec bienveillance, me permettant de rattraper mon retard et de retrouver confiance. Au-delà du soutien scolaire, l\'école m\'a permis de m\'épanouir personnellement grâce à ses activités périscolaires enrichissantes. Mon passage à CEFPREPAS a été déterminant, me permettant d\'acquérir à la fois des bases académiques solides et un épanouissement personnel. Je ne peux que la recommander chaleureusement.', '901/A_IMAGE_375.jpg', '1', '', '', '2024-05-24 19:56:00', '', '', '2024-05-24 19:56:00', '0', '', '', '2024-05-24 19:56:00'),
+('T20240526192856_769_437', 'David', 'Energie Renouvelable', 'J\'ai été impressionné par l\'engagement et la compétence de l\'équipe enseignante, qui a su me guider avec bienveillance tout au long de mon parcours. Au-delà de l\'excellence académique, Le Centre de Formation Professionnelle en Elevage, Pisciculture et Agriculture m\'a permis de m\'épanouir sur le plan personnel grâce à son riche programme d\'activités périscolaires, développant ainsi ma curiosité et ma créativité. Mon expérience à CEFPREPAS a été déterminante pour ma réussite scolaire et mon épanouissement global. ', '893/A_IMAGE_603.jpg', '1', '', '', '2024-05-26 19:28:56', '', '', '2024-05-26 19:28:56', '0', '', '', '2024-05-26 19:28:56'),
+('T20240604184101_417_535', 'Julie', 'Production animal', 'Lorsque j\'y suis arrivée, l\'équipe pédagogique a su m\'offrir un cadre bienveillant et stimulant, me permettant de surmonter mes difficultés et de m\'épanouir pleinement. Au-delà de l\'excellence académique, ce qui a fait la force à mes yeux, c\'est la pratique qui étais faite plus que la théorie  et le développement de l\'esprit critique. Les nombreux échanges et projets interdisciplinaires m\'ont permis de nourrir ma curiosité et ma créativité.', '150/A_IMAGE_164.jpg', '1', '', '', '2024-06-04 18:41:01', '', '', '2024-06-04 18:41:01', '0', '', '', '2024-06-04 18:41:01');
 
 -- --------------------------------------------------------
 
