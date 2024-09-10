@@ -42,7 +42,7 @@ include('./condb.php');
 
         <div id="wrapper">
             <?php include('share/navbar.php')?>
-            <?php include('view/actualite.php')?>
+            <?php include('view/actualite_view.php')?>
         </div>          
 
         <?php
