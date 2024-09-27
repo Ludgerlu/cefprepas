@@ -27,3 +27,20 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal  filiere-->
+<div class="modal fade" id="exampleModalLong" tabindex="99" role="dialog" aria-labelledby="exampleModalLong">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body heading_font">
+                <h2>Frais </h2>
+                <ul>
+                    <li>Frais d’Inscription + Équipements de protection individuelle (EPI) + Outils de travail : 50.000 FCFA</li>
+                    <li>Frais de Scolarité pour 06 mois: 400.000 FCFA</li>
+                    <li>Frais d’Internat : 20 000 FCFA/mois </li>
+                </ul>                    
+            </div>
+        </div>
+    </div>
+</div>

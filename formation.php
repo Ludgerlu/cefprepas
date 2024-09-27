@@ -1,97 +1,55 @@
-<?php include("share/header.php")?>
-<div id="main">
-    <!-- Breads -->
-	
-    <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_default">
-        <div class="stm_breadcrumbs_unit">
-            <div class="container">
-                <div class="navxtBreads">
-                    <!-- Breadcrumb NavXT 7.3.0 -->
-                    <span property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" title="Go to CEFPREPAS.cm." href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
-                    </span>
-                    &gt;
-                    <span property="itemListElement" typeof="ListItem">
-                        <span property="name" class="post post-page current-item">Nos filiere</span><meta property="url" content="index.php" /><meta property="position" content="2" />
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+<?php
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$index = "https://cefprepas.com//index.php";
+?>
 
-    <div class="container">
-        <div class="post_type_exist clearfix">
-            <div class="vc_row wpb_row vc_row-fluid vc_custom_1637340201433">
+<?php
+$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+include('./condb.php');
+?>
+<!DOCTYPE html>
+<html lang="fr-FR" class="no-js">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <title>CEFPREPAS</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="cef/Logo_CEFPREPAS.j.png">
+        <meta name="description" content="Le Centre de Formation Professionnelle en Elevage, Pisciculture et Agriculture (CEFPREPAS), agréé par le MINEFOP, vous propose des formations pratiques et rapides" />
+        <link rel="canonical" href="index.php" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="CEFPREPAS" />
+        <meta property="og:url" content="index.php" />
+        <meta property="og:site_name" content="CEFPREPAR.com" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+        <?php 
+            include('share/style_css.php');
+            include('share/link_css.php');
+            include('share/script_js.php');
+        ?>
+    </head>
+    <body class="home page-template-default page page-id-3163 stm_lms_button wp-schema-pro-2.7.2 skin_custom_color language_center stm_preloader_ wpb-js-composer js-comp-ver-6.9.0 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CTMZVR" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
-                <div class="wpb_column vc_column_container vc_col-sm-7">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="wpb_text_column wpb_content_element">
-                                <div class="wpb_wrapper" data-side_block="no">
-                                    <h3>Découvrez nos filiere agricolte</h3>
-                                </div>
-                            </div>
+        <div id="wrapper">
+            <?php include('share/navbar.php')?>
+            <?php include('view/formation_view.php')?>
+        </div>          
 
-                            <div class="wpb_text_column wpb_content_element">
-                                <div class="wpb_wrapper" data-side_block="no">
-                                    <h1>
-                                        Devenez ingénieur<br />
-                                        par apprentissage !
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-1">
-                    <div class="vc_column-inner"><div class="wpb_wrapper"></div></div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-4">
-                    <div class="vc_column-inner"><div class="wpb_wrapper"></div></div>
-                </div>
-            </div>
+        <?php
+            include('share/foot_ter.php');
+            include('share/script_footer.php');
+            include('share/style_footer.php');
+        ?>
+    </body>
+</html>
 
-            <div class="vc_row wpb_row vc_row-fluid">
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner">
-                        <div class="wpb_wrapper">
-                            <div class="sub_pages_shortcode" style="padding: 0 15px;">
-                                <h3 style="font-weight: 600 !important; margin-bottom: 40px; margin-left: -15px;">Filiere</h3>
-                                <div id="parent-4989" class="vc_row wpb_row vc_row-fluid vc_column-gap-20">
-                                    <?php
-                                        $sql="SELECT * FROM `filieres`";
-                                        $query = mysqli_query($link,$sql);
-                                        $nblignes=mysqli_num_rows($query);	
-                                        if($nblignes>0){
-                                            $i=1;
-                                            while($i<5 && $data = mysqli_fetch_array($query)){	
-                                                $i++;
-                                                $LIEN_IMAGE="./admin/public/images_filiere/".$data["CHEMIN_IMAGE"];					
-                                                if(trim($data["CHEMIN_IMAGE"]) == "" ){
-                                                    $LIEN_IMAGE =  "assets/img/aucun.jpg";
-                                                }	
-                                                echo'<div class="wpb_column vc_column_container vc_col-sm-4">
-                                                        <div class="square">
-                                                            <a href="filiere.php?id='.$data['id'].'" class="square_content" style="background-image: url('.$LIEN_IMAGE.');">
-                                                                <h2>'.$data["TITLE"].'</h2>
-                                                                <div class="voir_plus">Voir plus</div>
-                                                            </a>
-                                                        </div>
-                                                    </div>';
-                                            }
-                                        }
-                                    ?>
-								</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="clearfix"></div>
-    </div>
-</div>
-
-</div>
-<?php include("share/footer.php")?>
