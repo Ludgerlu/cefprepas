@@ -1,100 +1,55 @@
-<?php include("share/header.php")?>
-            <div id="main">
-                <!-- Title -->
+<?php
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$index = "https://cefprepas.com//index.php";
+?>
 
-                <!-- Breads -->
-                <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_default">
-                    <div class="stm_breadcrumbs_unit">
-                        <div class="container">
-                            <div class="navxtBreads">
-                                <!-- Breadcrumb NavXT 7.3.0 -->
-                                <span property="itemListElement" typeof="ListItem">
-                                    <a property="item" typeof="WebPage" href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
-                                </span>
-                                &gt;
-                                <span property="itemListElement" typeof="ListItem">
-                                    <span property="name" class="post-root post post-post current-item">Vie d'etudaint</span><meta property="url" content="index.html" /><meta property="position" content="2" />
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container blog_main_layout_grid">
-                    <div class="blog_layout_grid sidebar_position_none">
-                        <div class="row">
+<?php
+$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+include('./condb.php');
+?>
+<!DOCTYPE html>
+<html lang="fr-FR" class="no-js">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <title>CEFPREPAS</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="cef/Logo_CEFPREPAS.j.png">
+        <meta name="description" content="Le Centre de Formation Professionnelle en Elevage, Pisciculture et Agriculture (CEFPREPAS), agréé par le MINEFOP, vous propose des formations pratiques et rapides" />
+        <link rel="canonical" href="index.php" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="CEFPREPAS" />
+        <meta property="og:url" content="index.php" />
+        <meta property="og:site_name" content="CEFPREPAR.com" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+        <?php 
+            include('share/style_css.php');
+            include('share/link_css.php');
+            include('share/script_js.php');
+        ?>
+    </head>
+    <body class="home page-template-default page page-id-3163 stm_lms_button wp-schema-pro-2.7.2 skin_custom_color language_center stm_preloader_ wpb-js-composer js-comp-ver-6.9.0 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CTMZVR" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
+        <div id="wrapper">
+            <?php include('share/navbar.php')?>
+            <?php include('view/etudiants_view.php')?>
+        </div>          
 
+        <?php
+            include('share/foot_ter.php');
+            include('share/script_footer.php');
+            include('share/style_footer.php');
+        ?>
+    </body>
+</html>
 
-
-                        <?php
-                            $sql="SELECT * FROM `evenements` WHERE `TYPE`='vie d\'etudiant'";
-                            $query = mysqli_query($link,$sql);
-                            $nblignes=mysqli_num_rows($query);	
-                            if($nblignes>0){
-                                $i=1;
-                                while($data = mysqli_fetch_array($query)){		
-                                    $i++;	
-                                    $date =   date('d F Y', strtotime($data["DATE_EVENEMENT"]));
-                                    $LIEN_IMAGE="./admin/public/images_event/".$data["CHEMIN_IMAGE"];					
-                                    if(trim($data["CHEMIN_IMAGE"]) == "" ){
-                                        $LIEN_IMAGE =  "assets/img/aucun.jpg";
-                                    } 
-                                    echo'<div class="col-md-3 col-sm-6 col-xs-12 plugin_style">
-                                            <div class="post_list_content_unit">
-                                                <div>
-                                                    <div class="post_list_featured_image">
-                                                        <a href="vie_etudiant.php?id='.$data["id"].'" title="'.$data["TITRE"].'">
-                                                            <img
-                                                                style="width: 269px;height: 210px;"
-                                                                src="'.$LIEN_IMAGE.'"
-                                                                class="img-responsive wp-post-image"
-                                                                alt="'.$data["TITRE"].'"
-                                                                decoding="async"
-                                                                
-                                                                sizes="(max-width: 270px) 100vw, 270px"
-                                                            />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <a
-                                                        href="vie_etudiant.php?id='.$data["id"].'"
-                                                        title="'.$data["TITRE"].'"
-                                                        class="post_list_item_title blog_post_list_item_title_generic_style h3"
-                                                    >
-                                                    '.$data["TITRE"].'
-                                                    </a>
-            
-                                                    <div class="post_list_info">
-                                                        <!-- Post cats -->
-            
-                                                        <div class="date-d-costum blog_post_list_item_info_generic_style">'.$date.'</div>
-                                                    </div>
-                                                </div>
-                                                <!-- post_list_inner_content_unit -->
-                                            </div>
-                                            <!-- post_list_content_unit -->
-                                        </div>'; 
-                                }                      
-                            }
-                        ?>
-                            
-                        </div>
-
-                       <!--  <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="page/2/index.html">2</a></li>
-                            <li><a class="page-numbers" href="page/3/index.html">3</a></li>
-                            <li><span class="page-numbers dots">…</span></li>
-                            <li><a class="page-numbers" href="page/8/index.html">8</a></li>
-                            <li>
-                                <a class="next page-numbers" href="page/2/index.html"><span class="pagi_label">Suivant</span><i class="fa fa-chevron-right"></i></a>
-                            </li>
-                        </ul> -->
-                    </div>
-                    <!-- blog_layout -->
-                    <div class="sidebar-area sidebar-area-none"></div>
-                </div>
-            </div>
-        </div>
-        <?php include("share/footer.php")?>

@@ -1,11 +1,10 @@
 <?php
 $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$index = "//localhost/cefprepas/index.php";
+$index = "//localhost/prepas/index.php";
 ?>
 
 <?php
 $url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-
 $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
 include('./condb.php');
 ?>
@@ -13,150 +12,24 @@ include('./condb.php');
 <html lang="fr-FR" class="no-js">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <head>
+        <title>CEFPREPAS</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- <link rel="profile" href="http://gmpg.org/xfn/11"> -->
-        <link rel="pingback" href="xmlrpc.php" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-
-        <!-- This site is optimized with the Yoast SEO plugin v22.3 - https://yoast.com/wordpress/plugins/seo/ -->
-        <title>CEFPREPAS</title>
-        <meta name="description" content="Crée en 19991, Ingénieurs 2000 forme aux métiers d’ingénieurs et de techniciens par l’apprentissage pour l’industrie ou les entreprises." />
-        <link rel="canonical" href="index.html" />
-        <meta property="og:locale" content="fr_FR" />
+        <link rel="shortcut icon" type="image/x-icon" href="cef/Logo_CEFPREPAS.j.png">
+        <meta name="description" content="Le Centre de Formation Professionnelle en Elevage, Pisciculture et Agriculture (CEFPREPAS), agréé par le MINEFOP, vous propose des formations pratiques et rapides" />
+        <link rel="canonical" href="index.php" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="CEFPREPAS" />
-        <!-- <meta property="og:description" content="Crée en 19991, Ingénieurs 2000 forme aux métiers d’ingénieurs et de techniciens par l’apprentissage pour l’industrie ou les entreprises." /> -->
         <meta property="og:url" content="index.php" />
-        <meta property="og:site_name" content="CEFPREPAR.cm" />
-        <meta property="article:modified_time" content="2024-04-02T09:28:42+00:00" />
-        <!-- <meta property="og:image" content="cef/Logo_CEFPREPAS.j.png" /> -->
-        <!-- <meta property="og:image:width" content="1200" /> -->
-        <!-- <meta property="og:image:height" content="628" /> -->
-        <!-- <meta property="og:image:type" content="image/jpeg" /> -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <!-- / Yoast SEO plugin. -->
-
-        <link rel="dns-prefetch" href="http://webchat.studizz.fr/" />
-        <link rel="dns-prefetch" href="http://fonts.googleapis.com/" />
-        <link rel="alternate" type="application/rss+xml" title="Ingenieurs2000.com &raquo; Flux" href="feed/index.html" />
-        <link rel="alternate" type="application/rss+xml" title="Ingenieurs2000.com &raquo; Flux des commentaires" href="comments/feed/index.html" />
-        <script type="text/javascript">
-            /* <![CDATA[ */
-            window._wpemojiSettings = {
-                baseUrl: "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/",
-                ext: ".png",
-                svgUrl: "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/",
-                svgExt: ".svg",
-                source: { concatemoji: "https:\/\/www.ingenieurs2000.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.5" },
-            };
-            /*! This file is auto-generated */
-            !(function (i, n) {
-                var o, s, e;
-                function c(e) {
-                    try {
-                        var t = { supportTests: e, timestamp: new Date().valueOf() };
-                        sessionStorage.setItem(o, JSON.stringify(t));
-                    } catch (e) {}
-                }
-                function p(e, t, n) {
-                    e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0);
-                    var t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data),
-                        r = (e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0), new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data));
-                    return t.every(function (e, t) {
-                        return e === r[t];
-                    });
-                }
-                function u(e, t, n) {
-                    switch (t) {
-                        case "flag":
-                            return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")
-                                ? !1
-                                : !n(e, "\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") &&
-                                      !n(
-                                          e,
-                                          "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f",
-                                          "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"
-                                      );
-                        case "emoji":
-                            return !n(e, "\ud83d\udc26\u200d\u2b1b", "\ud83d\udc26\u200b\u2b1b");
-                    }
-                    return !1;
-                }
-                function f(e, t, n) {
-                    var r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(300, 150) : i.createElement("canvas"),
-                        a = r.getContext("2d", { willReadFrequently: !0 }),
-                        o = ((a.textBaseline = "top"), (a.font = "600 32px Arial"), {});
-                    return (
-                        e.forEach(function (e) {
-                            o[e] = t(a, e, n);
-                        }),
-                        o
-                    );
-                }
-                function t(e) {
-                    var t = i.createElement("script");
-                    (t.src = e), (t.defer = !0), i.head.appendChild(t);
-                }
-                "undefined" != typeof Promise &&
-                    ((o = "wpEmojiSettingsSupports"),
-                    (s = ["flag", "emoji"]),
-                    (n.supports = { everything: !0, everythingExceptFlag: !0 }),
-                    (e = new Promise(function (e) {
-                        i.addEventListener("DOMContentLoaded", e, { once: !0 });
-                    })),
-                    new Promise(function (t) {
-                        var n = (function () {
-                            try {
-                                var e = JSON.parse(sessionStorage.getItem(o));
-                                if ("object" == typeof e && "number" == typeof e.timestamp && new Date().valueOf() < e.timestamp + 604800 && "object" == typeof e.supportTests) return e.supportTests;
-                            } catch (e) {}
-                            return null;
-                        })();
-                        if (!n) {
-                            if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" != typeof URL && URL.createObjectURL && "undefined" != typeof Blob)
-                                try {
-                                    var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), p.toString()].join(",") + "));",
-                                        r = new Blob([e], { type: "text/javascript" }),
-                                        a = new Worker(URL.createObjectURL(r), { name: "wpTestEmojiSupports" });
-                                    return void (a.onmessage = function (e) {
-                                        c((n = e.data)), a.terminate(), t(n);
-                                    });
-                                } catch (e) {}
-                            c((n = f(s, u, p)));
-                        }
-                        t(n);
-                    })
-                        .then(function (e) {
-                            for (var t in e) (n.supports[t] = e[t]), (n.supports.everything = n.supports.everything && n.supports[t]), "flag" !== t && (n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && n.supports[t]);
-                            (n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && !n.supports.flag),
-                                (n.DOMReady = !1),
-                                (n.readyCallback = function () {
-                                    n.DOMReady = !0;
-                                });
-                        })
-                        .then(function () {
-                            return e;
-                        })
-                        .then(function () {
-                            var e;
-                            n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e.concatemoji) : e.wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji)));
-                        }));
-            })((window, document), window._wpemojiSettings);
-            /* ]]> */
-        </script>
+        <meta property="og:site_name" content="CEFPREPAR.com" />
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
-
         <link rel="stylesheet" href="assets/bootstrap/css/boottstrap.min.css" type="text/css" media="all" />
-
         <link rel="stylesheet" id="bb_vcparam_toggle-css" href="wp-content/plugins/vc_carousel_anything/assets/admin/css/vcparam/vcparam-toggle8f99.css?ver=6.5" type="text/css" media="all" />
         <link rel="stylesheet" id="masterstudy-bootstrap-css" href="wp-content/plugins/masterstudy-lms-learning-management-system/_core/assets/vendors/bootstrap.min3d36.css?ver=3.3.1" type="text/css" media="all" />
         <link rel="stylesheet" id="masterstudy-bootstrap-custom-css" href="wp-content/plugins/masterstudy-lms-learning-management-system/_core/assets/vendors/ms-bootstrap-custom3d36.css?ver=3.3.1" type="text/css" media="all" />
@@ -717,7 +590,7 @@ include('./condb.php');
                 popup_showagain_position: "bottom-right",
                 widget_position: "left",
             };
-            var log_object = { ajax_url: "https:\/\/www.ingenieurs2000.com\/wp-admin\/admin-ajax.php" };
+            var log_object = { ajax_url: "https:\/\/www.CEFPREPAS.com\/wp-admin\/admin-ajax.php" };
             /* ]]> */
         </script>
         <script type="text/javascript" src="wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-publicdeae.js?ver=3.2.1" id="cookie-law-info-js"></script>
@@ -739,8 +612,8 @@ include('./condb.php');
         <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
         <meta name="generator" content="WordPress 6.5" />
         <link rel="shortlink" href="index.html" />
-        <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embedfa62.json?url=https%3A%2F%2Fwww.ingenieurs2000.com%2F" />
-        <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed0314?url=https%3A%2F%2Fwww.ingenieurs2000.com%2F&amp;format=xml" />
+        <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embedfa62.json?url=https%3A%2F%2Fwww.cefprepas.com%2F" />
+        <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed0314?url=https%3A%2F%2Fwww.cefprepas.com%2F&amp;format=xml" />
         <script>
             var stm_lms_pro_nonces = {
                 stm_lms_pro_install_base: "9bdcd25152",
@@ -941,136 +814,6 @@ include('./condb.php');
                 --success-hover: rgba(97, 204, 47, 0.85);
             }
         </style>
-        <!-- site-navigation-element Schema optimized by Schema Pro -->
-        <script type="application/ld+json">
-            {
-                "@context": "https:\/\/schema.org",
-                "@graph": [
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Nos formations", "url": "" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Col1", "url": "#" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Nos Bac+2", "url": "https:\/\/www.ingenieurs2000.com\/bac-2\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "DEUST  Informatique d\u2019Organisation et Syst\u00e8mes d\u2019Information",
-                        "url": "https:\/\/www.ingenieurs2000.com\/bac-2\/deust-informatique-dorganisation-et-systemes-dinformation-iosi\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Nos Bac+3", "url": "https:\/\/www.ingenieurs2000.com\/bac-3\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Bachelor Universitaire de Technologie \u2013 Informatique",
-                        "url": "https:\/\/www.ingenieurs2000.com\/bac-3\/but-informatique\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Nos Bac+5", "url": "https:\/\/www.ingenieurs2000.com\/bac-5\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Expert en num\u00e9risation des syst\u00e8mes et processus de production",
-                        "url": "https:\/\/www.ingenieurs2000.com\/bac-5\/expert-en-numerisation-des-systemes-et-processus-de-production\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Col2", "url": "#" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Nos Formations d\u2019Ing\u00e9nieur", "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Ing\u00e9nieur G\u00e9nie \u00c9nerg\u00e9tique de la Construction durable",
-                        "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/genie-energetique-construction-durable\/"
-                    },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Ing\u00e9nieur M\u00e9catronique \u2013 Robotique",
-                        "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/mecatronique-robotique\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Ing\u00e9nieur Mat\u00e9riaux", "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/materiaux\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Ing\u00e9nieur A\u00e9ronautique et Espace",
-                        "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/aeronautique-espace\/"
-                    },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Ing\u00e9nieur G\u00e9nie \u00c9lectrique",
-                        "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/genie-electrique-eprm-idee\/"
-                    },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Ing\u00e9nieur Instrumentation, M\u00e9trologie, Qualit\u00e9",
-                        "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/ingenieur-instrumentation-metrologie-qualite\/"
-                    },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Ing\u00e9nieur Production Maintenance Industrielle et Num\u00e9rique",
-                        "url": "https:\/\/www.ingenieurs2000.com\/formations-ingenieur\/ingenieur-production-maintenance-industrielle-numerique\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Ing\u00e9nieurs 2000", "url": "" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Qui Sommes-nous ?", "url": "https:\/\/www.ingenieurs2000.com\/ingenieurs2000\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Opco Partenaires", "url": "https:\/\/www.ingenieurs2000.com\/opco\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Conseils de Formation Professionnels", "url": "https:\/\/www.ingenieurs2000.com\/entreprise\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Entreprises Partenaires", "url": "https:\/\/www.ingenieurs2000.com\/partenaires\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "\u00c9coles Partenaires", "url": "https:\/\/www.ingenieurs2000.com\/ecole-ingenieur-partenariat\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Partenariats sp\u00e9cifiques", "url": "https:\/\/www.ingenieurs2000.com\/partenariats-specifiques\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Arvez SAS, filiale d'Ing\u00e9nieurs 2000", "url": "https:\/\/www.ingenieurs2000.com\/arvez-2\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Formation Devenir Tuteur d'entreprise",
-                        "url": "https:\/\/www.ingenieurs2000.com\/devenir-tuteur-en-entreprise\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Contacts", "url": "https:\/\/www.ingenieurs2000.com\/contact-plans-acces\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Admission", "url": "https:\/\/www.ingenieurs2000.com\/admissions\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Apprentis", "url": "" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "L'Alternance : mode d'emploi", "url": "https:\/\/www.ingenieurs2000.com\/apprentissage\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Mobilit\u00e9 Internationale", "url": "https:\/\/www.ingenieurs2000.com\/mobilite-internationale-apprentis\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Handicap", "url": "https:\/\/www.ingenieurs2000.com\/handicap\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Carri\u00e8re &#038; Insertion professionnelle",
-                        "url": "https:\/\/www.ingenieurs2000.com\/linsertion-professionnelle\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Vie associative", "url": "https:\/\/www.ingenieurs2000.com\/vie-associative\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Alumni", "url": "https:\/\/www.ingenieurs2000.com\/ingenieur-alumni\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Entreprise", "url": "" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Pr\u00e9sentation",
-                        "url": "https:\/\/www.ingenieurs2000.com\/presentation-du-service-des-relations-entreprises\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "D\u00e9posez une offre en alternance", "url": "https:\/\/www.ingenieurs2000.com\/offre-apprentissage\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Entreprises partenaires", "url": "https:\/\/www.ingenieurs2000.com\/partenaires\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Participez aux Conseils de formation professionnels", "url": "https:\/\/www.ingenieurs2000.com\/entreprise\/" },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Financement de la formation", "url": "https:\/\/www.ingenieurs2000.com\/financement-formation\/" },
-                    {
-                        "@context": "https:\/\/schema.org",
-                        "@type": "SiteNavigationElement",
-                        "id": "site-navigation",
-                        "name": "Le contrat d'alternance",
-                        "url": "https:\/\/www.ingenieurs2000.com\/le-contrat-dapprentissage-pour-les-employeurs\/"
-                    },
-                    { "@context": "https:\/\/schema.org", "@type": "SiteNavigationElement", "id": "site-navigation", "name": "Devenez partenaire", "url": "https:\/\/www.ingenieurs2000.com\/devenez-partenaires\/" }
-                ]
-            }
-        </script>
-        <!-- / site-navigation-element Schema optimized by Schema Pro -->
         <script type="text/javascript">
             var stm_wpcfto_ajaxurl = "wp-admin/admin-ajax.html";
         </script>
@@ -1088,13 +831,6 @@ include('./condb.php');
             var stm_install_plugin = "8a38c66276";
             var stm_buddypress_groups = "fe31979cec";
         </script>
-        <link rel="shortcut icon" type="image/x-icon" href="cef/Logo_CEFPREPAS.j.png
-
-        <!-- This Google structured data (Rich Snippet) auto generated by RadiusTheme Review Schema plugin version 2.2.1 -->
-
-        <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
-        <meta name="generator" content="Powered by Slider Revolution 6.5.5 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-        <style id="wpsp-style-frontend"></style>
         <script type="text/javascript">
             function setREVStartSize(e) {
                 //window.requestAnimationFrame(function() {
@@ -1887,10 +1623,7 @@ include('./condb.php');
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-
         <script type="text/javascript" src="wp-content/plugins/wpcf7-recaptcha/assets/js/wpcf7-recaptcha-controls62ea.js?ver=1.2" id="wpcf7-recaptcha-controls-js"></script>
-        
-
         <!-- Google Tag Manager -->
         <script>
             function getCookie(name) {
@@ -2003,8 +1736,8 @@ include('./condb.php');
                                         <img
                                             class="img-responsive logo_colored_fixed visible"
                                             src="cef/Logo_CEFPREPAS.j.png"
-                                            srcset="https://www.ingenieurs2000.com/wp-content/uploads/2021/12/ingenieurs2000_lg.png 2x"
-                                            alt="Ingenieurs2000.com" style="height: 100px;"
+                                            
+                                            alt="cefprepas.com" style="height: 100px;"
                                         />
                                     </a>
                                 </div>
@@ -2049,7 +1782,7 @@ include('./condb.php');
                                                 <li id="menu-item-19219" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-19219">
                                                     <a href="#">Col1</a>
                                                     <ul class="sub-menu">
-                                                        <!-- <li id="menu-item-5499" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5499"><a href="ingenieurs2000/index.html">Qui Sommes-nous ?</a></li> -->
+                                                       
                                                         <li id="menu-item-5595" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5595"><a href="promoteur.php">Mot du promoteur</a></li>
                                                         <li id="menu-item-18657" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18657"><a href="atout.php">Atout,Valeur,Mission</a></li>
                                                         <li id="menu-item-5445" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5445"><a href="etudiant.php">Vie d'etudiant</a></li>

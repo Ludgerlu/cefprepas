@@ -1,115 +1,54 @@
-<?php 
-    include("share/header.php");
-    include('./condb.php');
-    
-    	
+<?php
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$index = "https://cefprepas.com//index.php";
 ?>
 
+<?php
+$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+include('./condb.php');
+?>
+<!DOCTYPE html>
+<html lang="fr-FR" class="no-js">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <title>CEFPREPAS</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="cef/Logo_CEFPREPAS.j.png">
+        <meta name="description" content="Le Centre de Formation Professionnelle en Elevage, Pisciculture et Agriculture (CEFPREPAS), agréé par le MINEFOP, vous propose des formations pratiques et rapides" />
+        <link rel="canonical" href="index.php" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="CEFPREPAS" />
+        <meta property="og:url" content="index.php" />
+        <meta property="og:site_name" content="CEFPREPAR.com" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+        <?php 
+            include('share/style_css.php');
+            include('share/link_css.php');
+            include('share/script_js.php');
+        ?>
+    </head>
+    <body class="home page-template-default page page-id-3163 stm_lms_button wp-schema-pro-2.7.2 skin_custom_color language_center stm_preloader_ wpb-js-composer js-comp-ver-6.9.0 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CTMZVR" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
+        <div id="wrapper">
+            <?php include('share/navbar.php')?>
+            <?php include('view/document_view.php')?>
+        </div>          
 
-
-
-
-
-
-
-            <div id="main">
-				<div class="entry-header clearfix">
-                    <div class="container">
-                        <div class="entry-title-left">
-                            <div class="entry-title">
-                                <h1>Document</h1>
-                            </div>
-                        </div>
-                        <div class="entry-title-right"></div>
-                    </div>
-                </div>
-                <div class="stm_single_post">
-                   <!--  <div class="entry-header clearfix">
-                        <div class="container">
-                            <div class="entry-title-left">
-                                <div class="entry-title">
-                                    <h2 class="h1" ></h2>
-                                </div>
-                            </div>
-                            <div class="entry-title-right"></div>
-                        </div>
-                    </div>
- -->
-                    <!-- Breads -->
-                    <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_default">
-                        <div class="stm_breadcrumbs_unit">
-                            <div class="container">
-                                <div class="navxtBreads">
-                                    <!-- Breadcrumb NavXT 7.3.0 -->
-                                    <span property="itemListElement" typeof="ListItem">
-                                        <a property="item" typeof="WebPage" title="Go to Ingenieurs2000.com." href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
-                                    </span>
-                                    &gt;
-                                    <span property="itemListElement" typeof="ListItem">
-                                        <a property="item" typeof="WebPage" title="Go to Actualités." href="#" class="post-root post post-post"><span property="name">Document</span></a><meta property="position" content="2" />
-                                    </span>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <article id="post-36056" class="post-36056 post type-post status-publish format-standard has-post-thumbnail hentry tag-admissions tag-candidature-en-ligne tag-rentree-2022 tag-session-2">
-                        <div class="container article">
-                            <div class="row wpb_row row-fluid vc_custom_1638719406702">
-                                <div class="wpb_column Xvc_column_container col-sm-8">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="stm_post_unit stm_post_unit_vc">
-                                                <div class="stm_post_info">
-                                                    <h1 class="h2 post_title">Documents à télécharger</h1>
-                                                   
-                                                </div>
-                                            </div>
-                                            <!-- stm_post_unit -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row wpb_row row-fluid vc_custom_1639250281547 column-gap-30">
-                                <div class="wpb_column Xvc_column_container col-sm-12">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                        <?php
-	                                        $extension_file  = array("jpg", "gif", "png", "jpeg", "JPG", "GIF","PNG", "JPEG");
-                                            $sql = "SELECT * FROM `attachments`";
-                                            $query = mysqli_query($link,$sql);
-                                            $nblignes=mysqli_num_rows($query);	
-                                            if($nblignes>0){
-                                            $i=1;
-                                            while($data = mysqli_fetch_array($query)){		
-                                                $i++;	
-                                                $LIEN_IMAGE="./admin/public/images_attache/".$data["CHEMIN_IMAGE"];					
-                                                if(trim($data["CHEMIN_IMAGE"]) == "" ){
-                                                    $LIEN_IMAGE =  "assets/img/aucun.jpg";
-                                                }
-                                                $extension_file_upload = pathinfo($data['CHEMIN_IMAGE'], PATHINFO_EXTENSION);
-										        if(!in_array($extension_file_upload, $extension_file)){
-                                                    echo'
-                                                        <a href="'.$LIEN_IMAGE.'" target="blank" style="font-size: 14px; text-decoration: underline;" download="'.$data["LIBELLE"].'"> <i class="fa fa-download" aria-hidden="true"></i> '.$data["LIBELLE"].'</a> <br>
-                                                    ';
-                                                }
-                                            }
-                                            }
-                                        
-                                        ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-	
-		<?php include("share/footer.php")?>
+        <?php
+            include('share/foot_ter.php');
+            include('share/script_footer.php');
+            include('share/style_footer.php');
+        ?>
+    </body>
+</html>
