@@ -1,95 +1,55 @@
-<?php include("share/header.php")?>
+<?php
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$index = "https://cefprepas.com//index.php";
+?>
 
-<div id="main">
-    <div class="entry-header clearfix" tyle="background-image: url(cef/event-v1-bg.png); background-position: center; background-repeat: no-repeat;">
-        <div class="container">
-            <div class="entry-title-left">
-                <div class="entry-title">
-                    <h1>emploi et stage</h1>
-                </div>
-            </div>
-            <div class="entry-title-right"></div>
-        </div>
-    </div>
-    <!-- Breads -->
-    <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_default">
-        <div class="stm_breadcrumbs_unit">
-            <div class="container">
-                <div class="navxtBreads">
-                    <!-- Breadcrumb NavXT 7.3.0 -->
-                    <span property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
-                    </span>
-                    &gt;
-                    <span property="itemListElement" typeof="ListItem">
-                        <span property="name" class="post post-page current-item">emploi et satge</span><meta property="url" content="index.php" /><meta property="position" content="2" />
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+<?php
+$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+include('./condb.php');
+?>
+<!DOCTYPE html>
+<html lang="fr-FR" class="no-js">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <title>CEFPREPAS</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="cef/Logo_CEFPREPAS.j.png">
+        <meta name="description" content="Le Centre de Formation Professionnelle en Elevage, Pisciculture et Agriculture (CEFPREPAS), agréé par le MINEFOP, vous propose des formations pratiques et rapides" />
+        <link rel="canonical" href="index.php" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="CEFPREPAS" />
+        <meta property="og:url" content="index.php" />
+        <meta property="og:site_name" content="CEFPREPAR.com" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+        <?php 
+            include('share/style_css.php');
+            include('share/link_css.php');
+            include('share/script_js.php');
+        ?>
+    </head>
+    <body class="home page-template-default page page-id-3163 stm_lms_button wp-schema-pro-2.7.2 skin_custom_color language_center stm_preloader_ wpb-js-composer js-comp-ver-6.9.0 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CTMZVR" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
-    <!--Start Blog Details-->
-    <section class="blog-details">
-            <div class="auto-container">
-                <div class="row">
-                    <!--Start Blog Details Content-->
-                    <div class="col-xl-12 col-lg-11">
-                        <div class="blog-details__content">
-                            <div class="blog-details-text-box2">
-                               
-                                <div class="title">
-                                    <h3>1. STAGE </h3>
-                                </div>
-                                <p class="text1">Cette spécialité a pour objectif de former des spécialistes à même de maîtriser le droit des affaires et son application au sein de l’entreprisse, dans ses relations d’affaires nationales (droit des sûretés, droit fiscal, droit patrimonial) ainsi que dans ses activités internationales (droit du commerce international, des transports internationaux, des opérations douanières).</p>
-                                <br /><br />
-                                 <div class="title">
-                                    <h3>2. Emploi</h3>
-                                </div>
-                                 <div class="title">
-                                    <h4>Compétences génériques</h4><br />
-                                     <ul>
-                                         <li>	Faire preuve d’une facilité d’adaptation et bonne organisation ;</li>
-                                         <li>	Avoir un esprit d’initiative ;</li>
-                                         <li>	Etre rigoureux et avoir l’esprit de synthèse et d’analyse ;</li>
-                                         <li>	Faire preuve de discrétion, de confidentialité, de réserve et respecter la déontologie ;</li>
-                                         <li>	Etre efficience en matière de transmission des informations ;</li>
-                                         <li>	Etre apte à faciliter le contact avec des personnes/être accueillant ;</li>   
-                                         <li>	Maîtriser l’expression écrite et orale, en employant la terminologie juridique fondamentale ;</li> 
-                                         <li>	Utiliser, dans un contexte purement professionnel, les normes rédactionnelles juridiques;</li> 
-                                         <li>	Maîtriser les types d’actes juridiques ;</li> 
-                                         <li>	Être efficace dans l’utilisation des NTIC.</li> 
-                                     </ul>
-                                </div>
+        <div id="wrapper">
+            <?php include('share/navbar.php')?>
+            <?php include('view/stage_view.php')?>
+        </div>          
 
-                               
-                                 <div class="title">
-                                    <h4>Compétences spécifiques</h4><br />
-                                     <ul>
-                                         <li>	Accomplir des formalités juridiques, administratives et fiscales ;</li>
-                                         <li>	Utiliser des outils d’analyse et indicateurs pour le contrôle de gestion ;</li>
-                                         <li>	Rédiger des contrats ;</li>
-                                         <li>	Assurer la rédaction de certains actes ;</li>
-                                         <li>	Effectuer des recherches documentaires ;</li>
-                                         <li>	Assurer le suivi et l’exécution des formalités administratives et juridiques.</li>                                        
-                                                                                                                                                           
-                                     </ul>
-                                </div>
-                            </div>
-                       
+        <?php
+            include('share/foot_ter.php');
+            include('share/script_footer.php');
+            include('share/style_footer.php');
+        ?>
+    </body>
+</html>
 
-
-
-                        </div>
-
-                          
-                    </div>
-                    <!--End Blog Details Content-->
-                </div>
-            </div>
-        </section>
-        <!--End Blog Details-->
-</div>
-</div>
-
-<?php include("share/footer.php")?>

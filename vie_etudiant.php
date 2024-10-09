@@ -1,109 +1,59 @@
-<?php 
-    include("share/header.php");
-    if(isset($_GET['id'])){
-    $id=$_GET['id'];
-    $sql="SELECT * FROM `evenements` WHERE `TYPE`='Vie d\'etudiant' AND `id` = '".$id."'" ;
-    $query = mysqli_query($link,$sql);
-    $nblignes=mysqli_num_rows($query);	
-    if($nblignes>0){
-
-        $data = mysqli_fetch_array($query);
-        $date =   date('Y-m-d', strtotime($data["DATE_EVENEMENT"]));
-        $LIEN_IMAGE="./admin/public/images_event/".$data["CHEMIN_IMAGE"];					
-
+<?php
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$index = "https://cefprepas.com//index.php";
 ?>
 
-            <div id="main">
-				<div class="entry-header clearfix">
-                    <div class="container">
-                        <div class="entry-title-left">
-                            <div class="entry-title">
-                                <h1>Vie d'etudiant</h1>
-                            </div>
-                        </div>
-                        <div class="entry-title-right"></div>
-                    </div>
-                </div>
-                <div class="stm_single_post">
-                    <div class="stm_lms_breadcrumbs stm_lms_breadcrumbs__header_default">
-                        <div class="stm_breadcrumbs_unit">
-                            <div class="container">
-                                <div class="navxtBreads">
-                                    <!-- Breadcrumb NavXT 7.3.0 -->
-                                    <span property="itemListElement" typeof="ListItem">
-                                        <a property="item" typeof="WebPage" title="Go to CEFPREPAS.com." href="index.php" class="home"><span property="name">Accueil</span></a><meta property="position" content="1" />
-                                    </span>
-                                    &gt;
-                                    <span property="itemListElement" typeof="ListItem">
-                                        <a property="item" typeof="WebPage" title="Go to Actualités." href="etudiant.php" class="post-root post post-post"><span property="name">Vie d'etudiant</span></a><meta property="position" content="2" />
-                                    </span>
-                                    &gt;
-                                    <span property="itemListElement" typeof="ListItem">
-                                        <span property="name" class="post post-post current-item"><?=$data['TITRE']?></span>
-                                        <meta property="position" content="4" />
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<?php
+$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+include('./condb.php');
+?>
+<!DOCTYPE html>
+<html lang="fr-FR" class="no-js">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <title>CEFPREPAS</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" type="image/x-icon" href="cef/Logo_CEFPREPAS.j.png">
+        <meta name="description" content="Le Centre de Formation Professionnelle en Elevage, Pisciculture et Agriculture (CEFPREPAS), agréé par le MINEFOP, vous propose des formations pratiques et rapides" />
+        <link rel="canonical" href="index.php" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="CEFPREPAS" />
+        <meta property="og:url" content="index.php" />
+        <meta property="og:site_name" content="CEFPREPAR.com" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+        <?php 
+            include('share/style_css.php');
+            include('share/link_css.php');
+            include('share/script_js.php');
+        ?>
+    </head>
+    <body class="home page-template-default page page-id-3163 stm_lms_button wp-schema-pro-2.7.2 skin_custom_color language_center stm_preloader_ wpb-js-composer js-comp-ver-6.9.0 vc_responsive" ontouchstart="">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CTMZVR" height="0" width="0" style="display: none; visibility: hidden;"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
-                    <article id="post-36056" class="post-36056 post type-post status-publish format-standard has-post-thumbnail hentry tag-admissions tag-candidature-en-ligne tag-rentree-2022 tag-session-2">
-                        <div class="container article">
-                            <div class="row wpb_row row-fluid vc_custom_1638719406702">
-                                <div class="wpb_column Xvc_column_container col-sm-8">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="stm_post_unit stm_post_unit_vc">
-                                                <div class="stm_post_info">
-                                                    <h1 class="h2 post_title"><?=$data['TITRE']?></h1>
-                                                    <div class="stm_post_details clearfix">
-                                                        <ul class="clearfix post_meta">
-                                                            <li class="post_date h6"><i class="far fa-clock"></i><span><?=$date?></span></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- stm_post_unit -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <div id="wrapper">
+            <?php include('share/navbar.php')?>
+            <?php include('view/etudiant_view.php')?>
+        </div>   
+        
 
-                            <div class="row wpb_row row-fluid vc_custom_1639250281547 column-gap-30">
-                                <div class="wpb_column Xvc_column_container col-sm-12">
-                                    <div class="vc_column-inner">
-                                        <div class="wpb_wrapper">
-                                            <div class="post_thumbnail" style="margin-bottom: 20px;">
-                                                <img
-                                                    src= "<?=$LIEN_IMAGE?>"
-                                                    class="img-responsive wp-post-image"
-                                                    style="width: 470px;height: 470px;"
-                                                />
-                                            </div>
+        <?php
+            include('share/foot_ter.php');
+            include('share/script_footer.php');
+            include('share/style_footer.php');
+        ?>
+    </body>
+</html>
 
-                                            <p style="text-align: justify;"><?=$data['DESCRIPTION']?></p>
-                                            <p style="text-align: justify;">
-                                                CEFPREPAS vous offre la possibilité de vous ouvrir à de belles perspectives professionnelles et d&#8217;évoluer dans un environnement à la fois stimulant et challengeant. Grâce à
-                                                l&#8217;alternance, vous bénéficiez d&#8217;une expérience solide en entreprise pour être opérationnels sur le marché de l&#8217;emploi à l&#8217;issue de votre  formation.
-                                            </p>
-                                            
-                                            <p style="text-align: justify;">Retrouvez toutes les modalités d&#8217;inscriptions en cliquant <a href="../../admissions/index.html">ICI</a></p>
-                                            <p style="text-align: justify;"><strong>Des questions ?</strong></p>
-                                            <p style="text-align: justify;">Contactez le Service des Admissions</p>
-                                            <p style="text-align: justify;">
-                                                Par mail : <a href="mailto:cefprepas@outlook.com">cefprepas@outlook.com</a><br />
-                                                Tél : +237 695 566 666 / +237 677 444 071
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-	
-		<?php }
-    }include("share/footer.php")?>
+
+       
+        
