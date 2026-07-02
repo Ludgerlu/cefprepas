@@ -25,6 +25,6 @@ class Partner extends Model
     // Accessor for image URL
     public function getImageUrlAttribute($value)
     {
-        return $value ? asset('public/images/partners/'.$value) : null;
+        return $value ? asset('images/partners/'.$value) : null;
     }
 }

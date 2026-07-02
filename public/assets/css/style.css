@@ -14,11 +14,7 @@ height: auto;
 }
 
 /* Desktop style */
-@media (min-width: 992px) { /* or whatever breakpoint you consider "desktop" */
-#home section {
-    height: 100vh;
-}
-}
+
 .header_top_bar_socs, .header_top_bar_socs a
 {
 font-family: Raleway;

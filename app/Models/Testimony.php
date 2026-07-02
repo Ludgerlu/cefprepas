@@ -31,6 +31,6 @@ class Testimony extends Model
     // Accessor for image URL
     public function getImageUrlAttribute($value)
     {
-        return $value ? asset('public/images/testimonies/'.$value) : null;
+        return $value ? asset('images/testimonies/'.$value) : null;
     }
 }

@@ -27,6 +27,6 @@ class Event extends Model
      // Accessor for image URL
      public function getImageUrlAttribute($value)
      {
-         return $value ? asset('public/images/events/'.$value) : null;
+         return $value ? asset('images/events/'.$value) : null;
      }
 }

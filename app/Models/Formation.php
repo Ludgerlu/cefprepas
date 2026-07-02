@@ -36,6 +36,6 @@ class Formation extends Model
     // Accessor for image URL
     public function getImageUrlAttribute($value)
     {
-        return $value ? asset('public/images/formations/'.$value) : null;
+        return $value ? asset('images/formations/'.$value) : null;
     }
 }

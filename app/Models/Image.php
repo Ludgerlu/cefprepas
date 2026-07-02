@@ -21,6 +21,6 @@ class Image extends Model
     // Accessor for image URL
     public function getImageUrlAttribute($value)
     {
-        return $value ? asset('public/images/galerie/'.$value) : null;
+        return $value ? asset('images/galerie/'.$value) : null;
     }
 }
