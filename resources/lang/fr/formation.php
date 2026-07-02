@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'page_title' => 'Formations',
+    'offered_courses' => 'Formations offertes',
+    'duration' => 'Durée',
+    'months' => 'mois',
+    'degree' => 'Diplôme',
+    'learn_more' => 'En savoir plus',
+    'course_overview' => 'Aperçu du cours',
+    'program_objectives' => 'Objectifs du programme',
+    'key_facts' => 'Points clés',
+    'start_dates' => 'Dates de début',
+    'location' => 'Lieu',
+    'on_campus' => 'Sur le campus',
+    'diplomas_obtained' => 'Diplômes obtenus au CEFPREPAS',
+    'cqp_title' => 'CQP : Certificat de Qualification Professionnelle',
+    'cqp_point_1' => 'Le Certificat de Qualification Professionnelle (CQP) permet de faire reconnaître les compétences et savoir-faire nécessaires à l\'exercice du métier.',
+    'cqp_point_2' => 'L\'examen du CQP est organisé par le Ministère en charge de la Formation Professionnelle (MINEFOP) qui délivre le diplôme.',
+    'dqp_title' => 'DQP : Diplôme de Qualification Professionnelle',
+    'dqp_point_1' => 'Le DQP est un diplôme qui atteste de la qualification d\'une personne à tenir un emploi clairement identifié dans une activité spécifique.',
+    'ready_to_apply' => 'Prêt à postuler?',
+    'start_application' => 'Commencez votre processus de candidature aujourd\'hui',
+    'apply_now' => 'Postuler maintenant',
+    'download_brochure' => 'Télécharger la brochure',
+    'contact_team' => 'Contactez notre équipe d\'admission pour plus d\'informations sur ce programme.',
+    'working_hours' => 'Lun-Ven, 9h-17h',
+];

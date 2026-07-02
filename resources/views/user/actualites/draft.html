@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - Fishing Event</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --headings-color: #2c3e50;
+            --primary-color: #27ae60;
+            --secondary-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            color: var(--headings-color);
+        }
+
+        h1 {
+            font-size: calc(24px + 2vw);
+            margin: 1.2em 0;
+        }
+
+        h2 {
+            font-size: calc(22px + 0.8vw);
+        }
+
+        .entry-header {
+            background: linear-gradient(135deg, #ecf0f1, #b9dda3);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .breadcrumbs_unit {
+            background-color: #f6f6f6;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f2f5;
+            font-size: 14px;
+        }
+
+        .breadcrumbs_unit a {
+            color: #5F625E;
+            text-decoration: none;
+        }
+
+        .breadcrumbs_unit span:last-child {
+            color: #7f8c8d;
+        }
+
+        .news-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px 0 rgba(62, 57, 107, 0.15) !important;
+        }
+
+        .news-image-container {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-image {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 25px;
+            background: white;
+        }
+
+        .news-date {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .news-excerpt {
+            margin-bottom: 20px;
+            color: #34495e;
+        }
+
+        .btn-outline-success {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline-success:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: #2c3e50;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .news-image-container {
+                height: 250px;
+            }
+            
+            .order-md-1 {
+                order: 1;
+            }
+            
+            .order-md-2 {
+                order: 2;
+            }
+            
+            .news-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="entry-header">
+        <div class="container">
+            <div class="entry-title-left">
+                <div class="entry-title text-uppercase text-dark">
+                    <h1>Actualités</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs_unit">
+        <div class="container">
+            <div class="navxtBreads">
+                <span>
+                    <a href="#" class="home">Accueil</a>
+                </span>
+                &gt;
+                <span class="post post-page current-item text-uppercase">Actualités</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="content py-5">
+        <div class="container">
+            <div class="section-title">
+                <h1>Actualités</h1>
+            </div>
+
+            <!-- News Items -->
+            <div class="row">
+                <!-- News Item 1 -->
+                
+                @foreach($events as $event)
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card shadow">
+                            <div class="news-image-container">
+                                <img src= "{{ $event->image_url }}" alt="Fishing Event" class="news-image">
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="far fa-calendar-alt me-2"></i>{{ $event->created_at->format('F j, Y') }}
+                                </div>
+                                <h3 class="news-title">{{ $event->{'title_'.app()->getLocale()} }}</h3>
+                                <p class="news-excerpt">
+                                    {{ $event->{'description_'.app()->getLocale()} }}
+                                </p>
+                                <a href="{{ route('actualites.show',$event->id) }}" class="btn btn-outline-success">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                @
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">About Us</h4>
+                    <p>We are dedicated to providing exceptional outdoor experiences and promoting environmental conservation through education and adventure.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Nature Lane, Forestville</li>
+                        <li><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@natureevents.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p>&copy; 2023 Nature Events. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

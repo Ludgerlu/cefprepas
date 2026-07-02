@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CEFPREPAS</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+        
+        <style>
+            /* Custom CSS */
+            :root {
+                --primary-color: #2c3e50;
+                --secondary-color: #3498db;
+                --text-color: #ffffff;
+                --white-color: #ffffff;
+                --black-color: #000000;
+                --cefprepas-green-color: #b9dda3;
+            }
+            /* Default style (for mobile/tablet) */
+            section {
+                height: auto;
+            }
+
+            /* Desktop style */
+            @media (min-width: 992px) { /* or whatever breakpoint you consider "desktop" */
+                section {
+                    height: 100vh;
+                }
+            }
+            .header_top_bar_socs, .header_top_bar_socs a
+            {
+                font-family: Raleway;
+                font-weight: 700;
+                font-style: normal;
+                color: #5f625e;
+            }
+            .header_top_bar .header_login_url a:hover, .header_top_bar_socs ul li a:hover {
+                color: #adcd62;
+            }
+            .btn-grey {
+                border-radius: 20px;
+            }
+            .btn-cef-green {
+                background-color: #adcd62 !important;
+                color: #ffffff !important;
+            }
+            .btn-cef-green:hover {
+                background-color: #aabb82 !important;
+            }
+            
+            /* Mega dropdown menu styles */
+            .dropdown-mega .dropdown-menu {
+                width: 100vw;
+                left: 50% !important;
+                right: 0 !important;
+                transform: translateX(-50%) !important;
+                padding: 20px;
+                border-radius: 0;
+                border: none;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .mega-menu {
+                padding: 20px 0;
+            }
+
+            .mega-menu-content {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .mega-menu h5 {
+                color: var(--primary-color);
+                font-weight: bold;
+                margin-bottom: 15px;
+                padding-bottom: 5px;
+                border-bottom: 2px solid var(--cefprepas-green-color);
+            }
+
+            
+            @media (max-width: 992px) {
+                .dropdown-mega .dropdown-menu {
+                    position: static !important;
+                    width: 100% !important;
+                    transform: none !important;
+                    padding: 0 !important;
+                }
+
+                .mega-menu-content .row > div {
+                    margin-bottom: 20px;
+                }
+            }
+            
+
+            /* Hero section for demonstration */
+            .hero-section {
+                height: 100vh;
+                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://via.placeholder.com/1920x1080");
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-align: center;
+            }
+
+            /* Full-width dropdown styles
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+            }
+
+            .dropdown-menu {
+                /* background-color: var(--white-color); 
+                display: none;
+                width: 100vw;
+                height: auto;
+                position: fixed !important;
+                /* top: 100px; 
+                margin-right: 0;
+                margin-left: 0;
+                margin-top: 0 !important;
+                max-width: 1200px;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+                padding-top: 80px;
+                padding-bottom: 80px;
+                border: none;
+                border-radius: 0;
+            } */
+
+            /* .dropdown-menu:before{
+                content: "";
+                display: block;
+                width: 1000000px;
+                left: -500000px;
+                background-color: #efefee !important;
+                height: 100%;
+                position: absolute;
+                top: 0;
+            } */
+
+            /* .dropdown-menu .container {
+                display: flex;
+                justify-content: center;
+            }
+
+            .dropdown-item {
+                color: var(--black-color);
+                padding: 8px 20px;
+                white-space: nowrap;
+            }
+
+            .dropdown-item:hover {
+                /* background-color: var(--secondary-color); 
+                color: var(--cefprepas-green-color);
+            } */
+
+            /* Sidebar Styles */
+            /* .sidebar {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 280px;
+                height: 100vh;
+                background-color: white;
+                z-index: 1050;
+                transition: all 0.3s ease;
+                overflow-y: auto;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+
+            .sidebar-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .sidebar-logo {
+                height: 40px;
+            }
+
+            .sidebar-close {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #333;
+            }
+
+            .sidebar-menu {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .sidebar-item {
+                border-bottom: 1px solid #eee;
+            }
+
+            .sidebar-link {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px;
+                color: #333;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+
+            .sidebar-link:hover,
+            .sidebar-link.active {
+                color: var(--cefprepas-green-color);
+                background-color: #f9f9f9;
+            }
+
+            .dropdown-icon {
+                transition: transform 0.3s;
+            }
+
+            .sidebar-dropdown {
+                display: none;
+                list-style: none;
+                padding-left: 20px;
+                background-color: #f9f9f9;
+            }
+
+            .sidebar-dropdown.show {
+                display: block;
+            }
+
+            .has-dropdown.active .dropdown-icon {
+                transform: rotate(180deg);
+            }
+
+            .sidebar-dropdown .dropdown-item {
+                padding: 12px 15px;
+                display: block;
+                color: #555;
+                text-decoration: none;
+            }
+
+            .sidebar-dropdown .dropdown-item:hover {
+                color: var(--cefprepas-green-color);
+            }
+
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1040;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+            }
+
+            .sidebar-overlay.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .sidebar-toggle {
+                position: fixed;
+                top: 20px;
+                left: 15px;
+                z-index: 1040;
+                background: var(--cefprepas-green-color);
+                color: white;
+                border: none;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                font-size: 1.2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            @media (min-width: 992px) {
+                .sidebar-toggle {
+                    display: none;
+                }
+            } */
+
+            /* Custom CSS for the slideshow */
+            .hero-slideshow {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                min-height: 500px;
+                max-height: 800px;
+                overflow: hidden;
+                color: white;
+            }
+
+            .slide {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .slide.active {
+                opacity: 1;
+            }
+
+            .slide-content {
+                padding: 2rem;
+                border-radius: 10px;
+                max-width: 800px;
+            }
+
+            .slide h1 {
+                color: var(--white-color);
+                font-size: 3rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+            }
+
+            .slide p {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .slide .btn {
+                font-size: 1.2rem;
+                padding: 0.75rem 2rem;
+                border-radius: 30px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+
+            /* Slide navigation */
+            .slide-nav {
+                position: absolute;
+                bottom: 20px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                z-index: 10;
+            }
+
+            .slide-dot {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                margin: 0 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .slide-dot.active {
+                background-color: var(--cefprepas-green-color);
+            }
+
+            /* Custom CSS for the cards section */
+            .filiere-section {
+                padding: 4rem 0;
+                background-color: #f9f5ff;
+            }
+
+            .section-title {
+                text-align: center;
+                text-transform: uppercase;
+                margin-bottom: 3rem;
+                font-weight: bold;
+                color: #2c3e50;
+            }
+
+            .cards-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .card-item {
+                position: relative;
+                /* width: 300px; */
+                margin: auto;
+                height: 20em;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transition: all 0.5s ease;
+                cursor: pointer;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                transition: all 0.5s ease;
+            }
+
+            .card-content {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: var(--cefprepas-green-color);
+                color: var(--black-color);
+                padding: 1.5rem;
+                transform: translateY(100%);
+                transition: all 0.5s ease;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+            }
+
+            .card-description {
+                margin-bottom: 1.5rem;
+            }
+
+            .card-btn {
+                align-self: flex-start;
+                padding: 0.5rem 1.5rem;
+                color: var(--cefprepas-green-color);
+                background-color: white;
+                border: none;
+                border-radius: 30px;
+                font-weight: bold;
+                text-transform: uppercase;
+                transition: all 0.3s;
+            }
+
+            .card-btn:hover {
+                background-color: var(--cefprepas-green-color);
+            }
+
+            /* Hover effects */
+            .card-item:hover .card-image {
+                transform: scale(1.1);
+            }
+
+            .card-item:hover .card-content {
+                transform: translateY(0);
+            }
+
+            /* Initial state - shows title only */
+            .card-front {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: var(--cefprepas-green-color);
+                color: white;
+                padding: 1rem;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .card-front-title {
+                font-size: 1.2rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin: 0;
+            }
+
+            .card-item:hover .card-front {
+                opacity: 0;
+            }
+
+            /* Main container */
+
+            /* Image box styling */
+            .image-box {
+                position: relative;
+            }
+            .image-box > a {
+                background-color: transparent !important;
+            }
+            .image-box a:hover::before {
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                content: "\f055"; /* Font Awesome plus-circle icon */
+                position: absolute;
+                top: 108px;
+                left: calc(35% - 20px);
+                font-size: 30px;
+                color: #fff;
+                z-index: 3;
+                background: transparent;
+
+                text-transform: none;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .image-box a:hover .image-overlay {
+                display: block;
+                width: 217px;
+                height: 217px;
+                position: absolute;
+                top: 0;
+                border-radius: 50%;
+                line-height: 14px;
+                font-size: 14px;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                margin: 23px 0 0;
+                background-color: #000;
+                opacity: 0.5;
+            }
+            /* .image-box:hover {
+                  transform: translateY(-5px);
+                } */
+
+            .image-box-link {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            /* Image wrapper */
+            .image-wrapper {
+                position: relative;
+                overflow: hidden;
+                border-radius: 8px;
+                height: 217px;
+            }
+
+            .image-box img {
+                width: 217px;
+                height: 217px;
+                position: absolute;
+                border-radius: 50%;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                margin: 23px 0 0;
+
+                /* object-fit: cover; */
+                /* transition: transform 0.5s ease; */
+            }
+
+            .image-box:hover .image-wrapper img {
+                transform: scale(1.05);
+            }
+
+            .image_box .image_box__icon {
+                position: absolute;
+                bottom: 20px;
+                /* right: 20px; */
+                width: 71px;
+                height: 71px;
+                line-height: 57px;
+                font-size: 27px;
+                border: 5px solid #fff;
+                border-radius: 50%;
+                color: #fff;
+                left: 50%;
+                right: auto;
+                margin-left: 36px;
+                z-index: 9999999;
+                background-color: #eff5e0;
+            }
+            /* Icon styling */
+            .icon {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                color: white;
+                font-size: 24px;
+                z-index: 2;
+            }
+
+            /* Content styling */
+            .image-box-content {
+                padding: 20px 0;
+                text-align: center;
+            }
+
+            .image-box-content h2 {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+
+            .about-section .image {
+                height: 70vh;
+                width: auto;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .about-section .image img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .about-section .image:hover img {
+                transform: scale(1.1);
+            }
+
+            /* Optional overlay effect */
+            .about-section .image::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.2);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .about-section .image:hover::after {
+                opacity: 1;
+            }
+
+            .testimonial-slider {
+                position: relative;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .testimonial-slide {
+                display: none;
+                animation: fadeIn 0.5s ease;
+            }
+
+            .testimonial-slide.active {
+                display: block;
+            }
+
+            .testimonial-card {
+                background: white;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .student-info {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .student-name {
+                font-size: 1.8rem;
+                color: #2c3e50;
+                margin-bottom: 5px;
+            }
+
+            .student-program {
+                font-size: 1.2rem;
+                color: #7f8c8d;
+                margin: 0;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                color: #555;
+                font-style: italic;
+                position: relative;
+                padding: 0 20px;
+            }
+
+            .testimonial-text::before,
+            .testimonial-text::after {
+                content: '"';
+                font-size: 40px;
+                color: var(--cefprepas-green-color);
+                opacity: 0.3;
+                position: absolute;
+            }
+
+            .testimonial-text::before {
+                top: -15px;
+                left: -5px;
+            }
+
+            .testimonial-text::after {
+                bottom: -30px;
+                right: -5px;
+            }
+
+            .slider-dots {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .dot {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: #ccc;
+                margin: 0 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .dot.active {
+                background-color: var(--cefprepas-green-color);
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0.4;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .testimonials-section {
+                padding: 60px 0;
+                background-color: #f8f9fa;
+                font-family: "Arial", sans-serif;
+            }
+
+            @media (max-width: 768px) {
+                .section-title {
+                    font-size: 2rem;
+                }
+
+                .testimonial-card {
+                    padding: 20px;
+                }
+            }
+            .testimonials_single {
+                border: 1px solid #f1f1f1;
+                padding: 40px;
+                -webkit-box-shadow: 0 10px 20px 0 rgba(131, 113, 170, 0.14);
+                box-shadow: 0 10px 20px 0 rgba(131, 113, 170, 0.14);
+                border-radius: 18px;
+                height: 100%;
+            }
+
+            .carousel-container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 50px auto;
+                padding: 20px;
+            }
+            .owl-carousel .item {
+                padding: 20px;
+            }
+            .card {
+                height: 300px;
+                background: #fff;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+            }
+            .owl-dots {
+                text-align: center;
+                margin-top: 20px;
+            }
+            .owl-dot span {
+                width: 40px;
+                height: 4px;
+                margin: 5px;
+                background: #ddd;
+                display: inline-block;
+            }
+            .owl-dot.active span {
+                color: var(--cefprepas-green-color);
+            }
+            .partners-section {
+                padding: 80px 0;
+                background: #f9f9f9;
+                text-align: center;
+            }
+            .partner-logo {
+                height: 100px;
+                width: auto;
+                max-width: 200px;
+                object-fit: contain;
+                filter: grayscale(100%);
+                opacity: 0.7;
+                transition: all 0.3s ease;
+            }
+
+            .partner-logo:hover {
+                filter: grayscale(0);
+                opacity: 1;
+            }
+
+            .owl-stage {
+                display: flex;
+                align-items: center;
+            }
+
+            /* Footer Styles */
+            footer {
+                font-family: "Arial", sans-serif;
+                background-color: #f5f5f5;
+                color: #333;
+                padding: 40px 0 20px;
+                border-top: 1px solid #ddd;
+            }
+
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+                padding: 0 20px;
+            }
+
+            .footer-section {
+                margin-bottom: 20px;
+            }
+
+            .footer-section h3 {
+                color: #2c5e1a; /* Green color for headings */
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #2c5e1a;
+                padding-bottom: 5px;
+                display: inline-block;
+            }
+
+            .footer-section ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .footer-section li {
+                margin-bottom: 8px;
+            }
+
+            .footer-section a {
+                color: #555;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+            .footer-section a:hover {
+                color: #2c5e1a;
+                text-decoration: underline;
+            }
+
+            .footer-divider {
+                border-top: 1px solid #ddd;
+                margin: 30px 0;
+                width: 100%;
+                grid-column: 1 / -1;
+            }
+
+            .footer-bottom {
+                grid-column: 1 / -1;
+                text-align: center;
+                padding-top: 20px;
+                border-top: 1px solid #ddd;
+                font-size: 0.9rem;
+                color: #777;
+            }
+
+            @media (max-width: 768px) {
+                .footer-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+            /* Responsive adjustments */
+                @media (max-width: 992px) {
+                    .hero-slideshow {
+                        height: 70vh;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .hero-slideshow {
+                        height: 60vh;
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    .hero-slideshow {
+                        height: 50vh;
+                    }
+                }
+        </style>
+        <style>
+            /* Custom styles for the sticky nav */
+            .navbar {
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                /* position: sticky; This makes it sticky */
+                /* top: 0; Stick to the top */
+                z-index: 1020; /* Ensure it stays above other content */
+            }
+            
+            /* Style for when navbar is scrolled */
+            .navbar.scrolled {
+                width: -webkit-fill-available;
+                position: fixed;
+                background-color: rgba(33, 37, 41, 0.95) !important;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                top: 0;
+            }
+            /* Mobile sidebar styles */
+            @media (max-width: 991.98px) {
+                .navbar-collapse {
+                    position: fixed;
+                    /* top: 56px; Height of navbar */
+                    left: 0;
+                    width: 80%;
+                    max-width: 300px;
+                    height: calc(100vh - 56px);
+                    background-color: var(--white-color);
+                    padding: 20px;
+                    overflow-y: auto;
+                    z-index: 1000;
+                    transition: transform 0.3s ease-in-out;
+                    transform: translateX(-100%);
+                }
+                
+                .navbar-collapse.show {
+                    transform: translateX(0);
+                }
+                
+                .dropdown-menu {
+                    background-color: #495057;
+                }
+                
+                .dropdown-item {
+                    color: rgba(255, 255, 255, 0.8);
+                }
+                
+                .dropdown-item:hover {
+                    background-color: #6c757d;
+                    color: white;
+                }
+                
+                .dropdown-divider {
+                    border-color: #6c757d;
+                }
+            }
+            
+            /* Desktop dropdown styles */
+            @media (min-width: 992px) {
+                .dropdown:hover .dropdown-menu {
+                    display: block;
+                }
+            }
+                </style>
+    </head>
+    <body class="home">
+        <div class="shadow-sm header_top_bar d-none d-md-block m-0">
+            <div class="container">
+                <div class="row p-1">
+                    <div class="col-md-3 d-flex align-items-center gap-3">
+                        <!-- Header top bar Socials -->
+                        <div class="header_top_bar_socs">
+                            <ul class="list-unstyled d-flex gap-4 mb-0">
+                                <li>
+                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 d-flex justify-content-end align-items-center gap-3">
+                        <!-- Search Icon -->
+                        <div class="search-toggler-unit">
+                            <div class="search-top-bar" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="menu-/-nos-formation" transform="translate(-745.000000, -17.000000)" fill="#5F625E" stroke="#5F625E" stroke-width="0.605">
+                                            <path
+                                                d="M753.234892,31.7107492 C749.665799,31.7107492 746.76159,28.8063555 746.76159,25.2362407 C746.76159,21.6661258 749.665799,18.7616964 753.234892,18.7616964 C756.803984,18.7616964 759.708193,21.6660901 759.708193,25.2362407 C759.708193,28.8063912 756.803984,31.7107492 753.234892,31.7107492 M764,35.4648166 L758.604719,30.0684942 C759.759849,28.785718 760.469783,27.0944042 760.469783,25.2362049 C760.469748,21.2461984 757.22419,18 753.234892,18 C749.245593,18 746,21.2461984 746,25.2362407 C746,29.2262829 749.245593,32.4724813 753.234892,32.4724813 C755.092744,32.4724813 756.783707,31.7624145 758.06628,30.6070696 L763.458205,36 C763.638875,35.8216531 763.819544,35.6433777 764,35.4648166"
+                                                id="Fill-1"
+                                            ></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Brochure Download Button -->
+                        <a class="btn btn-secondary text-decoration-none btn-grey" target="_blank" href="./cef/Brochure CEFPREPAS.pdf" title="TÉLÉCHARGEZ LA BROCHURE"> 
+                            <i class="fa-solid fa-arrow-down"></i> TÉLÉCHARGEZ LA BROCHURE 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <!-- <nav class="navbar navbar-expand-lg navbar-custom transparent" id="mainNav">
+            <div class="container">
+                Mobile Brand Logo and Toggle
+                <div class="d-flex d-lg-none align-items-center">
+                    <a class="navbar-brand" href="#">
+                        <img src="../public/assets/img/Logo_CEFPREPAS.JPG" alt="CEFPREPAS" class="mobile-logo" />
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button" id="sidebarToggle">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+               Sidebar Navigation (Mobile)
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar-header">
+                        <img src="../public/assets/img/Logo_CEFPREPAS.JPG" alt="CEFPREPAS" class="sidebar-logo" />
+                        <button class="sidebar-close" id="sidebarClose">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link active" href="#">Accueil</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="#">CEFPREPAS</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="#">Nos Formations</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="#">Actualités</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="#">Contacts</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="#">Inscription En Ligne</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                Desktop Navbar
+                <div class="desktop-nav d-none d-lg-flex w-100 align-items-center">
+                    <div class="col-md-3">
+                        <a class="desktop-logo" href="#">
+                            <img src="../public/assets/img/Logo_CEFPREPAS.JPG" alt="CEFPREPAS" class="main-logo" />
+                        </a>
+                    </div>
+                    <div class="col-md-9">
+                        <ul class="desktop-menu navbar-nav d-flex justify-content-end">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CEFPREPAS</a>
+                            </li>
+                            <li class="nav-item dropdown has-dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button">Nos Formations</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Formation Professionnelle 1</a>
+                                    <a class="dropdown-item" href="#">Formation Professionnelle 2</a>
+                                    <a class="dropdown-item" href="#">Formation Professionnelle 3</a>
+                                    <a class="dropdown-item" href="#">Formation Professionnelle 4</a>
+                                    <a class="dropdown-item" href="#">Formation Professionnelle 5</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Actualités</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Inscription En Ligne</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                 Overlay for sidebar
+                <div class="sidebar-overlay" id="sidebarOverlay"></div>
+            </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-3">
+                        <a class="navbar-brand" href="#">
+                            <img src="../public/assets/img/Logo_CEFPREPAS.j.png" alt="CEFPREPAS" class="mobile-logo" style="height: 10vh;"/>
+                        </a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="collapse navbar-collapse" id="navbarContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Home</a>
+                                </li>
+                                
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" 
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        Services
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                        <li><a class="dropdown-item" href="#">Web Design</a></li>
+                                        <li><a class="dropdown-item" href="#">Development</a></li>
+                                        <li><a class="dropdown-item" href="#">SEO</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Consulting</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" 
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        Products
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                                        <li><a class="dropdown-item" href="#">Software</a></li>
+                                        <li><a class="dropdown-item" href="#">Hardware</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Accessories</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+               
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Page Content (for scrolling demo) -->
+        <main class="content">
+            <!-- Slideshow Section -->
+            <section class="hero-slideshow">
+                <!-- Slide 1 -->
+                <div
+                    class="slide active"
+                    style="
+                        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        background-size: cover;
+                        background-position: center;
+                    "
+                >
+                    <div class="slide-content">
+                        <h1>CÉFPREPAS</h1>
+                        <p>Apprendre un métier pour préparer l'avenir</p>
+                        <a href="#formations" class="btn btn-cef-green">Nos Filières</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/assets/img/slide1.jpg');">
+                    <div class="slide-content">
+                        <h1>CÉFPREPAS</h1>
+                        <p>Formation professionnelle de qualité</p>
+                        <a href="#formations" class="btn btn-cef-green">Nos Filières</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/assets/img/');">
+                    <div class="slide-content">
+                        <h1>CÉFPREPAS</h1>
+                        <p>Préparez-vous aux métiers d'avenir</p>
+                        <a href="#formations" class="btn btn-cef-green">Nos Filières</a>
+                    </div>
+                </div>
+
+                <!-- Slide Navigation Dots -->
+                <div class="slide-nav">
+                    <span class="slide-dot active" data-slide="0"></span>
+                    <span class="slide-dot" data-slide="1"></span>
+                    <span class="slide-dot" data-slide="2"></span>
+                </div>
+            </section>
+            
+            <!-- About Section - responsive -->
+            <section class="about-section py-5 bg-light">
+                <div class="container py-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 order-lg-1 order-2 text-center mb-4 mb-lg-0">
+                            <h1 class="display-5 fw-bold mb-4">CEFPREPAS</h1>
+                            <p class="lead mb-4">
+                                CEFPREPAS est agréé par le Ministère de l'Emploi et de la Formation Professionnelle (MINEFOP) au Cameroun, par Arrêté N° 386/MINEFOP/SG/DFOP/SDGSF/SACD du 16 Nov.2018.
+                            </p>
+                            <a href="#" class="btn btn-cef-green btn-lg px-4">EN SAVOIR +</a>
+                        </div>
+
+                        <div class="col-lg-7 order-lg-2 order-1 mb-3">
+                            <div class="image">
+                                <img src="../public/assets/img/student.jpg" alt="Étudiant CEFPREPAS" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filières Section - responsive cards -->
+            <section class="filiere-section">
+                <div class="container">
+                    <h2 class="section-title text-center mb-5">Nos Filières</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 mb-4">
+                            <div class="card-item">
+                                <div class="card-image" style="background-image: url('../public/assets/img/lapin.jpg');"></div>
+                                <div class="card-front">
+                                    <h3 class="card-front-title">Lapin</h3>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title">Informatique</h3>
+                                    <p class="card-description">Formation complète en développement web, réseaux et systèmes informatiques.</p>
+                                    <button class="card-btn">En savoir plus</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3 mb-4">
+                            <div class="card-item">
+                                <div class="card-image" style="background-image: url('https://via.placeholder.com/300x400?text=Commerce');"></div>
+                                <div class="card-front">
+                                    <h3 class="card-front-title">Commerce</h3>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title">Commerce</h3>
+                                    <p class="card-description">Formation en gestion commerciale, marketing et vente.</p>
+                                    <button class="card-btn">En savoir plus</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3 mb-4">
+                            <div class="card-item">
+                                <div class="card-image" style="background-image: url('https://via.placeholder.com/300x400?text=Comptabilité');"></div>
+                                <div class="card-front">
+                                    <h3 class="card-front-title">Comptabilité</h3>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title">Comptabilité</h3>
+                                    <p class="card-description">Formation en gestion financière et comptable pour les entreprises.</p>
+                                    <button class="card-btn">En savoir plus</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3 mb-4">
+                            <div class="card-item">
+                                <div class="card-image" style="background-image: url('https://via.placeholder.com/300x400?text=Vie+Etudiant');"></div>
+                                <div class="card-front">
+                                    <h3 class="card-front-title">Vie d'étudiant</h3>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title">Vie d'étudiant</h3>
+                                    <p class="card-description">Découvrez la vie étudiante dans notre centre de formation.</p>
+                                    <button class="card-btn">Découvrir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="testimonials-section">
+                <div class="empty_space" style="height: 87px;">
+                    <span class="empty_space_inner"></span>
+                </div>
+                <div class="container">
+                    <h2 class="section-title">Témoignages des étudiants</h2>
+
+                    <div class="testimonial-slider">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="testimonial-card">
+                                        <div class="student-info">
+                                            <h3 class="student-name">David</h3>
+                                            <p class="student-program">Energie Renouvelable</p>
+                                        </div>
+                                        <blockquote class="testimonial-text">
+                                            "J'ai été impressionné par l'engagement et la compétence de l'équipe enseignante, qui a su me guider avec bienveillance tout au long de mon parcours. Au-delà de l'excellence académique, Le Centre
+                                            de Formation Professionnelle en Elevage, Pisciculture et Agriculture m'a permis de m'épanouir sur le plan personnel grâce à son riche programme d'activités périscolaires, développant ainsi ma
+                                            curiosité et ma créativité. Mon expérience à CEFPREPAS a été déterminante pour ma réussite scolaire et mon épanouissement global."
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="testimonial-card">
+                                        <div class="student-info">
+                                            <h3 class="student-name">Julie</h3>
+                                            <p class="student-program">Production animal</p>
+                                        </div>
+                                        <blockquote class="testimonial-text">
+                                            "Lorsque j'y suis arrivée, l'équipe pédagogique a su profiter un cadre bienveillant et stimulant, me permettant de surmonter mes difficultés et de m'épanouir pleinement. Au-delà de l'excellence
+                                            académique, ce qui a fait la force à mes yeux, c'est la pratique qui étais faite plus que la théorie et le développement de l'esprit critique. Les nombreux échanges et projets interdisciplinaires
+                                            m'ont permis de nourrir ma curiosité et ma créativité."
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="testimonial-card">
+                                        <div class="student-info">
+                                            <h3 class="student-name">Julie</h3>
+                                            <p class="student-program">Production animal</p>
+                                        </div>
+                                        <blockquote class="testimonial-text">
+                                            "Lorsque j'y suis arrivée, l'équipe pédagogique a su profiter un cadre bienveillant et stimulant, me permettant de surmonter mes difficultés et de m'épanouir pleinement. Au-delà de l'excellence
+                                            académique, ce qui a fait la force à mes yeux, c'est la pratique qui étais faite plus que la théorie et le développement de l'esprit critique. Les nombreux échanges et projets interdisciplinaires
+                                            m'ont permis de nourrir ma curiosité et ma créativité."
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Dots -->
+                        <div class="slider-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="carousel-container">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="row row-fluid row-flex">
+                            <div class="column column_container col-sm-7 img_col">
+                                <div class="column-inner">
+                                    <div class="wrapper img_wrapper" style="height: 500px;">
+                                        <img src="../public/assets/img/lapin.jpg" alt="" title="Récolte abondante du riz!" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column column_container col-sm-5 m-auto">
+                                <div class="column-inner">
+                                    <div class="wrapper content_wrapper text-center">
+                                        <h5 class="text-uppercase">vie d'etudiant</h5>
+                                        <div class="post_cats_date"><span class="date">16-12-2024</span></div>
+                                        <h1>Récolte abondante du riz!</h1>
+                                        <a href="#" class="btn btn-cef-green btn-lg">
+                                            En Savoir +
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row row-fluid row-flex">
+                            <div class="column column_container col-sm-7 img_col">
+                                <div class="column-inner">
+                                    <div class="wrapper img_wrapper" style="height: 500px;">
+                                        <img src="../public/assets/img/lapin.jpg" alt="" title="Récolte abondante du riz!" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column column_container col-sm-5 m-auto">
+                                <div class="column-inner">
+                                    <div class="wrapper content_wrapper text-center">
+                                        <h5 class="text-uppercase">vie d'etudiant</h5>
+                                        <div class="post_cats_date"><span class="date">16-12-2024</span></div>
+                                        <h1>Récolte abondante du riz!</h1>
+                                        <a href="#" class="btn btn-cef-green btn-lg">
+                                            En Savoir +
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row row-fluid row-flex">
+                            <div class="column column_container col-sm-7 img_col">
+                                <div class="column-inner">
+                                    <div class="wrapper img_wrapper" style="height: 500px;">
+                                        <img src="../public/assets/img/lapin.jpg" alt="" title="Récolte abondante du riz!" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column column_container col-sm-5 m-auto">
+                                <div class="column-inner">
+                                    <div class="wrapper content_wrapper text-center">
+                                        <h5 class="text-uppercase">vie d'etudiant</h5>
+                                        <div class="post_cats_date"><span class="date">16-12-2024</span></div>
+                                        <h1>Récolte abondante du riz!</h1>
+                                        <a href="#" class="btn btn-cef-green btn-lg">
+                                            En Savoir +
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row row-fluid row-flex">
+                            <div class="column column_container col-sm-7 img_col">
+                                <div class="column-inner">
+                                    <div class="wrapper img_wrapper" style="height: 500px;">
+                                        <img src="../public/assets/img/lapin.jpg" alt="" title="Récolte abondante du riz!" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column column_container col-sm-5 m-auto">
+                                <div class="column-inner">
+                                    <div class="wrapper content_wrapper text-center">
+                                        <h5 class="text-uppercase">vie d'etudiant</h5>
+                                        <div class="post_cats_date"><span class="date">16-12-2024</span></div>
+                                        <h1>Récolte abondante du riz!</h1>
+                                        <a href="#" class="btn btn-cef-green btn-lg">
+                                            En Savoir +
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="partners-section">
+                <div class="container m-auto">
+                    <h2 class="section-title">Our Partners</h2>
+                    <div class="owl-carousel owl-theme partner-caroussel">
+                        <div class="item">
+                            <img src="https://via.placeholder.com/200x100?text=Partner+1" alt="Partner 1" class="partner-logo" />
+                        </div>
+                        <div class="item">
+                            <img src="https://via.placeholder.com/200x100?text=Partner+2" alt="Partner 2" class="partner-logo" />
+                        </div>
+                        <div class="item">
+                            <img src="https://via.placeholder.com/200x100?text=Partner+3" alt="Partner 3" class="partner-logo" />
+                        </div>
+                        <div class="item">
+                            <img src="https://via.placeholder.com/200x100?text=Partner+4" alt="Partner 4" class="partner-logo" />
+                        </div>
+                        <div class="item">
+                            <img src="https://via.placeholder.com/200x100?text=Partner+5" alt="Partner 5" class="partner-logo" />
+                        </div>
+                        <div class="item">
+                            <img src="https://via.placeholder.com/200x100?text=Partner+6" alt="Partner 6" class="partner-logo" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h3>CEFPREPAS - Centre de Formation</h3>
+                        <p>Professionnelle en Elevage, Pisciculture et Agriculture</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Accueil</h3>
+                        <ul>
+                            <li><a href="#">A propos de nous</a></li>
+                            <li><a href="#">Nos filières</a></li>
+                            <li><a href="#">Inscription en ligne</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Mot du Promoteur</h3>
+                        <ul>
+                            <li><a href="#">Blog d'actualites</a></li>
+                            <li><a href="#">vie des étudiants</a></li>
+                            <li><a href="#">Galerie photo</a></li>
+                            <li><a href="#">Stage et Emploi</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-divider"></div>
+
+                    <div class="footer-section">
+                        <h3>CEFPREPAS</h3>
+                        <p>Agrandir le plan</p>
+                        <ul>
+                            <li><strong>CEFPREPAS</strong></li>
+                            <li>Nombre de la Grèce</li>
+                            <li>Nouvelle</li>
+                            <li>AQUAKAM FARM</li>
+                            <li>Google</li>
+                            <li>Données cartographiques</li>
+                            <li>Conditions d'utilisation</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>CEFPREPAS</h3>
+                        <p>Agrandir le plan</p>
+                        <ul>
+                            <li><strong>CEFPREPAS</strong></li>
+                            <li>Nombre de la Grèce</li>
+                            <li>Nouvelle</li>
+                            <li>Autre</li>
+                            <li>Nous</li>
+                            <li>Nous</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <p>© Copyright ©2024 CEFPREPAS</p>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Bootstrap JS Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+        <!-- <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    // Mobile sidebar toggle
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.add('show');
+            sidebarOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (sidebarClose) {
+        sidebarClose.addEventListener('click', function() {
+            sidebar.classList.remove('show');
+            sidebarOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', function() {
+            sidebar.classList.remove('show');
+            sidebarOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('mainNav');
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
+});
+            </script> -->
+       
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const navbar = document.querySelector('.navbar');
+                    
+                    // Add scrolled class for styling when scrolling
+                    // window.addEventListener('scroll', function() {
+                    //     if (window.scrollY > 50) {
+                    //         navbar.classList.add('scrolled');
+                    //     } else {
+                    //         navbar.classList.remove('scrolled');
+                    //     }
+                    // });
+                    
+                    // Initialize scroll check on page load
+                    // if (window.scrollY > 50) {
+                    //     navbar.classList.add('scrolled');
+                    // }
+        
+                    // Close mobile sidebar when clicking outside
+                    document.addEventListener('click', function(event) {
+                        const isClickInsideNavbar = navbar.contains(event.target);
+                        const isNavbarToggler = event.target.classList.contains('navbar-toggler') || 
+                                            event.target.closest('.navbar-toggler');
+                        
+                        if (!isClickInsideNavbar && !isNavbarToggler && window.innerWidth < 992) {
+                            const navbarCollapse = document.querySelector('.navbar-collapse');
+                            if (navbarCollapse.classList.contains('show')) {
+                                const toggler = document.querySelector('.navbar-toggler');
+                                bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                            }
+                        }
+                    });
+                    
+                    // Initialize Bootstrap dropdowns
+                    // const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+                    // const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                    //     return new bootstrap.Dropdown(dropdownToggleEl);
+                    // });
+                });
+            </script>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const slides = document.querySelectorAll(".slide");
+                const dots = document.querySelectorAll(".slide-dot");
+                let currentSlide = 0;
+                const slideInterval = 30000; // 30 seconds
+
+                // Function to show a specific slide
+                function showSlide(index) {
+                    slides.forEach((slide) => slide.classList.remove("active"));
+                    dots.forEach((dot) => dot.classList.remove("active"));
+                    slides[index].classList.add("active");
+                    dots[index].classList.add("active");
+                    currentSlide = index;
+                }
+
+                // Auto-advance slides
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                let slideTimer = setInterval(nextSlide, slideInterval);
+
+                // Click handler for navigation dots
+                dots.forEach((dot) => {
+                    dot.addEventListener("click", function () {
+                        clearInterval(slideTimer);
+                        showSlide(parseInt(this.getAttribute("data-slide")));
+                        slideTimer = setInterval(nextSlide, slideInterval);
+                    });
+                });
+
+                // Pause on hover
+                const slideshow = document.querySelector(".hero-slideshow");
+                slideshow.addEventListener("mouseenter", () => clearInterval(slideTimer));
+                slideshow.addEventListener("mouseleave", () => (slideTimer = setInterval(nextSlide, slideInterval)));
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Configuration - Change this value to show 1, 2 or 3 testimonials at once
+                const visibleTestimonials = 1; // Can be 1, 2, or 3
+
+                const slider = document.querySelector(".testimonial-slider");
+                const slidesContainer = document.querySelector(".testimonial-slider"); // Container for slides
+                const slides = document.querySelectorAll(".testimonial-slide");
+                const dotsContainer = document.querySelector(".slider-dots");
+                let currentSlide = 0;
+                let slideInterval;
+
+                // Clear existing dots
+                dotsContainer.innerHTML = "";
+
+                // Create dots based on number of slides and visible testimonials
+                function createDots() {
+                    const dotCount = visibleTestimonials === 1 ? slides.length : Math.ceil(slides.length / visibleTestimonials);
+
+                    for (let i = 0; i < dotCount; i++) {
+                        const dot = document.createElement("span");
+                        dot.className = "dot";
+                        dot.setAttribute("data-slide", i * visibleTestimonials);
+                        dotsContainer.appendChild(dot);
+                    }
+
+                    // Add click event to new dots
+                    document.querySelectorAll(".dot").forEach((dot) => {
+                        dot.addEventListener("click", function () {
+                            const slideIndex = parseInt(this.getAttribute("data-slide"));
+                            showSlide(slideIndex);
+                        });
+                    });
+                }
+
+                // Initialize slider layout based on visibleTestimonials
+                function initializeLayout() {
+                    const rows = document.querySelectorAll(".testimonial-slide .row");
+
+                    rows.forEach((row) => {
+                        const cols = row.querySelectorAll(".col-md-12");
+                        cols.forEach((col) => {
+                            col.className = `col-md-${12 / visibleTestimonials} col-${12 / visibleTestimonials}`;
+                        });
+                    });
+
+                    // Adjust slide width to accommodate multiple testimonials
+                    slider.style.maxWidth = `${800 * Math.min(visibleTestimonials, 2)}px`;
+                }
+
+                // Show current slide(s)
+                function showSlide(n) {
+                    const dots = document.querySelectorAll(".dot");
+
+                    // Hide all slides
+                    slides.forEach((slide) => slide.classList.remove("active"));
+
+                    // Calculate current slide group
+                    currentSlide = (n + slides.length) % slides.length;
+
+                    // Activate the required number of slides
+                    for (let i = 0; i < visibleTestimonials; i++) {
+                        const slideIndex = (currentSlide + i) % slides.length;
+                        slides[slideIndex].classList.add("active");
+                    }
+
+                    // Update dot navigation
+                    dots.forEach((dot, index) => {
+                        dot.classList.remove("active");
+                        if (index === Math.floor(currentSlide / visibleTestimonials)) {
+                            dot.classList.add("active");
+                        }
+                    });
+                }
+
+                // Next slide
+                function nextSlide() {
+                    showSlide(currentSlide + visibleTestimonials);
+                }
+
+                // Start auto-sliding
+                function startSlider() {
+                    const interval = visibleTestimonials === 1 ? 5000 : 7000; // Longer interval when showing multiple
+                    slideInterval = setInterval(nextSlide, interval);
+                }
+
+                // Pause on hover
+                slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
+                slider.addEventListener("mouseleave", startSlider);
+
+                // Initialize
+                createDots();
+                initializeLayout();
+                showSlide(0);
+                startSlider();
+            });
+
+            $(document).ready(function () {
+                $(".owl-carousel").owlCarousel({
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    autoplayTimeout: 3000,
+                    autoplaySpeed: 800,
+                    center: true,
+                    items: 1.4,
+                    stagePadding: 15,
+                    loop: true,
+                    margin: 15,
+                    animateOut: "slide-up",
+                    animateIn: "slide-down",
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        600: {
+                            items: 1,
+                        },
+                        1000: {
+                            items: 1,
+                        },
+                    },
+                });
+                $(".partner-caroussel").owlCarousel({
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    autoplayTimeout: 3000,
+                    autoplaySpeed: 800,
+                    center: true,
+                    items: 1.4,
+                    stagePadding: 15,
+                    loop: true,
+                    margin: 15,
+                    animateOut: "slide-up",
+                    animateIn: "slide-down",
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        600: {
+                            items: 2,
+                        },
+                        1000: {
+                            items: 3,
+                        },
+                    },
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Sidebar functionality
+                const sidebar = document.getElementById('sidebar');
+                const sidebarToggle = document.getElementById('sidebarToggle');
+                const sidebarClose = document.getElementById('sidebarClose');
+                const sidebarOverlay = document.getElementById('sidebarOverlay');
+                
+                // Toggle sidebar
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.add('show');
+                    sidebarOverlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                // Close sidebar
+                sidebarClose.addEventListener('click', function() {
+                    sidebar.classList.remove('show');
+                    sidebarOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+                
+                // Close sidebar when clicking overlay
+                sidebarOverlay.addEventListener('click', function() {
+                    sidebar.classList.remove('show');
+                    sidebarOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+                
+                // Dropdown functionality
+                const dropdownItems = document.querySelectorAll('.has-dropdown');
+                
+                dropdownItems.forEach(item => {
+                    const link = item.querySelector('.sidebar-link');
+                    
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                        const dropdown = item.querySelector('.sidebar-dropdown');
+                        dropdown.classList.toggle('show');
+                    });
+                });
+                
+                // Update navbar behavior to work with new sidebar
+                function updateNavbar() {
+                    const $navbar = $("#mainNav");
+                    if ($(window).scrollTop() > 100) {
+                        $navbar.removeClass("transparent").addClass("non-transparent");
+                    } else {
+                        $navbar.removeClass("non-transparent").addClass("transparent");
+                    }
+                }
+                
+                $(window).scroll(updateNavbar);
+                // updateNavbar(); // Initialize on load
+            });
+        </script>
+    </body>
+</html>

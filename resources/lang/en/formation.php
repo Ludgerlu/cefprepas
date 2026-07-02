@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'page_title' => 'Formations',
+    'offered_courses' => 'Offered Courses',
+    'duration' => 'Duration',
+    'months' => 'months',
+    'degree' => 'Degree',
+    'learn_more' => 'Learn More',
+    'course_overview' => 'Course Overview',
+    'program_objectives' => 'Program Objectives',
+    'key_facts' => 'Key Facts',
+    'start_dates' => 'Start Dates',
+    'location' => 'Location',
+    'on_campus' => 'On Campus',
+    'diplomas_obtained' => 'Diplomas Obtained at CEFPREPAS',
+    'cqp_title' => 'CQP: Professional Qualification Certificate',
+    'cqp_point_1' => 'The Professional Qualification Certificate (CQP) allows recognition of the skills and know-how required to practice the profession.',
+    'cqp_point_2' => 'The CQP examination is organized by the Ministry in charge of Vocational Training (MINEFOP) which issues the diploma.',
+    'dqp_title' => 'DQP: Professional Qualification Diploma',
+    'dqp_point_1' => 'The DQP is a diploma that certifies a person\'s qualification to hold a clearly identified job in a specific activity.',
+    'ready_to_apply' => 'Ready to Apply?',
+    'start_application' => 'Start your application process today',
+    'apply_now' => 'Apply Now',
+    'download_brochure' => 'Download Brochure',
+    'contact_team' => 'Contact our admissions team for more information about this program.',
+    'working_hours' => 'Mon-Fri, 9am-5pm',
+];

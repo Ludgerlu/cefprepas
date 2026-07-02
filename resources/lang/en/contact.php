@@ -1,0 +1,21 @@
+<?php
+return [
+    'title' => 'Contact Us',
+    'breadcrumb_home' => 'Home',
+    'breadcrumb_contact' => 'Contact',
+    'main_office' => 'Main Office',
+    'office_description' => 'You can submit information requests at any time. We try to respond to all requests within 6 hours on business days.',
+    'address_title' => 'Main Office:',
+    'address' => 'Yaounde - Soa - Ebogo I - behind Radio Bonne Nouvelle',
+    'phone_title' => 'Phone Number',
+    'email_title' => 'Email:',
+    'hours_title' => 'Opening Hours:',
+    'hours' => 'Mon - Fri: 8:00 AM - 6:00 PM',
+    'leave_message' => 'Leave a Message',
+    'name_placeholder' => 'Your name *',
+    'email_placeholder' => 'Your email *',
+    'phone_placeholder' => 'Phone number (optional)',
+    'message_placeholder' => 'Your message *',
+    'submit_button' => 'SEND',
+    'map_title' => 'Access Map',
+];

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEUF ENGINEERING — Tableau de bord · Projets (DataTable)</title>
+    <!-- Bootstrap 5 + Icons + Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- DataTables CSS + Bootstrap 5 integration -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <!-- Unified KEUF CSS -->
+    <link rel="stylesheet" href="../asset/css/style.css">
+</head>
+<body>
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar p-0" id="sidebar">
+        <div class="p-4 pb-3 border-bottom border-white border-opacity-10">
+            <div class="d-flex align-items-center justify-content-center">
+                <img src="../asset/logo/logo.jpg" alt="" width="100" />
+            </div>
+        </div>
+        <nav class="p-3 flex-grow-1">
+            <div class="small text-uppercase px-3 pb-2" style="font-size:0.625rem; letter-spacing:1.5px">Principal</div>
+            <a class="nav-item d-flex align-items-center mb-2" href="../index.html"><i class="bi bi-house-door"></i><span>Tableau de bord</span></a>
+            <a class="nav-item active d-flex align-items-center mb-2" href="./projects/index.html"><i class="bi bi-building"></i><span>Projets</span></a>
+            <div class="small text-uppercase px-3 pb-2 mt-3" style="font-size:0.625rem; letter-spacing:1.5px">Opérations</div>
+            <a class="nav-item d-flex align-items-center" href="../employees/index.html"><i class="bi bi-people"></i><span>Employés</span></a>
+            <a class="nav-item d-flex align-items-center" href="../stocks.html"><i class="bi bi-box"></i><span>Stocks</span><span class="nav-badge">3</span></a>
+            <div class="small text-uppercase px-3 pb-2 mt-3" style="font-size:0.625rem; letter-spacing:1.5px">Administration</div>
+            <div class="nav-item d-flex align-items-center"><i class="bi bi-gear"></i><span>Paramètres</span></div>
+        </nav>
+        <div class="p-3 border-top d-flex align-items-center gap-2">
+            <div class="user-avatar">AD</div>
+            <div class="flex-grow-1">
+                <div class="small fw-medium">Administrateur</div>
+                <div class="small text-secondary">Admin · KEUF</div>
+            </div>
+            <div class="text-secondary" style="cursor:pointer;" title="Déconnexion"><i class="bi bi-box-arrow-right"></i></div>
+        </div>
+    </aside>
+
+    <!-- MAIN AREA (presences) -->
+    <div class="main-area flex-grow-1">
+        <header class="bg-white py-3 px-4 border-bottom sticky-top d-flex align-items-center justify-content-between">
+            <button class="btn btn-link d-md-none p-0 text-dark" id="sidebarToggle"><i class="bi bi-list fs-4"></i></button>
+            <div class="fw-bold font-syne"><i class="bi bi-building me-2" style="color:var(--yellow-keuf);"></i>Saisie des Présences</div>
+            <div class="d-flex align-items-center gap-3">
+                <span class="text-secondary small" id="topbar-date"></span>
+                <div class="position-relative"><button class="btn btn-light border p-2 rounded"><i class="bi bi-bell"></i></button><span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle" style="width:8px;height:8px;"></span></div>
+            </div>
+        </header>
+
+        <div class="content m-3">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-grey-keuf text-decoration-none me-3" href="./show.html"><i class="bi bi-arrow-left me-2"></i>Retour</a>
+                    <h2 class="fw-bold mb-1 font-syne" style="font-size:1.5rem;">Construction Siège Social</h2>
+                </div>
+            </div>
+            <!-- CONTEXT BAR -->
+            <div class="context-bar">
+                <div>
+                    <div style="font-size:.6875rem;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.3rem;">Date</div>
+                    <input type="date" id="input-date" value="2026-03-11">
+                </div>
+                <div class="context-divider"></div>
+                <div>
+                    <div style="font-size:.6875rem;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.3rem;">Chantier</div>
+                    Construction Siège Social
+                </div>
+                <!-- <div class="context-divider"></div>
+                <div class="stat-pills" id="stat-pills">
+                    <span class="stat-pill green"><span class="dot"></span><span id="present-count-display">3</span> présents</span>
+                </div> -->
+                <button class="btn-save ms-auto" id="btn-save"><i class="bi bi-save me-1"></i>Enregistrer</button>
+            </div>
+
+            <!-- DUAL PANEL -->
+            <div class="dual-panel">
+                <!-- LEFT: Pool d'employés -->
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title"><i class="bi bi-people" style="color:#9CA3AF;"></i> Pool d'employés</div>
+                        <span class="panel-count" id="pool-count">5</span>
+                    </div>
+                    <div class="search-wrap">
+                        <i class="bi bi-search search-icon"></i>
+                        <input class="search-input" id="pool-search" placeholder="Rechercher par nom ou rôle…" autocomplete="off">
+                    </div>
+                    <div class="persons-list" id="pool-list">
+                        <!-- section interne -->
+                        <div class="section-label">Employés internes</div>
+                        <div class="person-card" draggable="true" ondragstart="onDragStart(event,'e1')" onclick="addPersonById('e1')">
+                            <div class="person-ava" style="background:#2563EB">KM</div>
+                            <div class="person-info"><div class="person-name">KAMGA Michel</div><div class="person-role">Chef de chantier</div></div>
+                            <button class="add-btn" onclick="event.stopPropagation();addPersonById('e1')" title="Ajouter"><i class="bi bi-plus"></i></button>
+                        </div>
+                        <div class="person-card" draggable="true" ondragstart="onDragStart(event,'e4')" onclick="addPersonById('e4')">
+                            <div class="person-ava" style="background:#EF4444">TJ</div>
+                            <div class="person-info"><div class="person-name">TCHAMBA Jean</div><div class="person-role">Électricien</div></div>
+                            <button class="add-btn" onclick="event.stopPropagation();addPersonById('e4')" title="Ajouter"><i class="bi bi-plus"></i></button>
+                        </div>
+                        <div class="person-card" draggable="true" ondragstart="onDragStart(event,'e5')" onclick="addPersonById('e5')">
+                            <div class="person-ava" style="background:#7C3AED">AP</div>
+                            <div class="person-info"><div class="person-name">ATANGA Paul</div><div class="person-role">Opérateur engin</div></div>
+                            <button class="add-btn" onclick="event.stopPropagation();addPersonById('e5')" title="Ajouter"><i class="bi bi-plus"></i></button>
+                        </div>
+
+                        <!-- prestataire BATISUD -->
+                        <div class="prest-header-card" style="margin-top:.5rem;">
+                            <div class="person-ava square" style="background:#F59E0B;">BA</div>
+                            <div class="person-info"><div class="person-name">BATISUD SARL</div><div class="person-role">Prestataire · 2 employé(s)</div></div>
+                            <span class="prest-status-badge present" id="pst_l_prest1">Présent</span>
+                        </div>
+                        <div class="person-card prest-emp" draggable="true" ondragstart="onDragStart(event,'prest1e1')" onclick="addPersonById('prest1e1')">
+                            <div class="person-ava" style="background:#F59E0B;width:30px;height:30px;font-size:.625rem;">EC</div>
+                            <div class="person-info"><div class="person-name">ESSOMBA Cyrille</div><div class="person-role">Manœuvre</div></div>
+                            <button class="add-btn" onclick="event.stopPropagation();addPersonById('prest1e1')" title="Ajouter"><i class="bi bi-plus"></i></button>
+                        </div>
+                        <div class="person-card prest-emp" draggable="true" ondragstart="onDragStart(event,'prest1e2')" onclick="addPersonById('prest1e2')">
+                            <div class="person-ava" style="background:#F59E0B;width:30px;height:30px;font-size:.625rem;">MR</div>
+                            <div class="person-info"><div class="person-name">MBIA Roger</div><div class="person-role">Manœuvre</div></div>
+                            <button class="add-btn" onclick="event.stopPropagation();addPersonById('prest1e2')" title="Ajouter"><i class="bi bi-plus"></i></button>
+                        </div>
+
+                        <!-- prestataire ELECTRO-CAM -->
+                        <div class="prest-header-card" style="margin-top:.5rem;">
+                            <div class="person-ava square" style="background:#DC2626;">EL</div>
+                            <div class="person-info"><div class="person-name">ELECTRO-CAM</div><div class="person-role">Prestataire · 1 employé(s)</div></div>
+                            <span class="prest-status-badge absent" id="pst_l_prest2">Absent</span>
+                        </div>
+                        <div class="person-card prest-emp" draggable="true" ondragstart="onDragStart(event,'prest2e1')" onclick="addPersonById('prest2e1')">
+                            <div class="person-ava" style="background:#DC2626;width:30px;height:30px;font-size:.625rem;">AS</div>
+                            <div class="person-info"><div class="person-name">ABENA Sylvie</div><div class="person-role">Électricienne</div></div>
+                            <button class="add-btn" onclick="event.stopPropagation();addPersonById('prest2e1')" title="Ajouter"><i class="bi bi-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Présents sur le chantier -->
+                <div class="panel" id="panel-present" ondragover="event.preventDefault();this.classList.add('drop-active')" ondragleave="this.classList.remove('drop-active')" ondrop="onDrop(event)">
+                    <div class="panel-head">
+                        <div class="panel-title"><i class="bi bi-check-circle" style="color:var(--green);"></i> Sur ce chantier aujourd'hui</div>
+                        <span class="panel-count" id="present-count" style="background:#ECFDF5;color:var(--green);">3</span>
+                    </div>
+                    <div class="persons-list" id="present-list">
+                        <!-- exemples préchargés pour correspondre à l'état "3 présents" -->
+                        <div class="section-label">Employés internes</div>
+                        <div class="present-card" id="pc_e3">
+                            <div class="person-ava" style="background:#F59E0B;width:32px;height:32px;font-size:.625rem;">BE</div>
+                            <div class="person-info" style="min-width:0;">
+                                <div class="person-name" style="font-size:.8rem;">BIYA Emmanuel</div>
+                                <div class="person-role" style="font-size:.65rem;">Maçon qualifié</div>
+                            </div>
+                            <select class="status-sel present" onchange="updateStatus('e3',this)"><option value="Présent" selected>Présent</option><option value="En retard">En retard</option><option value="Absent justifié">Absent justifié</option><option value="Absent">Absent</option></select>
+                            <input class="hx-input" type="text" placeholder="Hx+" value="" oninput="updateHx('e3',this.value)" title="Heures supplémentaires">
+                            <button class="remove-btn" onclick="removePerson('e3')" title="Retirer"><i class="bi bi-x"></i></button>
+                        </div>
+                        <div class="present-card" id="pc_e2">
+                            <div class="person-ava" style="background:#0891B2;width:32px;height:32px;font-size:.625rem;">LN</div>
+                            <div class="person-info" style="min-width:0;">
+                                <div class="person-name" style="font-size:.8rem;">Ludger Ngapouche</div>
+                                <div class="person-role" style="font-size:.65rem;">Magasinière</div>
+                            </div>
+                            <select class="status-sel present" onchange="updateStatus('e2',this)"><option value="Présent" selected>Présent</option><option value="En retard">En retard</option><option value="Absent justifié">Absent justifié</option><option value="Absent">Absent</option></select>
+                            <input class="hx-input" type="text" placeholder="Hx+" value="" oninput="updateHx('e2',this.value)" title="Heures supplémentaires">
+                            <button class="remove-btn" onclick="removePerson('e2')" title="Retirer"><i class="bi bi-x"></i></button>
+                        </div>
+                        <!-- prestataire présent -->
+                        <div class="section-label"><i class="bi bi-building-gear me-1"></i>BATISUD SARL <span class="prest-status-badge present" id="pst_r_prest1" style="margin-left:.25rem;font-size:.6rem;">Présent</span></div>
+                        <div class="present-card is-prest" id="pc_prest1e1">
+                            <div class="person-ava" style="background:#F59E0B;width:32px;height:32px;font-size:.625rem;">EC</div>
+                            <div class="person-info" style="min-width:0;">
+                                <div class="person-name" style="font-size:.8rem;">ESSOMBA Cyrille</div>
+                                <div class="person-role" style="font-size:.65rem;">BATISUD SARL</div>
+                            </div>
+                            <select class="status-sel present" onchange="updateStatus('prest1e1',this)"><option value="Présent" selected>Présent</option><option value="En retard">En retard</option><option value="Absent justifié">Absent justifié</option><option value="Absent">Absent</option></select>
+                            <input class="hx-input" type="text" placeholder="Hx+" value="" oninput="updateHx('prest1e1',this.value)" title="Heures supplémentaires">
+                            <button class="remove-btn" onclick="removePerson('prest1e1')" title="Retirer"><i class="bi bi-x"></i></button>
+                        </div>
+                        <!-- empty state (caché car il y a du monde) -->
+                        <div class="empty-state" id="empty-right" style="display: none;">
+                            <div class="empty-icon">👈</div>
+                            <div class="empty-txt">Cliquez sur un employé ou<br>glissez-le ici pour l'ajouter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts de fonctionnement -->
+<script>
+    // date dynamique
+    document.getElementById('topbar-date').textContent = new Date().toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+    // mobile menu
+    const mobileBtn = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    function toggleSidebar() { sidebar.classList.toggle('show'); overlay.classList.toggle('show'); }
+    if(mobileBtn) { mobileBtn.addEventListener('click', toggleSidebar); overlay.addEventListener('click', toggleSidebar); }
+
+    // -------------------------------------------------
+    // Simulation des fonctions de présence (drag & drop + actions)
+    // Ces fonctions permettent l'interactivité de la page
+    // -------------------------------------------------
+
+    let presentCount = 3; // initial
+
+    function updatePresentCountUI() {
+        document.getElementById('present-count').innerText = presentCount;
+        document.getElementById('present-count-display').innerText = presentCount;
+    }
+
+    // Drag & drop
+    window.onDragStart = function(ev, personId) {
+        ev.dataTransfer.setData('text/plain', personId);
+    };
+
+    window.onDrop = function(ev) {
+        ev.preventDefault();
+        document.getElementById('panel-present').classList.remove('drop-active');
+        const personId = ev.dataTransfer.getData('text/plain');
+        if (personId) addPersonById(personId);
+    };
+
+    // Ajouter une personne (par id)
+    window.addPersonById = function(personId) {
+        // Vérifier si déjà présent (simple vérification)
+        if (document.getElementById('pc_' + personId)) {
+            alert('Cette personne est déjà dans la liste des présents.');
+            return;
+        }
+        // Dans un vrai système on clonerait les infos, ici on simule l'ajout d'une carte basique
+        // Pour la démo on crée une carte simple dans la liste de droite (sans toutes les données réelles)
+        const rightList = document.getElementById('present-list');
+        const emptyState = document.getElementById('empty-right');
+        if (emptyState) emptyState.style.display = 'none';
+
+        // ex: si personId = e1, e4, e5, prest1e1, prest1e2, prest2e1
+        let name = '', role = '', ava = '', bg = '#2563EB';
+        if (personId === 'e1') { name = 'KAMGA Michel'; role = 'Chef de chantier'; ava = 'KM'; bg = '#2563EB'; }
+        else if (personId === 'e4') { name = 'TCHAMBA Jean'; role = 'Électricien'; ava = 'TJ'; bg = '#EF4444'; }
+        else if (personId === 'e5') { name = 'ATANGA Paul'; role = 'Opérateur'; ava = 'AP'; bg = '#7C3AED'; }
+        else if (personId === 'prest1e1') { name = 'ESSOMBA Cyrille'; role = 'BATISUD SARL'; ava = 'EC'; bg = '#F59E0B'; }
+        else if (personId === 'prest1e2') { name = 'MBIA Roger'; role = 'BATISUD SARL'; ava = 'MR'; bg = '#F59E0B'; }
+        else if (personId === 'prest2e1') { name = 'ABENA Sylvie'; role = 'ELECTRO-CAM'; ava = 'AS'; bg = '#DC2626'; }
+        else return;
+
+        const newId = 'pc_' + personId + '_' + Date.now(); // id unique simple
+
+        const card = document.createElement('div');
+        card.className = 'present-card' + (personId.startsWith('prest') ? ' is-prest' : '');
+        card.id = newId;
+        card.innerHTML = `
+            <div class="person-ava" style="background:${bg};width:32px;height:32px;font-size:.625rem;">${ava}</div>
+            <div class="person-info" style="min-width:0;">
+                <div class="person-name" style="font-size:.8rem;">${name}</div>
+                <div class="person-role" style="font-size:.65rem;">${role}</div>
+            </div>
+            <select class="status-sel present" onchange="updateStatus('${newId}',this)">
+                <option value="Présent" selected>Présent</option>
+                <option value="En retard">En retard</option>
+                <option value="Absent justifié">Absent justifié</option>
+                <option value="Absent">Absent</option>
+            </select>
+            <input class="hx-input" type="text" placeholder="Hx+" value="" oninput="updateHx('${newId}',this.value)" title="Heures supplémentaires">
+            <button class="remove-btn" onclick="removePerson('${newId}')" title="Retirer"><i class="bi bi-x"></i></button>
+        `;
+
+        // On cherche la fin des internes ou avant empty-state
+        rightList.insertBefore(card, document.getElementById('empty-right'));
+        presentCount++;
+        updatePresentCountUI();
+    };
+
+    window.removePerson = function(elementId) {
+        const el = document.getElementById(elementId);
+        if (el) { el.remove(); presentCount = Math.max(0, presentCount - 1); updatePresentCountUI(); }
+        // afficher empty si plus rien
+        if (presentCount === 0) document.getElementById('empty-right').style.display = 'block';
+    };
+
+    window.updateStatus = function(id, select) {
+        console.log(`Statut de ${id} mis à jour : ${select.value}`);
+    };
+    window.updateHx = function(id, val) {
+        console.log(`Hx de ${id} : ${val}`);
+    };
+
+    // Sauvegarde
+    document.getElementById('btn-save').addEventListener('click', function() {
+        alert('Présences enregistrées (simulation)');
+    });
+
+    // Filtre pool (très simple)
+    document.getElementById('pool-search').addEventListener('input', function(e) {
+        const term = e.target.value.toLowerCase();
+        const cards = document.querySelectorAll('#pool-list .person-card, #pool-list .prest-header-card');
+        cards.forEach(c => {
+            const text = c.innerText.toLowerCase();
+            c.style.display = text.includes(term) ? 'flex' : 'none';
+        });
+    });
+</script>
+</body>
+</html>
