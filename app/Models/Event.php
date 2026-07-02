@@ -15,7 +15,7 @@ class Event extends Model
         'image_url',
         'description_en',
         'description_fr',
-        // 'type',
+        'views',
         'news',
         'date_event'
     ];

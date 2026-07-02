@@ -405,7 +405,7 @@
             <span class="empty_space_inner"></span>
         </div>
         <section>
-            <h1 class="text-uppercase fw-bolder" style="text-align: center;">{{ __('messages.student_page_title') }}</h1>
+            <!-- <h1 class="text-uppercase fw-bolder" style="text-align: center;">{{ __('messages.student_page_title') }}</h1> -->
             <div class="post-list post-list_grid">
                 @foreach($events as $event)
                     <div class="post-list__post post">

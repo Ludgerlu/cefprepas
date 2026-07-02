@@ -24,9 +24,15 @@ class UserController extends Controller
             'formations' => Formation::latest()
                              ->take(4)
                              ->get(),
-            'events' => Event::latest()
-                        ->take(5)
+            'events' => Event::where('news', '0')
+                        ->latest()
+                        ->take(3)
                         ->get(),
+            'news' => Event::where('news', 1)
+                        ->latest()
+                        ->take(3)
+                        ->get(),
+            
             'partners' =>Partner::take(4)
                         ->get(),
         ];

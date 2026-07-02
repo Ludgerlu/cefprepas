@@ -144,7 +144,7 @@
             <span class="empty_space_inner"></span>
         </div>
         <section>
-            <h1 class="text-uppercase fw-bolder" style="text-align: center;">{{ __('messages.actualites') }}</h1>
+            <!-- <h1 class="text-uppercase fw-bolder" style="text-align: center;">{{ __('messages.actualites') }}</h1> -->
 
             <div>
                 @foreach($events as $event)

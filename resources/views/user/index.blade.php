@@ -16,7 +16,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+            background: url({{  asset('assets/img/student.jpg') }}) center/cover no-repeat;
             opacity: 0.18;
         }
         .hero-particles {
@@ -147,7 +147,7 @@
             color: rgba(255,255,255,0.85);
         }
         .service-list-mini li:last-child { border-bottom: none; }
-        .service-list-mini li i { color: #b3b7bb; width: 20px; font-size: 1.1rem; }
+        .service-list-mini li i { color: #000000; width: 20px; font-size: 1.1rem; }
         .btn-primary-custom {
             display: inline-flex;
             align-items: center;
@@ -539,7 +539,7 @@
                                 <li class="text-black"><i class="bi bi-sun"></i> Production de biogaz (énergie renouvelable)</li>
                                 <li class="text-black"><i class="bi bi-geo-alt"></i> Gestion des ressources naturelles</li>
                             </ul>
-                            <a href="{{ route('inscription') }}" class="btn-primary-custom w-100 justify-content-center mt-3">
+                            <a href="{{ route('inscription') }}" class="btn card-btn w-100 justify-content-center mt-3">
                                 S'inscrire maintenant <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -569,6 +569,36 @@
             </div>
         </section>
 
+        <!-- ═══ PROMO PROGRAMME ═══ -->
+        <section class="promo-section">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                        <div class="promo-card">
+                            <img src="{{ asset('assets/img/lab1.jpeg') }}" alt="Programme Promo" class="img-fluid rounded">
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+                        <h2 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">Formation Professionnelle <br><span style="color:#7cb342;">Accélérée</span></h2>
+                        <p class="lead text-muted" style="font-size:1.1rem;">
+                            Devenez expert en agropastoral en seulement <strong>6 mois</strong> avec notre programme intensif.
+                            Certificat reconnu par le MINEFOP.
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>100% pratique</strong> sur le terrain</li>
+                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Encadrement par des professionnels expérimentés</li>
+                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Modules : Agriculture, Élevage, Pisciculture, Biogaz</li>
+                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Accès à notre réseau de partenaires et stages</li>
+                        </ul>
+                        <a href="{{ route('inscription') }}" class="btn btn-cef-green btn-lg px-5 mt-2 rounded-pill">
+                            <i class="fas fa-graduation-cap me-2"></i> S'inscrire maintenant
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- ─── PROGRAMS ─── -->
         <section class="filiere-section">
             <div class="empty_space" style="height: 87px;">
@@ -597,163 +627,160 @@
             </div>
         </section>
 
+
+         <!-- ═══ EVENTS SECTION  ═══ -->
+        <section class="events-section">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-4" data-aos="fade-up">
+                    <h2 class="section-title text-start mb-0">Événements à Venir</h2>
+                    <!-- <span class="text-muted" style="font-size:0.95rem;">Participez à Nos Prochains Événements</span> -->
+                </div>
+                <p class="text-muted mb-4" data-aos="fade-up" data-aos-delay="50">Rejoignez-nous pour une variété d'événements passionnants qui répondent à vos intérêts et besoins d'apprentissage.</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="event-list">
+                            @foreach($data['events'] as $event)
+                                <div class="event-item" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                                    <div class="event-date">
+                                        <h3>{{ $event->created_at->format('d') }}</h3>
+                                        <span>{{ ucfirst($event->created_at->format('M')) }}, {{ $event->created_at->format('Y') }}</span>
+                                    </div>
+                                    <span class="event-divider"></span>
+                                    <div class="event-info">
+                                        <div class="meta">
+                                            <span><i class="fas fa-clock"></i> {{ $event->created_at->format('H:i') }} à {{ $event->created_at->addHours(8)->format('H:i') }}</span>
+                                            <span><i class="fas fa-map-marker-alt"></i> ISTAPA, Yaoundé</span>
+                                        </div>
+                                        <h4>{{ $event->{'title_'.app()->getLocale()} }}</h4>
+                                    </div>
+                                    <div class="event-action">
+                                        <a href="{{ route('actualites.show', $event->id) }}" class="btn-outline-main">
+                                            Rejoindre <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+        
+                        <div class="text-center mt-4">
+                            <a href="{{ route('actualites.index') }}" class="btn btn-outline-main rounded-pill px-5 py-2">
+                                Voir Tous les Événements <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ asset('assets/img/lab1.jpeg') }}" alt="" style="width: 100%;border-radius: 15px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ═══ NEWS SECTION (Blog) ═══ -->
         <section class="news-section">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center flex-wrap mb-4" data-aos="fade-up">
                     <h2 class="section-title text-start mb-0">Dernières Nouvelles</h2>
-                    <a href="{{ route('actualites.index') }}" class="btn btn-outline-success rounded-pill px-4">Voir tout <i class="fas fa-arrow-right ms-1"></i></a>
+                    <a href="{{ route('apprenants.index') }}" class="btn btn-outline-success rounded-pill px-4">Voir tout <i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
                 <div class="row g-4">
-                    {{-- Static news items (replace with dynamic data if available) --}}
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-                        <div class="news-card">
-                            <div class="news-img" style="background-image: url('{{ asset('assets/img/slide2.jpeg') }}');">
-                                <span class="news-date-badge">10 MARS</span>
-                            </div>
-                            <div class="news-body">
-                                <div class="news-meta">
-                                    <span><i class="far fa-calendar-alt"></i> 10 Mars 2025</span>
-                                    <span><i class="far fa-comment"></i> 96</span>
-                                    <span><i class="far fa-eye"></i> 0</span>
+                    @forelse($data['news'] as $index => $news)
+                        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+                            <div class="news-card">
+                                <div class="news-img" style="background-image: url('{{ asset($news->image_url ?? 'assets/img/default-news.jpg') }}');">
+                                    <span class="news-date-badge">
+                                        {{ \Carbon\Carbon::parse($news->date_event)->format('d') }}
+                                        {{ strtoupper(\Carbon\Carbon::parse($news->date_event)->format('M')) }}
+                                    </span>
                                 </div>
-                                <h4>Techniques d'irrigation modernes pour les petits exploitants</h4>
-                                <p>Découvrez les dernières techniques d'irrigation adaptées aux petites exploitations agricoles...</p>
-                                <a href="#" class="btn-news">Lire la Suite <i class="fas fa-arrow-right"></i></a>
+                                <div class="news-body">
+                                    <div class="news-meta">
+                                        <span><i class="far fa-calendar-alt"></i> {{ \Carbon\Carbon::parse($news->date_event)->translatedFormat('d F Y') }}</span>
+                                        <!-- <span><i class="far fa-comment"></i> {{ $news->comments_count ?? 0 }}</span> -->
+                                        <span><i class="far fa-eye"></i> {{ $news->views ?? 0 }}</span>
+                                    </div>
+                                    <h4>{{ $news->{'title_'.app()->getLocale()} }}</h4>
+                                    <p>{{ Str::limit($news->{'description_'.app()->getLocale()}, 100) }}</p>
+                                    <a href="{{ route('apprenants.show', $news->id) }}" class="btn-news">Lire la Suite <i class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="news-card">
-                            <div class="news-img" style="background-image: url('{{ asset('assets/img/student.jpg') }}');">
-                                <span class="news-date-badge">01 AVR.</span>
-                            </div>
-                            <div class="news-body">
-                                <div class="news-meta">
-                                    <span><i class="far fa-calendar-alt"></i> 01 Avril 2025</span>
-                                    <span><i class="far fa-comment"></i> 73</span>
-                                    <span><i class="far fa-eye"></i> 0</span>
-                                </div>
-                                <h4>ISTAPA lance son nouveau programme de stage 2026</h4>
-                                <p>Un programme de stage innovant pour les étudiants en agropastoral...</p>
-                                <a href="#" class="btn-news">Lire la Suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
+                    @empty
+                        <div class="col-12 text-center">
+                            <p class="text-muted">Aucune actualité pour le moment.</p>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="news-card">
-                            <div class="news-img" style="background-image: url('{{ asset('assets/img/attestation2.jpeg') }}');">
-                                <span class="news-date-badge">25 AOÛT</span>
-                            </div>
-                            <div class="news-body">
-                                <div class="news-meta">
-                                    <span><i class="far fa-calendar-alt"></i> 25 Août 2025</span>
-                                    <span><i class="far fa-comment"></i> 82</span>
-                                    <span><i class="far fa-eye"></i> 0</span>
-                                </div>
-                                <h4>Résultats remarquables pour la promotion 2025</h4>
-                                <p>La promotion 2025 affiche un taux de réussite exceptionnel...</p>
-                                <a href="#" class="btn-news">Lire la Suite <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>
 
-        <!-- ═══ EVENTS SECTION (styled like cf.html) ═══ -->
-        <section class="events-section">
-            <div class="container">
-                <div class="d-flex justify-content-between align-items-center flex-wrap mb-4" data-aos="fade-up">
-                    <h2 class="section-title text-start mb-0">Événements à Venir</h2>
-                    <span class="text-muted" style="font-size:0.95rem;">Participez à Nos Prochains Événements</span>
-                </div>
-                <p class="text-muted mb-4" data-aos="fade-up" data-aos-delay="50">Rejoignez-nous pour une variété d'événements passionnants qui répondent à vos intérêts et besoins d'apprentissage.</p>
-
-                <div class="event-list">
-                    @foreach($data['events'] as $event)
-                        <div class="event-item" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                            <div class="event-date">
-                                <h3>{{ $event->created_at->format('d') }}</h3>
-                                <span>{{ ucfirst($event->created_at->format('M')) }}, {{ $event->created_at->format('Y') }}</span>
-                            </div>
-                            <span class="event-divider"></span>
-                            <div class="event-info">
-                                <div class="meta">
-                                    <span><i class="fas fa-clock"></i> {{ $event->created_at->format('H:i') }} à {{ $event->created_at->addHours(8)->format('H:i') }}</span>
-                                    <span><i class="fas fa-map-marker-alt"></i> ISTAPA, Yaoundé</span>
-                                </div>
-                                <h4>{{ $event->{'title_'.app()->getLocale()} }}</h4>
-                            </div>
-                            <div class="event-action">
-                                <a href="{{ route('actualites.show', $event->id) }}" class="btn-outline-main">
-                                    Rejoindre <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-                <div class="text-center mt-4">
-                    <a href="{{ route('actualites.index') }}" class="btn btn-outline-main rounded-pill px-5 py-2">
-                        Voir Tous les Événements <i class="fas fa-arrow-right ms-1"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
+       
 
         <!-- ─── TESTIMONIALS ─── -->
         <section class="testimonials-section">
             <div class="container">
-                <h2 class="section-title">{{ __('index.testimonials_title') }}</h2>
-
-                <div class="testimonial-slider">
-                    @foreach($data['testimonials'] as $index => $testimonial)
-                        <div class="testimonial-slide {{ $index === 0 ? 'active' : '' }}">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="testimonial-card">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-2 text-center">
-                                                <div class="testimonial-avatar">
-                                                    @if($testimonial->image_url)
-                                                        <img src="{{ asset($testimonial->image_url) }}" alt="{{ $testimonial->name }}" class="img-fluid rounded-circle">
-                                                    @else
-                                                        <div class="avatar-placeholder rounded-circle">
-                                                            {{ substr($testimonial->name, 0, 1) }}
+                <div class="row gy-4 align-items-center flex-wrap-reverse">
+                    <div class="col-xl-7">
+                        <div class="testimonial-slider">
+                            @foreach($data['testimonials'] as $index => $testimonial)
+                                <div class="testimonial-slide {{ $index === 0 ? 'active' : '' }}">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="testimonial-card">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-2 text-center">
+                                                        <div class="testimonial-avatar">
+                                                            @if($testimonial->image_url)
+                                                                <img src="{{ asset($testimonial->image_url) }}" alt="{{ $testimonial->name }}" class="img-fluid rounded-circle">
+                                                            @else
+                                                                <div class="avatar-placeholder rounded-circle">
+                                                                    {{ substr($testimonial->name, 0, 1) }}
+                                                                </div>
+                                                            @endif
                                                         </div>
-                                                    @endif
+                                                    </div>
+                                                    
+                                                    <div class="col-md-10">
+                                                        <div class="student-info">
+                                                            <h3 class="student-name">{{ $testimonial->name }}</h3>
+                                                            <p class="student-program">{{ $testimonial->formation->{'title_'.app()->getLocale()} }}</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            
-                                            <div class="col-md-10">
-                                                <div class="student-info">
-                                                    <h3 class="student-name">{{ $testimonial->name }}</h3>
-                                                    <p class="student-program">{{ $testimonial->formation->{'title_'.app()->getLocale()} }}</p>
-                                                </div>
+                                                
+                                                <blockquote class="testimonial-text mt-3">
+                                                    {!! strip_tags($testimonial->{'description_'.app()->getLocale()}) !!} 
+                                                </blockquote>
                                             </div>
                                         </div>
-                                        
-                                        <blockquote class="testimonial-text mt-3">
-                                            {!! strip_tags($testimonial->{'description_'.app()->getLocale()}) !!} 
-                                        </blockquote>
                                     </div>
                                 </div>
+                            @endforeach
+
+                            <div class="slider-dots">
+                                @foreach($data['testimonials'] as $index => $testimonial)
+                                <span class="dot {{ $index === 0 ? 'active' : '' }}" data-slide="{{ $index }}"></span>
+                                @endforeach
                             </div>
                         </div>
-                    @endforeach
+                    </div>
 
-                    <div class="slider-dots">
-                        @foreach($data['testimonials'] as $index => $testimonial)
-                        <span class="dot {{ $index === 0 ? 'active' : '' }}" data-slide="{{ $index }}"></span>
-                        @endforeach
+                    <div class="col-xl-5 ps-xl-5">
+                        <div class="flex-align d-inline-flex gap-8 mb-16 wow bounceInDown" style="visibility: visible; animation-name: bounceInDown;">
+                            <span class="text-main-600 text-2xl d-flex"><i class="ph-bold ph-book-open"></i></span>
+                            <h5 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">{{ __('index.testimonials_title') }}<br><span style="color:#7cb342;">Ce que Dit Notre Communauté</span></h5>
+
+                        </div>
+                        <p>
+                            Bienvenue dans notre section témoignages, où les membres de notre communauté universitaire partagent leurs expériences et points de vue sur la vie à CEFPREPAS. Nous vous invitons à nous rejoindre et à faire partie de notre parcours inspirant d'apprentissage, de croissance et d'accomplissement.
+                        </p>
                     </div>
                 </div>
+                
             </div>
         </section>
 
         <!-- ─── STUDENT LIFE CAROUSEL ─── -->
-        <section class="carousel-container">
+        <!-- <section class="carousel-container">
             <div class="owl-carousel owl-theme event-caroussel">
                 @foreach($data['events'] as $event)
                     <div class="item">
@@ -781,49 +808,9 @@
                     </div>
                 @endforeach
             </div>
-        </section>
+        </section> -->
 
-        <!-- ═══ PROMO PROGRAMME ═══ -->
-        <section class="promo-section">
-            <div class="container">
-                <div class="row align-items-center g-4">
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
-                        <span class="badge bg-success mb-3 px-3 py-2" style="font-size:0.9rem; border-radius:40px;"><i class="fas fa-star me-1"></i> Programme Promo</span>
-                        <h2 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">Formation Professionnelle <br><span style="color:#7cb342;">Accélérée</span></h2>
-                        <p class="lead text-muted" style="font-size:1.1rem;">
-                            Devenez expert en agropastoral en seulement <strong>6 mois</strong> avec notre programme intensif.
-                            Certificat reconnu par le MINEFOP.
-                        </p>
-                        <ul class="list-unstyled mt-3">
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>100% pratique</strong> sur le terrain</li>
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Encadrement par des professionnels expérimentés</li>
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Modules : Agriculture, Élevage, Pisciculture, Biogaz</li>
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Accès à notre réseau de partenaires et stages</li>
-                        </ul>
-                        <a href="{{ route('inscription') }}" class="btn btn-cef-green btn-lg px-5 mt-2 rounded-pill">
-                            <i class="fas fa-graduation-cap me-2"></i> S'inscrire maintenant
-                        </a>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
-                        <div class="promo-card">
-                            <span class="promo-badge"><i class="fas fa-bolt me-1"></i> OFFRE LIMITÉE</span>
-                            <div class="promo-icon"><i class="fas fa-trophy"></i></div>
-                            <h3>Programme Promo 2026</h3>
-                            <div class="promo-highlight">- 30%</div>
-                            <p style="color:#555;">Sur les frais d'inscription pour les 50 premiers candidats.</p>
-                            <ul>
-                                <li><i class="fas fa-check-circle"></i> Formation complète en agropastoral</li>
-                                <li><i class="fas fa-check-circle"></i> Matériel pédagogique inclus</li>
-                                <li><i class="fas fa-check-circle"></i> Visites de fermes modèles</li>
-                                <li><i class="fas fa-check-circle"></i> Certification DQP / CQP</li>
-                            </ul>
-                            <a href="#" class="btn-promo"><i class="fas fa-rocket me-2"></i> Profiter de l'offre</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        
         <!-- ═══ CONTACT FORM ═══ -->
         <section class="contact-section">
             <div class="container">
@@ -903,7 +890,7 @@
                     @foreach ($data['partners'] as $partner)
                         <div class="item text-center">
                             <a href="{{$partner->link}}" target="_blank">
-                                <img src="{{ asset('public/images/partners/'.$partner->logo) }}" 
+                                <img src="{{ asset('images/partners/'.$partner->logo) }}" 
                                 alt="{{ $partner->name_en }}"  class="partner-logo" />
                             </a>
                         </div>
@@ -1028,23 +1015,23 @@
 </script>
 
 <script>
-    $(document).ready(function(){
-        $('.event-caroussel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-            responsive: {
-                0: { items: 1 },
-                600: { items: 1 },
-                1000: { items: 1 }
-            }
-        });
-    });
+    // $(document).ready(function(){
+    //     $('.event-caroussel').owlCarousel({
+    //         loop: true,
+    //         margin: 10,
+    //         nav: false,
+    //         dots: true,
+    //         autoplay: true,
+    //         autoplayTimeout: 5000,
+    //         autoplayHoverPause: true,
+    //         navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+    //         responsive: {
+    //             0: { items: 1 },
+    //             600: { items: 1 },
+    //             1000: { items: 1 }
+    //         }
+    //     });
+    // });
     $(document).ready(function(){
         $('.partner-caroussel').owlCarousel({
             loop: true,
