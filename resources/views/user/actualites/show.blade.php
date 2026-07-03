@@ -1,110 +1,167 @@
-@extends('layouts.user') 
+@extends('layouts.user')
+
 @section('style')
 <style>
-    ol li, ul li {
-        margin-bottom: 8px;
-    }
+    /* ── Styles article actualité (green theme) ── */
 
-    section#about ,section#promoteur{
-        height:auto !important;
-    }
     .entry-header {
-        position: relative;
-        background-color: #fff;
-        padding: 120px 0;
-        background-size: cover;
+        background: linear-gradient(135deg, #ecf0f1, #b9dda3);
+        padding: 80px 0;
+        text-align: center;
     }
-    
-
-    .entry-header .entry-title h1 {
-        font-size: 50px;
-        /* color: #fff; */
+    .entry-header h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #2d3e2d;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Oswald', sans-serif;
     }
-    .breadcrumbs_unit {
-        padding-top: 11px;
-    }
-
-
-
-
 
     .breadcrumbs_unit {
-        background-color: #f6f6f6;
-        padding: 9px 0 7px;
-        border-bottom: 1px solid #f0f2f5;
+        background: #f8faf7;
+        padding: 12px 0;
+        border-bottom: 1px solid #e9ecef;
     }
     .breadcrumbs_unit .navxtBreads {
-        font-size: 11px;
-        color: #aaa;
-        text-transform: uppercase;
+        font-size: 0.85rem;
+        color: #6c757d;
     }
-    .breadcrumbs_unit .navxtBreads > span {
-        color: #5F625E;
-        text-transform: initial !important;
+    .breadcrumbs_unit .navxtBreads a {
+        color: #7cb342;
+        text-decoration: none;
         font-weight: 500;
     }
-
-    .breadcrumbs_unit .navxtBreads > span {
-        color: #aaa;
-        font-size: 11px;
-        text-transform: uppercase;
+    .breadcrumbs_unit .navxtBreads a:hover {
+        text-decoration: underline;
     }
-    .breadcrumbs_unit .navxtBreads > span:first-child > a {
-        font-weight: bold !important;
+    .breadcrumbs_unit .navxtBreads .current-item {
+        color: #2d3e2d;
+        font-weight: 600;
     }
 
-    .breadcrumbs_unit .navxtBreads > span a {
-        color: #5F625E;
-        text-transform: initial !important;
-        font-weight: 500;
-    }
-    
-    .breadcrumbs_unit .navxtBreads > span a {
-        font-size: 11px;
-        color: #aaa;
-    }
-    .breadcrumbs_unit .navxtBreads > span a {
-        color: #5F625E;
-        text-transform: initial !important;
-        font-weight: 500;
+    .article-wrapper {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.04);
+        margin: 3rem 0;
+        border: 1px solid #f0f0f0;
     }
 
-
-
-
-    
-    .blog-header {
-        border-bottom: 1px solid #dee2e6;
-    }
-    .category-badge {
-        background-color: #e9ecef;
-        color: #495057;
-    }
-    .blog-image {
-        height: 400px;
-        object-fit: cover;
+    .article-header {
         margin-bottom: 2rem;
-        border-radius: 4px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 1.5rem;
     }
-    @media (max-width: 768px) {
-        .blog-image {
-            height: 250px;
-        }
+    .article-header .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        color: #888;
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    .article-header .article-meta i {
+        margin-right: 4px;
+        color: #7cb342;
+    }
+    .article-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2d3e2d;
+        margin: 0.5rem 0;
+        line-height: 1.2;
+        font-family: 'Oswald', sans-serif;
+    }
+    .article-header .badge-category {
+        background: #7cb342;
+        color: #fff;
+        font-weight: 500;
+        padding: 0.3rem 1.2rem;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
 
-
-    .interactive-image {
-        transition: transform 0.3s;
-        cursor: zoom-in;
+    .article-image {
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
-    .interactive-image:hover {
+    .article-image img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+    .article-image img:hover {
         transform: scale(1.02);
     }
+
+    .article-body {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #333;
+        font-family: 'Roboto', sans-serif;
+    }
+    .article-body p {
+        margin-bottom: 1.5rem;
+    }
+    .article-body .lead-cta {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2d3e2d;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #f0f0f0;
+        font-family: 'Oswald', sans-serif;
+    }
+    .article-body .contact-box {
+        background: #f8faf7;
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+        border-left: 4px solid #7cb342;
+        margin: 2rem 0;
+    }
+    .article-body .contact-box p {
+        margin-bottom: 0.5rem;
+    }
+    .article-body .contact-box .label {
+        font-weight: 600;
+        color: #2d3e2d;
+    }
+    .article-body .contact-box .value {
+        color: #7cb342;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .article-wrapper {
+            padding: 1.5rem;
+        }
+        .article-header h1 {
+            font-size: 2rem;
+        }
+        .article-body .lead-cta {
+            font-size: 1.2rem;
+        }
+        .article-body .contact-box {
+            padding: 1rem;
+        }
+    }
 </style>
-@endsection 
+@endsection
+
 @section('main')
 <main class="content">
-    <div class="entry-header clearfix" style="background: linear-gradient(135deg, #ecf0f1, #b9dda3); background-position: center; background-repeat: no-repeat;">
+    <!-- Header -->
+    <div class="entry-header clearfix">
         <div class="container">
             <div class="entry-title-left">
                 <div class="entry-title text-center text-uppercase text-dark fs-5">
@@ -113,68 +170,62 @@
             </div>
         </div>
     </div>
-    <div>
-        <div class="breadcrumbs_unit">
-            <div class="container">
-                <div class="navxtBreads">
-                    <span property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" title="{{ __('actualites.go_to_cefprepas') }}" href="{{ route('index') }}" class="home"><span property="name">{{ __('actualites.home') }}</span></a>
-                    </span>
-                    &gt;
-                    <span property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="{{ route('actualites.index') }}" class="home"><span property="name">{{ __('actualites.news') }}</span></a>
-                    </span>
-                    &gt;
-                    <span property="itemListElement" typeof="ListItem">
-                        <span property="name" class="post post-page current-item text-uppercase">{{ $event->{'title_'.app()->getLocale()} }}</span><meta property="url" content="https://www.CEFPREPAS.com/"><meta property="position" content="2">
-                    </span>
-                </div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs_unit">
+        <div class="container">
+            <div class="navxtBreads">
+                <span property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" title="{{ __('actualites.go_to_cefprepas') }}" href="{{ route('index') }}" class="home"><span property="name">{{ __('actualites.home') }}</span></a>
+                </span>
+                &gt;
+                <span property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" href="{{ route('actualites.index') }}" class="home"><span property="name">{{ __('actualites.news') }}</span></a>
+                </span>
+                &gt;
+                <span property="itemListElement" typeof="ListItem">
+                    <span property="name" class="post post-page current-item text-uppercase">{{ $event->{'title_'.app()->getLocale()} }}</span>
+                </span>
             </div>
         </div>
     </div>
+
+    <!-- Article -->
     <div class="container">
-        <div class="empty_space" style="height: 87px;">
-            <span class="empty_space_inner"></span>
-        </div>
-        <section>
-            <div class="py-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <article class="blog-post">
-                            <img src="{{ asset($event->image_url) }}" 
-                                    style="height: 491px;width: 736px;"
-                                 alt="Blog post image" 
-                                 class="img-fluid blog-image w-100 shadow-sm">
-                            
-                            <header class="blog-header pb-4 mb-4">
-                                <h1 class="display-5 fw-bold mb-3">{{ $event->{'title_'.app()->getLocale()} }}</h1>
-                                <div class="text-muted mb-2">{{ $event->created_at->format('F j, Y')  }}</div>
-                                <span class="badge category-badge rounded-pill mb-2">  </span>
-                            </header>
-                            
-                            <div class="blog-content">
-                                <p>{!! nl2br(e($event->{'description_'.app()->getLocale()})) !!}</p>
-                                
-                                <p class="lead fs-2 fw-bold">
-                                    {{ __('actualites.questions') }}
-                                </p>
-                                <p>{{ __('actualites.contact_admissions') }}</p>
-                                <p>{{ __('actualites.by_email') }}: <span class="text-cef-green">cefprepas@outlook.com</span></p>
-                                <p>{{ __('actualites.phone') }}: +237 695 566 666 / +237 677 444 071</p>
-                            </div>
-                        </article>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <article class="article-wrapper">
+                    <!-- En-tête -->
+                    <header class="article-header">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> {{ $event->created_at->format('F j, Y') }}</span>
+                            <span><i class="far fa-eye"></i> {{ $event->views ?? 0 }}</span>
+                        </div>
+                        <h1>{{ $event->{'title_'.app()->getLocale()} }}</h1>
+                        <span class="badge-category">{{ __('messages.actualites') }}</span>
+                    </header>
+
+                    <!-- Image -->
+                    @if($event->image_url)
+                        <div class="article-image">
+                            <img src="{{ asset($event->image_url) }}" alt="{{ $event->{'title_'.app()->getLocale()} }}" loading="lazy">
+                        </div>
+                    @endif
+
+                    <!-- Corps -->
+                    <div class="article-body">
+                        {!! nl2br(e($event->{'description_'.app()->getLocale()})) !!}
+
+                        <div class="lead-cta">{{ __('actualites.questions') }}</div>
+                        <div class="contact-box">
+                            <p><span class="label">{{ __('actualites.contact_admissions') }}</span></p>
+                            <p><span class="label">{{ __('actualites.by_email') }} :</span> <span class="value">cefprepas@outlook.com</span></p>
+                            <p><span class="label">{{ __('actualites.phone') }} :</span> <span class="value">+237 695 566 666 / +237 677 444 071</span></p>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
-        </section>
-        <div class="empty_space" style="height: 87px;">
-            <span class="empty_space_inner"></span>
         </div>
     </div>
 </main>
 @endsection
-
-
-
-
-

@@ -14,6 +14,7 @@ class EtudiantController extends Controller
     }
 
     public function show(Event $event){
+        $event->increment('views');
         return view('user.etudiants.show',compact('event'));
     }
 }

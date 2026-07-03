@@ -1033,3 +1033,105 @@ color: #777;
         height: 50vh;
     }
 }
+/* ── Pagination Styles (adapted to your green theme) ── */
+
+.pagination-section {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e9ecef;
+    background: rgba(248, 250, 252, 0.5);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.pagination-info {
+    color: #6c757d;
+    font-size: 14px;
+}
+.pagination-info strong {
+    color: #2d3e2d;
+}
+
+/* ── The pagination list ── */
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination-wrapper .pagination {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.pagination-wrapper .page-item {
+    list-style: none;
+    display: inline-block;
+}
+
+/* ── Page links (numbers, prev, next) ── */
+.pagination-wrapper .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px !important;      /* Override Bootstrap’s rounded corners */
+    background: white;
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* Hover on any link */
+.pagination-wrapper .page-link:hover {
+    background: #f7fafc;
+    border-color: #7cb342;
+    color: #7cb342;
+}
+
+/* ── Active page ── */
+.pagination-wrapper .active .page-link {
+    background: #7cb342;               /* Solid green – you can use a gradient if you prefer */
+    border-color: #7cb342;
+    color: white;
+}
+
+/* ── Disabled (Previous/Next when unavailable) ── */
+.pagination-wrapper .disabled .page-link {
+    background: #f7fafc;
+    border-color: #e2e8f0;
+    color: #a0aec0;
+    cursor: not-allowed;
+}
+
+/* ── Hide Bootstrap’s built‑in “Showing …” (if any) ── */
+.pagination-wrapper .pagination-info {
+    display: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .pagination-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 20px;
+    }
+    .pagination-info {
+        font-size: 12px;
+    }
+    .pagination-wrapper .page-link {
+        min-width: 32px;
+        height: 32px;
+        font-size: 12px;
+        padding: 0 8px;
+    }
+}

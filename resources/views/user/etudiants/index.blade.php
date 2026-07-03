@@ -1,438 +1,197 @@
-@extends('layouts.user') 
+@extends('layouts.user')
+
 @section('style')
 <style>
-    ol li, ul li {
-        margin-bottom: 8px;
-    }
-
-    section#about ,section#promoteur{
-        height:auto !important;
-    }
+    /* ── Page Apprenants (index) ── */
     .entry-header {
-        position: relative;
-        background-color: #fff;
-        padding: 120px 0;
-        background-size: cover;
+        background: linear-gradient(135deg, #ecf0f1, #b9dda3);
+        padding: 80px 0;
+        text-align: center;
     }
-    
-
-    .entry-header .entry-title h1 {
-        font-size: 50px;
-        /* color: #fff; */
+    .entry-header h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #2d3e2d;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
-    .breadcrumbs_unit {
-        padding-top: 11px;
-    }
-
-
-
-
 
     .breadcrumbs_unit {
-        background-color: #f6f6f6;
-        padding: 9px 0 7px;
-        border-bottom: 1px solid #f0f2f5;
+        background: #f8faf7;
+        padding: 12px 0;
+        border-bottom: 1px solid #e9ecef;
     }
     .breadcrumbs_unit .navxtBreads {
-        font-size: 11px;
-        color: #aaa;
-        text-transform: uppercase;
+        font-size: 0.85rem;
+        color: #6c757d;
     }
-    .breadcrumbs_unit .navxtBreads > span {
-        color: #5F625E;
-        text-transform: initial !important;
-        font-weight: 500;
-    }
-
-    .breadcrumbs_unit .navxtBreads > span {
-        color: #aaa;
-        font-size: 11px;
-        text-transform: uppercase;
-    }
-    .breadcrumbs_unit .navxtBreads > span:first-child > a {
-        font-weight: bold !important;
-    }
-
-    .breadcrumbs_unit .navxtBreads > span a {
-        color: #5F625E;
-        text-transform: initial !important;
-        font-weight: 500;
-    }
-    
-    .breadcrumbs_unit .navxtBreads > span a {
-        font-size: 11px;
-        color: #aaa;
-    }
-    .breadcrumbs_unit .navxtBreads > span a {
-        color: #5F625E;
-        text-transform: initial !important;
-        font-weight: 500;
-    }
-
-
-
-    img {
-        border-style: none;
-        height: auto;
-    }
-
-    a img {
-        border: none;
-        outline: none;
-    }
-
-    figure {
-        display: block;
-        background-color: #fff;
-        -ms-interpolation-mode: bicubic;
-    }
-
-    figure img {
-        display: block;
-        width: auto;
-        max-width: 100%;
-    }
-
-    /**
-    * Variables 
-    */
-    :root {
-        --master-color: #c19f63;
-        --master-color-partner-dark: #7c591d;
-        
-        --headings-color: #263358;	
-        
-        --main-bg-color: #fff;
-        --secondary1-bg-color: #f6f6f6;
-        --secondary2-bg-color: #fff0ec;
-        
-        --main-txt-color: #333;
-        --secondary-txt-color: #757575;
-        
-        --sub-color: #b4b4b4;
-    }
-
-    /** 
-    * Typography 
-    */
-    body {
-        font-family: 'Roboto', sans-serif;
-        font-size: 112.5%;
-        font-style: normal;
-        font-weight: 300;
-        line-height: 1.6em;
-        
-        color: var(--main-txt-color);
-        background: var(--main-bg-color);
-    }
-
-    h1, h2 {
-        display: block;
-        font-family: 'Oswald', sans-serif;
-        font-style: normal;
-        font-weight: 300;
-        line-height: 1.4em;
-        color: var(--headings-color);
-    }
-
-    h1 {
-        font-size: calc(24px + 2vw);
-        margin: 1.2em 0;
-    }
-
-    h2 {
-        font-size: calc(22px + .8vw);
-    }
-
-    h1 a,
-    h2 a {
-        font-weight: 300;
+    .breadcrumbs_unit .navxtBreads a {
+        color: #7cb342;
         text-decoration: none;
-        color: var(--headings-color);
-        background-color: transparent;
-        outline: none;
+        font-weight: 500;
+    }
+    .breadcrumbs_unit .navxtBreads a:hover {
+        text-decoration: underline;
+    }
+    .breadcrumbs_unit .navxtBreads .current-item {
+        color: #2d3e2d;
+        font-weight: 600;
     }
 
-    a:hover {
-        color: var(--master-color-partner-dark);
-    }
-
-    a:focus {
-        color: var(--headings-color);
-        background-color: var(--secondary2-bg-color); 
-    }
-
-    /**
-    * Page Layout
-    */
-    html, body { height: 100%; } 
-    
-
-
-    /**
-    * Post List Layout
-    */
-    .post-list_grid {
+    /* Grille des cartes */
+    .student-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        align-items: stretch;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
     }
 
-    .post-list__post {
-        display: grid;
-        grid-template-areas: 
-            "header"
-            "footer"
-            "pr_img";
-        grid-auto-rows: 1fr auto auto;
-        align-items: start;
-        grid-gap: 1em 0;
-    }
-
-    .post-list__post:nth-child(2n+1) {
-        background-color: var(--secondary1-bg-color);
-    }
-
-    .post-list__post:nth-child(3n+2) {
-        grid-template-areas: 
-            "pr_img"
-            "header"
-            "footer";
-        grid-auto-rows: auto 1fr auto;	
-    }
-
-    .post__preview-img {
-        grid-area: pr_img;
-    }
-
-    .post__header {
-        grid-area: header;
-    }
-
-    .post__meta {
-        grid-area: footer;
-        align-self: start;
+    .student-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
+    }
+    .student-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.10);
     }
 
-    /**
-    * Post List Design
-    */
-    .post-list {
-        margin-bottom: 4em;
-    } 
-    
-    .post {
+    .student-card__image {
         position: relative;
-        padding: 1.6em;
-    } 
-
-    .post:after {
-        content: '';
-        display: block;
+        padding-bottom: 56.25%; /* 16:9 */
+        overflow: hidden;
+        background: #f1f3f1;
+    }
+    .student-card__image img {
         position: absolute;
         top: 0;
-        right: 0;
-        bottom: 0;
         left: 0;
-        border: 3px var(--master-color) solid;
-        border-image: linear-gradient(110deg, #c19f63, #c6972b, #f5cd87, #c6972b, #c19f63) 1;
-        z-index: 2;
-        opacity: 0;
-        -webkit-transition: all .25s ease-out;			
-                transition: all .25s ease-out;
-    }
-
-    .post:hover:after {
-        opacity: 1;
-    }
-
-    .post > * {
-        z-index: 4;
-        position: relative;
-    }
-
-    .post__preview-img {
         width: 100%;
-        height: 0;
-        padding-bottom: 56.25%;
-        position: relative;
-        overflow: hidden;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .student-card:hover .student-card__image img {
+        transform: scale(1.04);
     }
 
-    .post__preview-img img {
-        width: 100%;
-        height: auto;
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        bottom: -50%;
-        left: -50%;
-        margin: auto;
+    .student-card__body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
-
-    .post__time {
-        color: var(--sub-color);
-    }
-
-    .post__meta a {
-        color: var(--sub-color);
-        text-decoration: none;
-        border-bottom: 1px var(--sub-color) solid;
-    }
-
-    .post__meta a:hover {
-        color: var(--master-color-partner-dark);
-    }
-
-    .post__comments {
-        position: relative;
-        padding-left: 24px;
-    }
-
-    .post__comments:before,
-    .post__comments:after {
-        content: '';
+    .student-card__body .post__time {
+        font-size: 0.85rem;
+        color: #888;
+        margin-bottom: 0.5rem;
         display: block;
-        position: absolute;
-        border: 1px var(--sub-color) solid;
+    }
+    .student-card__body h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0 0 0.75rem 0;
+        line-height: 1.4;
+    }
+    .student-card__body h2 a {
+        color: #2d3e2d;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .student-card__body h2 a:hover {
+        color: #7cb342;
     }
 
-    .post__comments:before {
-        width: 16px;
-        height: 11px;
-        border-radius: 50%;
-        left: 0;
-        top: calc(50% - 8px);
-        z-index: 1;
+    .student-card__footer {
+        padding: 1rem 1.5rem 1.5rem;
+        border-top: 1px solid #f0f0f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+    .student-card__footer a {
+        color: #7cb342;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    .student-card__footer a:hover {
+        color: #558b2f;
+    }
+    .student-card__footer .post__comments {
+        color: #888;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .student-card__footer .post__comments i {
+        font-size: 1rem;
     }
 
-    .post__comments:after {
-        width: 3px;
-        height: 6px;
-        border-width: 0 1px 1px 0;
-        transform: rotate(31deg);
-        top: 50%;
-        left: 11px;
-        z-index: 2;
-        background-color: var(--secondary1-bg-color);
-    } 
-
-    /**
-    * Breakpoint 900px
-    */
-    @media all and (max-width: 900px) {
-        .post-list_grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .post-list__post:nth-child(n) {
-            background-color: transparent;
-            grid-template-areas: 
-                "header"
-                "footer"
-                "pr_img";
-            grid-auto-rows: 1fr auto auto;
-        }
-        
-        .post-list__post:nth-child(4n), 
-        .post-list__post:nth-child(4n+1) {
-            background-color: var(--secondary1-bg-color);
-        }
-        
-        .post-list__post:nth-child(even) {
-            grid-template-areas: 
-                "pr_img"
-                "header"
-                "footer";
-            grid-auto-rows: auto 1fr auto;	
-        }
-    }
-
-    /**
-    * Breakpoint 670px
-    */
-    @media all and (max-width: 670px) { 
-        .post-list_grid {
+    @media (max-width: 576px) {
+        .student-grid {
             grid-template-columns: 1fr;
         }
-        
-        .post-list__post:nth-child(n) {
-            background-color: var(--secondary1-bg-color);
-            grid-template-areas: 
-                "header"
-                "footer"
-                "pr_img";
-            grid-auto-rows: 1fr auto auto;
-        }
-        
-        .post-list__post:nth-child(even) {
-            background-color: transparent;
-        }
-    } 
+    }
 </style>
-@endsection 
+@endsection
+
 @section('main')
 <main class="content">
-    <div class="entry-header clearfix" style="background: linear-gradient(135deg, #ecf0f1, #b9dda3); background-position: center; background-repeat: no-repeat;">
+    <!-- Header -->
+    <div class="entry-header">
         <div class="container">
-            <div class="entry-title-left">
-                <div class="entry-title text-center text-uppercase text-dark fs-5">
-                    <h1>{{ __('messages.student_page_title') }}</h1>
-                </div>
+            <h1>{{ __('messages.student_page_title') }}</h1>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs_unit">
+        <div class="container">
+            <div class="navxtBreads">
+                <span property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" title="{{ __('messages.go_to_cefprepas') }}" href="{{ route('index') }}" class="home"><span property="name">{{ __('messages.home') }}</span></a>
+                    <meta property="position" content="1">
+                </span>
+                &gt;
+                <span property="itemListElement" typeof="ListItem">
+                    <span property="name" class="post post-page current-item">{{ __('messages.student_page_title') }}</span>
+                    <meta property="position" content="2">
+                </span>
             </div>
         </div>
     </div>
-    <div>
-        <div class="breadcrumbs_unit">
-            <div class="container">
-                <div class="navxtBreads">
-                    <span property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" title="{{ __('messages.go_to_cefprepas') }}" href="{{ route('index') }}" class="home"><span property="name">{{ __('messages.home') }}</span></a><meta property="position" content="1">
-                    </span>
-                    &gt;
-                    <span property="itemListElement" typeof="ListItem">
-                        <span property="name" class="post post-page current-item text-uppercase">{{ __('messages.student_page_title') }}</span><meta property="url" content="https://www.CEFPREPAS.com/"><meta property="position" content="2">
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <!-- Grille des cartes -->
     <div class="container">
-        <div class="empty_space" style="height: 87px;">
-            <span class="empty_space_inner"></span>
-        </div>
-        <section>
-            <!-- <h1 class="text-uppercase fw-bolder" style="text-align: center;">{{ __('messages.student_page_title') }}</h1> -->
-            <div class="post-list post-list_grid">
-                @foreach($events as $event)
-                    <div class="post-list__post post">
-                        <figure class="post__preview-img">
-                            <a href="{{ route('apprenants.show', $event->id) }}"><img src="{{ asset($event->image_url) }}" alt="{{ $event->{'title_'.app()->getLocale()} }}" /></a>
-                        </figure>
-                        
-                        <div class="post__header">
-                            <time datetime="{{ $event->created_at->format('Y-m-d') }}" class="post__time">{{ $event->created_at->format('F j, Y') }}</time>
-                            <h2><a href="{{ route('apprenants.show', $event->id) }}">{{ $event->{'title_'.app()->getLocale()} }}</a></h2>
-                        </div>
-                        
-                        <div class="post__meta">
-                            <a href="#">{{ __('messages.student_category') }}</a>
-                            <a href="#" class="post__comments">7</a>
-                        </div>
+        <div class="student-grid">
+            @foreach($events as $event)
+                <div class="student-card">
+                    <div class="student-card__image">
+                        <a href="{{ route('apprenants.show', $event->id) }}">
+                            <img src="{{ asset($event->image_url) }}" alt="{{ $event->{'title_'.app()->getLocale()} }}" loading="lazy">
+                        </a>
                     </div>
-                @endforeach
-            </div>
-        </section>
-        <div class="empty_space" style="height: 87px;">
-            <span class="empty_space_inner"></span>
+                    <div class="student-card__body">
+                        <time datetime="{{ $event->created_at->format('Y-m-d') }}" class="post__time">
+                            <i class="far fa-calendar-alt me-1"></i> {{ $event->created_at->format('F j, Y') }}
+                        </time>
+                        <h2><a href="{{ route('apprenants.show', $event->id) }}">{{ $event->{'title_'.app()->getLocale()} }}</a></h2>
+                    </div>
+                    <div class="student-card__footer">
+                        <a href="#">{{ __('messages.student_category') }}</a>
+                        <span class="post__comments"><i class="far fa-comment"></i> 7</span>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </main>
 @endsection
-
-
-
-
