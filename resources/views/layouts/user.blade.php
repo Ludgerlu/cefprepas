@@ -227,64 +227,44 @@
         </div>
 
         <!-- Navbar -->
-       
         <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('index') }}">
-                    <img src="{{ asset('assets/img/Logo_CEFPREPAS.JPG') }}" alt="CEFPREPAS" class="mobile-logo" style="height: 10vh;"/>
+                    <img src="{{ asset('assets/img/Logo_CEFPREPAS.JPG') }}" alt="CEFPREPAS" style="height: 10vh; max-height: 70px;" />
                 </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center-md">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                         <li class="nav-item">
                             <a class="nav-link @if(request()->routeIs('index')) active @endif" href="{{ route('index') }}">{{ __('messages.home') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle @if(request()->routeIs(['about', 'atout', 'documents.index', 'emploie', 'photo', 'promoteur', 'apprenants.index'])) active @endif" 
-                            href="#" id="servicesDropdown" role="button" 
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                            href="#" id="cefprepasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 CEFPREPAS
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('about')) active @endif" href="{{ route('about') }}">{{ __('messages.about') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('atout')) active @endif" href="{{ route('atout') }}">{{ __('messages.atout') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('documents.index')) active @endif" href="{{ route('documents.index') }}">{{ __('messages.document') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('emploie')) active @endif" href="{{ route('emploie') }}">{{ __('messages.emploie') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('photo')) active @endif" href="{{ route('photo') }}">{{ __('messages.photo') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('promoteur')) active @endif" href="{{ route('promoteur') }}">{{ __('messages.promoteur') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('apprenants.index')) active @endif" href="{{ route('apprenants.index') }}">{{ __('messages.apprenants') }}</a>
-                                </li>
-                                
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cefprepasDropdown">
+                                <li><a class="dropdown-item @if(request()->routeIs('about')) active @endif" href="{{ route('about') }}">{{ __('messages.about') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('atout')) active @endif" href="{{ route('atout') }}">{{ __('messages.atout') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('documents.index')) active @endif" href="{{ route('documents.index') }}">{{ __('messages.document') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('emploie')) active @endif" href="{{ route('emploie') }}">{{ __('messages.emploie') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('photo')) active @endif" href="{{ route('photo') }}">{{ __('messages.photo') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('promoteur')) active @endif" href="{{ route('promoteur') }}">{{ __('messages.promoteur') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('apprenants.index')) active @endif" href="{{ route('apprenants.index') }}">{{ __('messages.apprenants') }}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle @if(request()->routeIs(['formations.index', 'programme', 'diplome'])) active @endif" 
-                            href="#" id="servicesDropdown" role="button" 
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                            href="#" id="formationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ __('messages.formations') }}
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('formations.index')) active @endif" href="{{ route('formations.index') }}">{{ __('messages.formations') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('programme')) active @endif" href="{{ route('programme') }}">{{ __('messages.programme') }}</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item @if(request()->routeIs('diplome')) active @endif" href="{{ route('diplome') }}">{{ __('messages.diplome') }}</a>
-                                </li>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="formationsDropdown">
+                                <li><a class="dropdown-item @if(request()->routeIs('formations.index')) active @endif" href="{{ route('formations.index') }}">{{ __('messages.formations') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('programme')) active @endif" href="{{ route('programme') }}">{{ __('messages.programme') }}</a></li>
+                                <li><a class="dropdown-item @if(request()->routeIs('diplome')) active @endif" href="{{ route('diplome') }}">{{ __('messages.diplome') }}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -294,20 +274,22 @@
                             <a class="nav-link @if(request()->routeIs('contact')) active @endif" href="{{ route('contact') }}">{{ __('messages.contact') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if(request()->routeIs('inscription')) active @endif" href="{{ route('inscription') }}">{{ __('messages.inscription') }}</a>
+                            <a class="nav-link btn btn-cef-green text-white rounded-pill px-4 @if(request()->routeIs('inscription')) active @endif" 
+                            href="{{ route('inscription') }}" style="padding: 0.5rem 1.5rem;">
+                                {{ __('messages.inscription') }}
+                            </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="language" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="fi fi-{{ app()->getLocale() == 'en' ? 'gb' : app()->getLocale() }} me-1"></span>
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="language">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                                 @foreach(config('app.available_locales') as $locale => $name)
                                     <li>
-                                        <a class="dropdown-item d-flex align-items-center" href="{{ route('locale.set', $locale) }}">
+                                        <a class="dropdown-item d-flex align-items-center @if(app()->getLocale() == $locale) active @endif" 
+                                        href="{{ route('locale.set', $locale) }}">
                                             <span class="fi fi-{{ $locale == 'en' ? 'gb' : $locale }} me-2"></span>
-                                            <span @if(app()->getLocale() == $locale) style="font-weight: bold" @endif>
-                                                {{ $name }}
-                                            </span>
+                                            {{ $name }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -315,46 +297,38 @@
                         </li>
                     </ul>
                 </div>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
-                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
         </nav>
         <!-- Page Content -->
         @yield('main')
         
         <!-- Footer -->
-        <footer class="bg-light py-4">
+       <footer class="footer footer-light">
             <div class="container">
-                <div class="row text-md-center">
-                    <div class="col-md-3">
-                        <h5>{{ __('messages.about_institute') }}</h5>
-                        <p>{{ __('messages.institute_description') }}</p>
-                        <h5>{{ __('messages.contact') }}</h5>
-                        <address>
-                            <i class="fas fa-map-marker-alt me-2"></i> {{ __('messages.address') }}<br>
-                            <i class="fas fa-phone me-2"></i> +237 695566666<br>
-                            <i class="fas fa-phone me-2"></i> +237 677444071<br>
-                            <i class="fas fa-envelope me-2"></i> cefprepas@outlook.com
-                        </address>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="footer-section">
-                            <h3>{{ __('messages.promoteur_word') }}</h3>
-                            <ul>
-                                <li><a href="{{ route('actualites.index') }}">{{ __('messages.news_blog') }}</a></li>
-                                <li><a href="{{ route('apprenants.index') }}">{{ __('messages.student_life') }}</a></li>
-                                <li><a href="{{ route('photo') }}">{{ __('messages.photo_gallery') }}</a></li>
-                                <li><a href="{{ route('emploie') }}">{{ __('messages.internship_jobs') }}</a></li>
+                <div class="row g-4">
+                    <!-- Colonne 1 : Logo + description + réseaux -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <a href="{{ route('index') }}" class="footer-logo">
+                                <img src="{{ asset('assets/img/Logo_CEFPREPAS.JPG') }}" alt="CEFPREPAS" style="height: 60px;">
+                            </a>
+                            <p class="mt-3 text-muted small">
+                                {{ __('messages.institute_description') }}
+                            </p>
+                            <ul class="social-links list-unstyled d-flex gap-3 mt-3">
+                                <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="footer-section">
-                            <h3>{{ __('messages.home') }}</h3>
-                            <ul>
+
+                    <!-- Colonne 2 : Liens rapides (Home, About, etc.) -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-widget">
+                            <h5 class="fw-bold">{{ __('messages.home') }}</h5>
+                            <ul class="list-unstyled">
                                 <li><a href="{{ route('about') }}">{{ __('messages.about') }}</a></li>
                                 <li><a href="{{ route('formations.index') }}">{{ __('messages.formations') }}</a></li>
                                 <li><a href="{{ route('inscription') }}">{{ __('messages.online_registration') }}</a></li>
@@ -362,21 +336,49 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="footer-section">
-                            <h3>CEFPREPAS</h3>
-                            <ul>
-                                <li><i class="fas fa-map-marker-alt text-cef-green me-2"></i> <p>{{ __('messages.address') }}</p></li>
-                                <li class="text-center">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.36518455444!2d11.58648307302863!3d3.9448891477500307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bc77573bf97eb%3A0x6bda6343ef0c76e7!2sCEFPREPAS!5e0!3m2!1sfr!2scm!4v1712879792605!5m2!1sfr!2scm" width="250" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </li>
+
+                    <!-- Colonne 3 : Mot du Promoteur + blog, galerie, etc. -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-widget">
+                            <h5 class="fw-bold">{{ __('messages.promoteur_word') }}</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ route('actualites.index') }}">{{ __('messages.news_blog') }}</a></li>
+                                <li><a href="{{ route('apprenants.index') }}">{{ __('messages.student_life') }}</a></li>
+                                <li><a href="{{ route('photo') }}">{{ __('messages.photo_gallery') }}</a></li>
+                                <li><a href="{{ route('emploie') }}">{{ __('messages.internship_jobs') }}</a></li>
                             </ul>
                         </div>
                     </div>
+
+                    <!-- Colonne 4 : Contact + Newsletter -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-widget">
+                            <h5 class="fw-bold">{{ __('messages.contact') }}</h5>
+                            <address class="text-muted small">
+                                <i class="fas fa-map-marker-alt me-2 text-cef-green"></i> {{ __('messages.address') }}<br>
+                                <i class="fas fa-phone me-2 text-cef-green"></i> +237 695566666 / +237 677444071<br>
+                                <i class="fas fa-envelope me-2 text-cef-green"></i> cefprepas@outlook.com
+                            </address>
+                            <!-- Formulaire newsletter -->
+                            <form action="#" class="mt-3">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Votre email" aria-label="Newsletter">
+                                    <button class="btn btn-cef-green" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <hr>
-                <div class="text-center">
-                    <p class="text-muted">&copy; Copyright ©2024 CEFPREPAS.</p>
+
+                <hr class="my-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start text-center">
+                        <p class="text-muted small mb-0">&copy; {{ date('Y') }} CEFPREPAS. Tous droits réservés.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end text-center">
+                        <a href="#" class="text-muted text-decoration-none small me-3">Politique de confidentialité</a>
+                        <a href="#" class="text-muted text-decoration-none small">Conditions d'utilisation</a>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -406,106 +408,6 @@
                 });
                 
             });
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Configuration - Change this value to show 1, 2 or 3 testimonials at once
-                const visibleTestimonials = 1; // Can be 1, 2, or 3
-
-                const slider = document.querySelector(".testimonial-slider");
-                const slidesContainer = document.querySelector(".testimonial-slider"); // Container for slides
-                const slides = document.querySelectorAll(".testimonial-slide");
-                const dotsContainer = document.querySelector(".slider-dots");
-                let currentSlide = 0;
-                let slideInterval;
-
-                // Clear existing dots
-                dotsContainer.innerHTML = "";
-
-                // Create dots based on number of slides and visible testimonials
-                function createDots() {
-                    const dotCount = visibleTestimonials === 1 ? slides.length : Math.ceil(slides.length / visibleTestimonials);
-
-                    for (let i = 0; i < dotCount; i++) {
-                        const dot = document.createElement("span");
-                        dot.className = "dot";
-                        dot.setAttribute("data-slide", i * visibleTestimonials);
-                        dotsContainer.appendChild(dot);
-                    }
-
-                    // Add click event to new dots
-                    document.querySelectorAll(".dot").forEach((dot) => {
-                        dot.addEventListener("click", function () {
-                            const slideIndex = parseInt(this.getAttribute("data-slide"));
-                            showSlide(slideIndex);
-                        });
-                    });
-                }
-
-                // Initialize slider layout based on visibleTestimonials
-                function initializeLayout() {
-                    const rows = document.querySelectorAll(".testimonial-slide .row");
-
-                    rows.forEach((row) => {
-                        const cols = row.querySelectorAll(".col-md-12");
-                        cols.forEach((col) => {
-                            col.className = `col-md-${12 / visibleTestimonials} col-${12 / visibleTestimonials}`;
-                        });
-                    });
-
-                    // Adjust slide width to accommodate multiple testimonials
-                    slider.style.maxWidth = `${800 * Math.min(visibleTestimonials, 2)}px`;
-                }
-
-                // Show current slide(s)
-                function showSlide(n) {
-                    const dots = document.querySelectorAll(".dot");
-
-                    // Hide all slides
-                    slides.forEach((slide) => slide.classList.remove("active"));
-
-                    // Calculate current slide group
-                    currentSlide = (n + slides.length) % slides.length;
-
-                    // Activate the required number of slides
-                    for (let i = 0; i < visibleTestimonials; i++) {
-                        const slideIndex = (currentSlide + i) % slides.length;
-                        slides[slideIndex].classList.add("active");
-                    }
-
-                    // Update dot navigation
-                    dots.forEach((dot, index) => {
-                        dot.classList.remove("active");
-                        if (index === Math.floor(currentSlide / visibleTestimonials)) {
-                            dot.classList.add("active");
-                        }
-                    });
-                }
-
-                // Next slide
-                function nextSlide() {
-                    showSlide(currentSlide + visibleTestimonials);
-                }
-
-                // Start auto-sliding
-                function startSlider() {
-                    const interval = visibleTestimonials === 1 ? 5000 : 7000; // Longer interval when showing multiple
-                    slideInterval = setInterval(nextSlide, interval);
-                }
-
-                // Pause on hover
-                slider.addEventListener("mouseenter", () => clearInterval(slideInterval));
-                slider.addEventListener("mouseleave", startSlider);
-
-                // Initialize
-                createDots();
-                initializeLayout();
-                showSlide(0);
-                startSlider();
-            });
-
-           
         </script>
 
         <script>

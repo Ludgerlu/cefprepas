@@ -88,7 +88,123 @@ border-bottom: 2px solid var(--cefprepas-green-color);
     margin-bottom: 20px;
 }
 }
+/* ── Navbar modernisée ── */
+.navbar {
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
 
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.navbar .navbar-brand img {
+    transition: transform 0.3s ease;
+}
+.navbar .navbar-brand:hover img {
+    transform: scale(1.02);
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    color: #2d3e2d !important;
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #7cb342 !important;
+    background: rgba(124, 179, 66, 0.06);
+}
+
+.navbar .nav-link.active {
+    color: #7cb342 !important;
+    background: rgba(124, 179, 66, 0.10);
+}
+
+.navbar .nav-link.btn-cef-green {
+    background: #7cb342 !important;
+    color: #fff !important;
+    padding: 0.4rem 1.8rem;
+    font-weight: 600;
+    border-radius: 40px;
+    box-shadow: 0 4px 12px rgba(124, 179, 66, 0.25);
+    transition: all 0.3s ease;
+}
+.navbar .nav-link.btn-cef-green:hover {
+    background: #558b2f !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 179, 66, 0.35);
+}
+
+/* Dropdown styles */
+.navbar .dropdown-menu {
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.10);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    min-width: 200px;
+}
+
+.navbar .dropdown-item {
+    padding: 0.6rem 1.8rem;
+    font-weight: 500;
+    color: #2d3e2d;
+    transition: all 0.2s ease;
+    border-radius: 0;
+}
+.navbar .dropdown-item:hover {
+    background: rgba(124, 179, 66, 0.08);
+    color: #7cb342;
+}
+.navbar .dropdown-item.active {
+    background: rgba(124, 179, 66, 0.12);
+    color: #7cb342;
+    font-weight: 600;
+}
+
+/* Toggler icon */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%232d3e2d' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobile adjustments */
+@media (max-width: 991.98px) {
+    .navbar .nav-link {
+        padding: 0.6rem 1rem;
+    }
+    .navbar .dropdown-menu {
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding-left: 1rem;
+    }
+    .navbar .dropdown-item {
+        padding: 0.4rem 1rem;
+    }
+    .navbar .nav-link.btn-cef-green {
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+}
 
 /* Hero section for demonstration */
 .hero-section {
@@ -839,7 +955,61 @@ border-top: 1px solid #ddd;
 font-size: 0.9rem;
 color: #777;
 }
-
+/* ── Footer light ── */
+.footer-light {
+    background: #ffffff;
+    color: #333;
+    padding: 60px 0 20px;
+    border-top: 1px solid #e9ecef;
+}
+.footer-light h5 {
+    color: #2d3e2d;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+.footer-light a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-light a:hover {
+    color: #7cb342;
+    padding-left: 4px;
+}
+.footer-light .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f1f3f1;
+    color: #555;
+    transition: 0.3s;
+}
+.footer-light .social-links a:hover {
+    background: #7cb342;
+    color: #fff;
+    transform: translateY(-3px);
+}
+.footer-light .input-group .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 40px 0 0 40px;
+    padding: 0.5rem 1rem;
+}
+.footer-light .input-group .btn {
+    border-radius: 0 40px 40px 0;
+    border: none;
+    background: #7cb342;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+}
+.footer-light .input-group .btn:hover {
+    background: #558b2f;
+}
+.footer-light hr {
+    border-color: #e9ecef;
+}
 @media (max-width: 768px) {
 .footer-container {
     grid-template-columns: 1fr;

@@ -251,6 +251,117 @@
         }
         .news-card .news-body .btn-news:hover { color: #558b2f; gap: 12px; }
 
+
+        /* ── Testimonials Carousel ── */
+        .testimonials-section {
+            background: #f8faf7;
+            padding: 60px 0;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            margin: 0.5rem;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+        }
+        .testimonial-avatar img,
+        .testimonial-avatar .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 3px solid #7cb342;
+        }
+        .avatar-placeholder {
+            background: #7cb342;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+            padding: 1rem 0;
+            position: relative;
+            margin-top: 0.5rem;
+        }
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: #b9dda3;
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            line-height: 1;
+        }
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: #b9dda3;
+            position: absolute;
+            right: 0;
+            bottom: -0.5rem;
+            line-height: 1;
+        }
+
+        /* Owl Carousel custom dots */
+        .testimonial-carousel .owl-dots {
+            margin-top: 1.5rem;
+        }
+        .testimonial-carousel .owl-dot span {
+            background: #ccc;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .testimonial-carousel .owl-dot.active span {
+            background: #7cb342;
+            transform: scale(1.2);
+        }
+        .testimonial-carousel .owl-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        .testimonial-carousel .owl-nav button {
+            pointer-events: auto;
+            background: #fff !important;
+            border-radius: 50% !important;
+            width: 44px;
+            height: 44px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        .testimonial-carousel .owl-nav button:hover {
+            background: #7cb342 !important;
+            color: #fff !important;
+        }
+        .testimonial-carousel .owl-nav .owl-prev {
+            position: absolute;
+            left: -20px;
+        }
+        .testimonial-carousel .owl-nav .owl-next {
+            position: absolute;
+            right: -20px;
+        }
+        @media (max-width: 768px) {
+            .testimonial-carousel .owl-nav .owl-prev { left: 0; }
+            .testimonial-carousel .owl-nav .owl-next { right: 0; }
+        }
         /* Events section (styled like cf.html) */
         .events-section {
             padding: 70px 0;
@@ -539,9 +650,9 @@
                                 <li class="text-black"><i class="bi bi-sun"></i> Production de biogaz (énergie renouvelable)</li>
                                 <li class="text-black"><i class="bi bi-geo-alt"></i> Gestion des ressources naturelles</li>
                             </ul>
-                            <a href="{{ route('inscription') }}" class="btn card-btn w-100 justify-content-center mt-3">
+                            <!-- <a href="{{ route('inscription') }}" class="btn card-btn w-100 justify-content-center mt-3">
                                 S'inscrire maintenant <i class="bi bi-arrow-right"></i>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -573,12 +684,12 @@
         <section class="promo-section">
             <div class="container">
                 <div class="row align-items-center g-4">
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                    <div class="col-lg-6 mb-4" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
                         <div class="promo-card">
                             <img src="{{ asset('assets/img/lab1.jpeg') }}" alt="Programme Promo" class="img-fluid rounded">
                         </div>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+                    <div class="col-lg-6 mb-4" data-aos="fade-right" data-aos-duration="800">
                         <h2 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">Formation Professionnelle <br><span style="color:#7cb342;">Accélérée</span></h2>
                         <p class="lead text-muted" style="font-size:1.1rem;">
                             Devenez expert en agropastoral en seulement <strong>6 mois</strong> avec notre programme intensif.
@@ -669,7 +780,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img src="{{ asset('assets/img/lab1.jpeg') }}" alt="" style="width: 100%;border-radius: 15px;">
+                        <img src="{{ asset('assets/img/plant2.jpeg') }}" alt="" style="width: 100%;border-radius: 15px;">
                     </div>
                 </div>
             </div>
@@ -713,70 +824,47 @@
             </div>
         </section>
 
-       
-
-        <!-- ─── TESTIMONIALS ─── -->
-        <section class="testimonials-section">
+        <!-- ─── TESTIMONIALS CAROUSEL ─── -->
+        <section class="testimonials-section py-5">
             <div class="container">
-                <div class="row gy-4 align-items-center flex-wrap-reverse">
-                    <div class="col-xl-7">
-                        <div class="testimonial-slider">
-                            @foreach($data['testimonials'] as $index => $testimonial)
-                                <div class="testimonial-slide {{ $index === 0 ? 'active' : '' }}">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="testimonial-card">
-                                                <div class="row align-items-center">
-                                                    <div class="col-md-2 text-center">
-                                                        <div class="testimonial-avatar">
-                                                            @if($testimonial->image_url)
-                                                                <img src="{{ asset($testimonial->image_url) }}" alt="{{ $testimonial->name }}" class="img-fluid rounded-circle">
-                                                            @else
-                                                                <div class="avatar-placeholder rounded-circle">
-                                                                    {{ substr($testimonial->name, 0, 1) }}
-                                                                </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-10">
-                                                        <div class="student-info">
-                                                            <h3 class="student-name">{{ $testimonial->name }}</h3>
-                                                            <p class="student-program">{{ $testimonial->formation->{'title_'.app()->getLocale()} }}</p>
-                                                        </div>
-                                                    </div>
+                <div class="row">
+                    <div class="col-lg-7 mb-4 mb-lg-0">
+                        <div class="owl-carousel owl-theme testimonial-carousel">
+                            @foreach($data['testimonials'] as $testimonial)
+                                <div class="item">
+                                    <div class="testimonial-card text-center p-4">
+                                        <div class="testimonial-avatar mx-auto mb-3">
+                                            @if($testimonial->image_url)
+                                                <img src="{{ asset($testimonial->image_url) }}" alt="{{ $testimonial->name }}" class="rounded-circle">
+                                            @else
+                                                <div class="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center">
+                                                    {{ substr($testimonial->name, 0, 1) }}
                                                 </div>
-                                                
-                                                <blockquote class="testimonial-text mt-3">
-                                                    {!! strip_tags($testimonial->{'description_'.app()->getLocale()}) !!} 
-                                                </blockquote>
-                                            </div>
+                                            @endif
                                         </div>
+                                        <div class="student-info">
+                                            <h4 class="student-name">{{ $testimonial->name }}</h4>
+                                            <p class="student-program">{{ $testimonial->formation->{'title_'.app()->getLocale()} }}</p>
+                                        </div>
+                                        <blockquote class="testimonial-text">
+                                            {!! strip_tags($testimonial->{'description_'.app()->getLocale()}) !!}
+                                        </blockquote>
                                     </div>
                                 </div>
                             @endforeach
-
-                            <div class="slider-dots">
-                                @foreach($data['testimonials'] as $index => $testimonial)
-                                <span class="dot {{ $index === 0 ? 'active' : '' }}" data-slide="{{ $index }}"></span>
-                                @endforeach
-                            </div>
                         </div>
                     </div>
-
-                    <div class="col-xl-5 ps-xl-5">
-                        <div class="flex-align d-inline-flex gap-8 mb-16 wow bounceInDown" style="visibility: visible; animation-name: bounceInDown;">
+                    <div class="col-xl-5 ps-xl-5 m-auto">
+                        <div class="d-flex align-items-center mb-3">
                             <span class="text-main-600 text-2xl d-flex"><i class="ph-bold ph-book-open"></i></span>
                             <h5 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">{{ __('index.testimonials_title') }}<br><span style="color:#7cb342;">Ce que Dit Notre Communauté</span></h5>
-
                         </div>
                         <p>
-                            Bienvenue dans notre section témoignages, où les membres de notre communauté universitaire partagent leurs expériences et points de vue sur la vie à CEFPREPAS. Nous vous invitons à nous rejoindre et à faire partie de notre parcours inspirant d'apprentissage, de croissance et d'accomplissement.
+                            Bienvenue dans notre section témoignages, où les membres de notre communauté universitaire partagent leurs expériences et points de vue sur la vie à CEFPREPAS. Nous vous i nvitons à nous rejoindre et à faire partie de notre parcours inspirant d'apprentissage, de croissance et d'accomplissement.
                         </p>
                     </div>
                 </div>
-                
-            </div>
+        </div>
         </section>
 
         <!-- ─── STUDENT LIFE CAROUSEL ─── -->
@@ -1015,23 +1103,22 @@
 </script>
 
 <script>
-    // $(document).ready(function(){
-    //     $('.event-caroussel').owlCarousel({
-    //         loop: true,
-    //         margin: 10,
-    //         nav: false,
-    //         dots: true,
-    //         autoplay: true,
-    //         autoplayTimeout: 5000,
-    //         autoplayHoverPause: true,
-    //         navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-    //         responsive: {
-    //             0: { items: 1 },
-    //             600: { items: 1 },
-    //             1000: { items: 1 }
-    //         }
-    //     });
-    // });
+    // Testimonials Carousel
+    $('.testimonial-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+        responsive: {
+            0: { items: 1 },
+            768: { items: 1 },
+            992: { items: 1 }
+        }
+    });
     $(document).ready(function(){
         $('.partner-caroussel').owlCarousel({
             loop: true,
