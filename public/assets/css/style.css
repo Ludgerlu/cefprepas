@@ -696,6 +696,38 @@ justify-content: center;
     animation: continuousZoom 8s ease-in-out infinite;
 }
 
+/* ── About section modernisée ── */
+.about-section {
+    background: #ffffff;
+    padding: 70px 0;
+}
+
+.about-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #f8faf7;
+    border: 1px solid #eef3ee;
+}
+.about-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+.about-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.about-card p {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .about-card {
+        padding: 1rem !important;
+    }
+    .about-card h5 {
+        font-size: 0.9rem;
+    }
+}
+
 /* Continuous subtle zoom in and out */
 @keyframes continuousZoom {
     0% {

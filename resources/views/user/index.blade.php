@@ -659,21 +659,77 @@
             </div>
         </section>
 
-        <!-- ─── ABOUT ─── -->
-        <section class="about-section py-5 bg-light">
-            <div class="container py-4">
-                <div class="row align-items-center">
-                    <div class="col-lg-5 order-lg-1 order-2 text-center mb-4 mb-lg-0">
-                        <h1 class="display-5 fw-bold mb-4">{{ __('index.about.title') }}</h1>
-                        <p class="lead mb-4">
+        <!-- ─── ABOUT SECTION (style modernisé) ─── -->
+        <section class="about-section py-5">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <!-- Colonne gauche : texte -->
+                    <div class="col-lg-6">
+                        <span class="badge bg-success mb-3 px-3 py-2" style="font-size:0.85rem; border-radius:40px;">
+                            <i class="fas fa-seedling me-1"></i> {{ __('index.about.badge') ?? 'À propos' }}
+                        </span>
+                        <h2 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">
+                            {{ __('index.about.title') }}
+                        </h2>
+                        <p class="lead text-muted" style="font-size:1.05rem; line-height:1.7;">
                             {{ __('index.about.text') }}
                         </p>
-                        <a href="#" class="btn btn-cef-green btn-lg px-4">{{ __('index.about.button') }}</a>
+                        <p class="text-muted" style="font-size:1rem; line-height:1.8;">
+                            {{ __('index.about.detail') ?? 'Fondé en 2018, CEFPREPAS est un centre de formation agréé par le MINEFOP. Nous formons les futurs professionnels de l\'agriculture, de l\'élevage et de la pisciculture, avec une approche alliant théorie et pratique sur le terrain.' }}
+                        </p>
+
+                        <!-- Mission / Vision / Valeurs (3 colonnes) -->
+                        <div class="row g-3 mt-4">
+                            <div class="col-md-4">
+                                <div class="about-card h-100 p-3 rounded-3 bg-light border-0 shadow-sm">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="text-success" style="font-size:1.5rem;"><i class="fas fa-bullseye"></i></span>
+                                        <h5 class="fw-bold mb-0 text-dark">{{ __('index.about.mission') ?? 'Mission' }}</h5>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height:1.6;">
+                                        {{ __('index.about.mission_text') ?? 'Former des professionnels compétents pour relever les défis de la sécurité alimentaire et du développement durable.' }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about-card h-100 p-3 rounded-3 bg-light border-0 shadow-sm">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="text-success" style="font-size:1.5rem;"><i class="fas fa-eye"></i></span>
+                                        <h5 class="fw-bold mb-0 text-dark">{{ __('index.about.vision') ?? 'Vision' }}</h5>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height:1.6;">
+                                        {{ __('index.about.vision_text') ?? 'Devenir un pôle d\'excellence agro-pastoral en Afrique centrale, au service de la jeunesse et du développement rural.' }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about-card h-100 p-3 rounded-3 bg-light border-0 shadow-sm">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="text-success" style="font-size:1.5rem;"><i class="fas fa-gem"></i></span>
+                                        <h5 class="fw-bold mb-0 text-dark">{{ __('index.about.values') ?? 'Valeurs' }}</h5>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height:1.6;">
+                                        {{ __('index.about.values_text') ?? 'Excellence, intégrité, proximité, innovation et durabilité au service de la formation et de la recherche.' }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="{{ route('about') }}" class="btn btn-cef-green btn-lg px-5 rounded-pill">
+                                <i class="fas fa-arrow-right me-2"></i> {{ __('index.about.button') }}
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="col-lg-7 order-lg-2 order-1 mb-3">
-                        <div class="image">
-                            <img src="{{ asset('assets/img/student.jpg') }}" alt="{{ __('index.about.title') }}" class="img-fluid rounded">
+                    <!-- Colonne droite : image -->
+                    <div class="col-lg-6">
+                        <div class="position-relative">
+                            <img src="{{ asset('assets/img/student.jpg') }}" alt="{{ __('index.about.title') }}" class="img-fluid rounded-4 shadow-lg" style="object-fit:cover; max-height:500px; width:100%;">
+                            <!-- Optionnel : une petite étiquette superposée -->
+                            <div class="position-absolute bottom-0 start-0 p-3 bg-success bg-opacity-75 text-white rounded-bottom-4" style="border-radius: 0 0 16px 16px;">
+                                <i class="fas fa-graduation-cap me-2"></i> {{ __('index.about.since') ?? 'Depuis 2018' }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -684,22 +740,42 @@
         <section class="promo-section">
             <div class="container">
                 <div class="row align-items-center g-4">
-                    <div class="col-lg-6 mb-4" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                     <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
                         <div class="promo-card">
-                            <img src="{{ asset('assets/img/lab1.jpeg') }}" alt="Programme Promo" class="img-fluid rounded">
+                            <img src="{{ asset('assets/img/lab2.png') }}" alt="Laboratoire pédagogique CEFPREPAS" class="img-fluid rounded">
                         </div>
                     </div>
-                    <div class="col-lg-6 mb-4" data-aos="fade-right" data-aos-duration="800">
-                        <h2 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">Formation Professionnelle <br><span style="color:#7cb342;">Accélérée</span></h2>
+
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+                        <span class="badge bg-success mb-3 px-3 py-2" style="font-size:0.9rem; border-radius:40px;">
+                            <i class="fas fa-flask me-1"></i> Laboratoire Pédagogique
+                        </span>
+                        <h2 class="display-5 fw-bold text-dark" style="color:#2d3e2d;">
+                            Nos apprenants en pleine manipulation au laboratoire<br>
+                            <span style="color:#7cb342;">– une immersion concrète dans les métiers de l’agropastoral</span>
+                        </h2>
                         <p class="lead text-muted" style="font-size:1.1rem;">
-                            Devenez expert en agropastoral en seulement <strong>6 mois</strong> avec notre programme intensif.
-                            Certificat reconnu par le MINEFOP.
+                            Au cœur de notre centre, le laboratoire pédagogique est un espace dédié à la pratique et à l’expérimentation. 
+                            Équipé de matériel moderne, il permet aux apprenants de réaliser des analyses, des tests et des manipulations 
+                            en conditions réelles, sous la supervision de formateurs expérimentés.
                         </p>
                         <ul class="list-unstyled mt-3">
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> <strong>100% pratique</strong> sur le terrain</li>
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Encadrement par des professionnels expérimentés</li>
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Modules : Agriculture, Élevage, Pisciculture, Biogaz</li>
-                            <li class="py-2"><i class="fas fa-check-circle text-success me-2"></i> Accès à notre réseau de partenaires et stages</li>
+                            <li class="py-2">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                <strong>Analyses de sol, d’eau et de plantes</strong> – techniques de laboratoire appliquées
+                            </li>
+                            <li class="py-2">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                <strong>Microscopie et biologie</strong> – observation des micro‑organismes et des cellules
+                            </li>
+                            <li class="py-2">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                <strong>Tests de germination, de qualité des semences</strong> – maîtrise des protocoles
+                            </li>
+                            <li class="py-2">
+                                <i class="fas fa-check-circle text-success me-2"></i> 
+                                <strong>Travaux pratiques supervisés</strong> – encadrement personnalisé pour chaque apprenant
+                            </li>
                         </ul>
                         <a href="{{ route('inscription') }}" class="btn btn-cef-green btn-lg px-5 mt-2 rounded-pill">
                             <i class="fas fa-graduation-cap me-2"></i> S'inscrire maintenant
@@ -780,7 +856,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img src="{{ asset('assets/img/plant2.jpeg') }}" alt="" style="width: 100%;border-radius: 15px;">
+                        <img src="{{ asset('assets/img/lab4.jpeg') }}" alt="" style="width: 100%;border-radius: 15px;">
                     </div>
                 </div>
             </div>
