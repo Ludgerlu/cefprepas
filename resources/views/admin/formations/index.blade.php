@@ -54,6 +54,7 @@
                         <th>Duration</th>
                         <th>Success Rate</th>
                         <th>Intake</th>
+                        <th>Views</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -74,6 +75,7 @@
                                 <span class="badge badge-success-rate">{{ $formation->reussite }}%</span>
                             </td>
                             <td>{{ $formation->rentree->format('M Y') }}</td>
+                            <td>{{ $formation->views }}</td>
                             <td>
                                 <div class="d-flex gap-2">
                                     <a href="{{ route('admin.formations.show', $formation->id) }}" 

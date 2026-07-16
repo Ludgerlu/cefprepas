@@ -47,6 +47,7 @@
                         <th>Image</th>
                         <th>English Title</th>
                         <th>French Title</th>
+                        <th>Vu</th>
                         <th>Type</th>
                         <th>Event Date</th>
                         <th>Actions</th>
@@ -62,6 +63,7 @@
                             </td>
                             <td>{{ $event->title_en }}</td>
                             <td>{{ $event->title_fr }}</td>
+                            <td>{{ $event->views }}</td>
                             <td>
                                 <span class="badge bg-secondary badge-type">
                                     {{ $event->news == 1 ? "Actualite": "Vie d'etudiant" }}

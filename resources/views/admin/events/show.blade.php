@@ -34,6 +34,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Event Information</h5>
                             <ul class="list-unstyled">
+                                <li><strong>Views:</strong> {{ $event->views }}</li>
                                 <li><strong>Type:</strong> <span class="badge bg-secondary">{{ ucfirst($event->type) }}</span></li>
                                 <li><strong>Date:</strong> {{ $event->date_event->format('l, F j, Y') }}</li>
                                 <li><strong>Created:</strong> {{ $event->created_at->format('d/m/Y H:i') }}</li>

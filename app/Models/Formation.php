@@ -21,6 +21,7 @@ class Formation extends Model
         'objectif_en',
         'objectif_fr',
         'duree',
+        'views',
         'reussite',
         'rentree'
     ];

@@ -14,6 +14,7 @@ class FormationController extends Controller
     }
 
     public function show (Formation $formation){
+        $formation->increment('views');
         return view('user.formations.show', compact('formation'));
     }
 }
