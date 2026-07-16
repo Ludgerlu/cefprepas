@@ -9,21 +9,11 @@
         padding: 120px 0;
         background-size: cover;
     }
-    
-
     .entry-header .entry-title h1 {
         font-size: 50px;
-        /* color: #fff; */
     }
     .breadcrumbs_unit {
         padding-top: 11px;
-    }
-
-
-
-
-
-    .breadcrumbs_unit {
         background-color: #f6f6f6;
         padding: 9px 0 7px;
         border-bottom: 1px solid #f0f2f5;
@@ -38,112 +28,102 @@
         text-transform: initial !important;
         font-weight: 500;
     }
-
-    .breadcrumbs_unit .navxtBreads > span {
-        color: #aaa;
-        font-size: 11px;
-        text-transform: uppercase;
-    }
     .breadcrumbs_unit .navxtBreads > span:first-child > a {
         font-weight: bold !important;
     }
-
     .breadcrumbs_unit .navxtBreads > span a {
         color: #5F625E;
         text-transform: initial !important;
         font-weight: 500;
-    }
-    
-    .breadcrumbs_unit .navxtBreads > span a {
         font-size: 11px;
-        color: #aaa;
     }
-    .breadcrumbs_unit .navxtBreads > span a {
-        color: #5F625E;
-        text-transform: initial !important;
-        font-weight: 500;
+    .breadcrumbs_unit .navxtBreads > span a:hover {
+        color: #7cb342;
     }
 
     .portfolio-section {
-        padding: 60px 15px;
-        background: #f8f9fa;
+        padding: 60px 0;
+        background: #f8faf7;
     }
-    
-    .portfolio-filter {
-        margin-bottom: 30px;
-        text-align: center;
+
+    /* ── Masonry grid with irregular heights ── */
+    .portfolio-items {
+        column-count: 4;
+        column-gap: 20px;
+        margin: 0;
     }
-    
-    .portfolio-filter button {
-        display: inline-block;
-        padding: 8px 20px;
-        margin: 0 5px;
-        background: #fff;
-        border: 1px solid #ddd;
-        color: #333;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    
-    .portfolio-filter button:hover,
-    .portfolio-filter button.active {
-        background: #007bff;
-        color: #fff;
-        border-color: #007bff;
-    }
-    
-    
+
     .portfolio-item {
+        break-inside: avoid;
+        margin-bottom: 20px;
         position: relative;
         overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #fff;
+        border: 1px solid #f0f0f0;
     }
-    
     .portfolio-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(124, 179, 66, 0.10);
+        border-color: #7cb342;
     }
-    
-    .portfolio-img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
+
+    .portfolio-item a {
         display: block;
+        text-decoration: none;
+    }
+
+    .portfolio-img {
+        display: block;
+        width: 100%;
+        height: auto;
         transition: transform 0.5s ease;
     }
-    
     .portfolio-item:hover .portfolio-img {
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
-    
+
     .portfolio-overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(168, 255, 110, 0.61);
+        background: rgba(124, 179, 66, 0.75);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
     }
-    
     .portfolio-item:hover .portfolio-overlay {
         opacity: 1;
     }
-    
     .portfolio-overlay i {
         color: #fff;
-        font-size: 40px;
+        font-size: 2.5rem;
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
     }
-    
-    /* Magnific Popup adjustments */
-    .mfp-image-holder .mfp-close, 
+    .portfolio-item:hover .portfolio-overlay i {
+        transform: scale(1);
+    }
+
+    /* ── Responsive columns ── */
+    @media (max-width: 1200px) {
+        .portfolio-items { column-count: 3; }
+    }
+    @media (max-width: 768px) {
+        .portfolio-items { column-count: 2; }
+    }
+    @media (max-width: 480px) {
+        .portfolio-items { column-count: 1; }
+    }
+
+    /* ── Magnific Popup tweaks ── */
+    .mfp-image-holder .mfp-close,
     .mfp-iframe-holder .mfp-close {
         color: #fff;
         right: 0;
@@ -151,7 +131,6 @@
         padding-right: 0;
         width: 100%;
     }
-    
     .mfp-title {
         text-align: center;
         padding: 10px;
@@ -163,80 +142,50 @@
 
 @section('main')
 <main class="content">
-    <div class="entry-header clearfix" style="background: linear-gradient(135deg, #ecf0f1, #b9dda3); background-position: center; background-repeat: no-repeat;">
+    <div class="entry-header clearfix" style="background: linear-gradient(135deg, #ecf0f1, #b9dda3);">
         <div class="container">
-            <div class="entry-title-left">
-                <div class="entry-title text-center text-uppercase text-dark fs-5">
-                    <h1>Galerie</h1>
-                </div>
+            <div class="entry-title text-center text-uppercase text-dark fs-5">
+                <h1>{{ __('photo.gallery') ?? 'Galerie' }}</h1>
             </div>
         </div>
     </div>
-    <div>
-        <div class="breadcrumbs_unit">
-            <div class="container">
-                <div class="navxtBreads">
-                    <span property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" title="Go to cefprepas.com" href="{{ route('index') }}" class="home"><span property="name">{{ __('messages.home') }}</span></a><meta property="position" content="1">
-                    </span>
-                    &gt;
-                    <span property="itemListElement" typeof="ListItem">
-                        <span property="name" class="post post-page current-item text-uppercase">Galerie</span><meta property="url" content="https://www.CEFPREPAS.com/"><meta property="position" content="2">
-                    </span>
-                </div>
+
+    <div class="breadcrumbs_unit">
+        <div class="container">
+            <div class="navxtBreads">
+                <span><a href="{{ route('index') }}">{{ __('messages.home') }}</a></span>
+                &gt;
+                <span class="current-item text-uppercase">{{ __('photo.gallery') ?? 'Galerie' }}</span>
             </div>
         </div>
     </div>
+
     <div class="container">
-        <div class="empty_space" style="height: 87px;">
-            <span class="empty_space_inner"></span>
-        </div>
+        <div class="empty_space" style="height: 40px;"></div>
         <section class="portfolio-section">
-            <div>
-                <div class="portfolio-items rows">
-                    @foreach($photos as $photo)
-                        <div class="portfolio-item selfie col-md-2 mb-3 me-3">
-                            <a href="{{ asset($photo->image_url) }}" class="image-link" title="{{ $photo->{'name_'.app()->getLocale()} }}">
-                                <img src="{{ asset($photo->image_url) }}" alt={{ $photo->{'name_'.app()->getLocale()} }}  class="portfolio-img">
-                                <div class="portfolio-overlay">
-                                    <i class="bi bi-search"></i>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
+            <div class="portfolio-items">
+                @foreach($photos as $photo)
+                    <div class="portfolio-item">
+                        <a href="{{ asset($photo->image_url) }}" class="image-link" title="{{ $photo->{'name_'.app()->getLocale()} }}">
+                            <img src="{{ asset($photo->image_url) }}" alt="{{ $photo->{'name_'.app()->getLocale()} }}" class="portfolio-img" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <i class="bi bi-search"></i>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </section>
+        <div class="empty_space" style="height: 40px;"></div>
     </div>
 </main>
-
 @endsection
 
 @section('stript')
-<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Isotope for filtering -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
-<!-- Magnific Popup for lightbox -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-
 <script>
 $(document).ready(function() {
-    // Initialize Isotope
-    var $grid = $('.portfolio-items').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
-    
-    // Filter items on button click
-    $('.portfolio-filter button').on('click', function() {
-        $('.portfolio-filter button').removeClass('active');
-        $(this).addClass('active');
-        
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
-    
     // Initialize Magnific Popup
     $('.image-link').magnificPopup({
         type: 'image',

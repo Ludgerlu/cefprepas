@@ -42,7 +42,13 @@ class UserController extends Controller
         ]);
     }
     public function about(){
-        return view('user.about');
+        $data = [
+            'testimonials' => Testimony::latest()
+                                ->take(3)
+                                ->get(),
+            'partners' => Partner::take(4)->get(),
+        ];
+        return view('user.about', compact('data'));
     }
     public function atout(){
         return view('user.atout');
@@ -112,6 +118,7 @@ class UserController extends Controller
         return view('user.galerie',compact('photos'));
     }
     public function emploie(){
-        return view('user.emploie');
+        $data['partners'] = Partner::take(6)->get();
+        return view('user.emploie', compact('data'));
     }
 }

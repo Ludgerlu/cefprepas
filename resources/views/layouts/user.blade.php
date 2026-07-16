@@ -177,49 +177,27 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57KTPD6W"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-        <div class="shadow-sm header_top_bar d-none d-md-block m-0">
+        <!-- Header Top Bar -->
+        <div class="header-top-bar d-none d-md-block">
             <div class="container">
-                <div class="row p-1">
-                    <div class="col-md-3 d-flex align-items-center gap-3">
-                        <!-- Header top bar Socials -->
-                        <div class="header_top_bar_socs">
-                            <ul class="list-unstyled d-flex gap-4 mb-0">
-                                <li>
-                                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="row align-items-center py-1">
+                    <div class="col-md-4">
+                        <ul class="social-icons list-unstyled d-flex gap-3 mb-0">
+                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
                     </div>
-
-                    <div class="col-md-9 d-flex justify-content-end align-items-center gap-3">
-                        <!-- Search Icon -->
-                        <div class="search-toggler-unit">
-                            <div class="search-top-bar" data-bs-toggle="modal" data-bs-target="#searchModal">
-                                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g id="menu-/-nos-formation" transform="translate(-745.000000, -17.000000)" fill="#5F625E" stroke="#5F625E" stroke-width="0.605">
-                                            <path
-                                                d="M753.234892,31.7107492 C749.665799,31.7107492 746.76159,28.8063555 746.76159,25.2362407 C746.76159,21.6661258 749.665799,18.7616964 753.234892,18.7616964 C756.803984,18.7616964 759.708193,21.6660901 759.708193,25.2362407 C759.708193,28.8063912 756.803984,31.7107492 753.234892,31.7107492 M764,35.4648166 L758.604719,30.0684942 C759.759849,28.785718 760.469783,27.0944042 760.469783,25.2362049 C760.469748,21.2461984 757.22419,18 753.234892,18 C749.245593,18 746,21.2461984 746,25.2362407 C746,29.2262829 749.245593,32.4724813 753.234892,32.4724813 C755.092744,32.4724813 756.783707,31.7624145 758.06628,30.6070696 L763.458205,36 C763.638875,35.8216531 763.819544,35.6433777 764,35.4648166"
-                                                id="Fill-1"
-                                            ></path>
-                                        </g>
-                                    </g>
-                                </svg>
-                            </div>
+                    <div class="col-md-8 d-flex justify-content-end align-items-center gap-3">
+                        <div class="search-icon" data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#5F625E" stroke-width="1.5">
+                                <circle cx="9" cy="9" r="7" />
+                                <line x1="14" y1="14" x2="19" y2="19" />
+                            </svg>
                         </div>
-                        
-                        <!-- Brochure Download Button -->
-                        <a class="btn btn-secondary text-decoration-none btn-grey" target="_blank" href="{{ asset('assets/doc/prospectus_cefprepas.pdf') }}" title="{{ __('messages.download_brochure') }}"> 
-                            <i class="fa-solid fa-arrow-down"></i> {{ __('messages.download_brochure') }} 
+                        <a href="{{ asset('assets/doc/prospectus_cefprepas.pdf') }}" target="_blank" class="btn btn-brochure">
+                            <i class="fas fa-download me-1"></i> {{ __('messages.download_brochure') }}
                         </a>
                     </div>
                 </div>
@@ -230,13 +208,13 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('index') }}">
-                    <img src="{{ asset('assets/img/Logo_CEFPREPAS.JPG') }}" alt="CEFPREPAS" style="height: 10vh; max-height: 70px;" />
+                    <img src="{{ asset('assets/img/Logo_CEFPREPAS.JPG') }}" alt="CEFPREPAS" style="height: 60px;">
                 </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
                         aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
                         <li class="nav-item">
                             <a class="nav-link @if(request()->routeIs('index')) active @endif" href="{{ route('index') }}">{{ __('messages.home') }}</a>
@@ -246,7 +224,7 @@
                             href="#" id="cefprepasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 CEFPREPAS
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cefprepasDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="cefprepasDropdown">
                                 <li><a class="dropdown-item @if(request()->routeIs('about')) active @endif" href="{{ route('about') }}">{{ __('messages.about') }}</a></li>
                                 <li><a class="dropdown-item @if(request()->routeIs('atout')) active @endif" href="{{ route('atout') }}">{{ __('messages.atout') }}</a></li>
                                 <li><a class="dropdown-item @if(request()->routeIs('documents.index')) active @endif" href="{{ route('documents.index') }}">{{ __('messages.document') }}</a></li>
@@ -261,7 +239,7 @@
                             href="#" id="formationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ __('messages.formations') }}
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="formationsDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="formationsDropdown">
                                 <li><a class="dropdown-item @if(request()->routeIs('formations.index')) active @endif" href="{{ route('formations.index') }}">{{ __('messages.formations') }}</a></li>
                                 <li><a class="dropdown-item @if(request()->routeIs('programme')) active @endif" href="{{ route('programme') }}">{{ __('messages.programme') }}</a></li>
                                 <li><a class="dropdown-item @if(request()->routeIs('diplome')) active @endif" href="{{ route('diplome') }}">{{ __('messages.diplome') }}</a></li>
@@ -274,8 +252,7 @@
                             <a class="nav-link @if(request()->routeIs('contact')) active @endif" href="{{ route('contact') }}">{{ __('messages.contact') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-cef-green text-white rounded-pill px-4 @if(request()->routeIs('inscription')) active @endif" 
-                            href="{{ route('inscription') }}" style="padding: 0.5rem 1.5rem;">
+                            <a class="nav-link btn btn-register @if(request()->routeIs('inscription')) active @endif" href="{{ route('inscription') }}">
                                 {{ __('messages.inscription') }}
                             </a>
                         </li>

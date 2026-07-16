@@ -3,6 +3,222 @@
 @section('style')
     <style>
         /* ── Additional styles for the updated sections ── */
+        /* ── Hero Slider ── */
+        .hero-slider {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            min-height: 600px;
+            background: var(--green-dark, #1e4d2b);
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(30, 77, 43, 0.85) 0%, rgba(30, 77, 43, 0.50) 100%);
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            width: 100%;
+            padding: 40px 20px;
+            color: #fff;
+            animation: heroFade 0.7s ease;
+            text-align: center;
+        }
+
+        @keyframes heroFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .slide-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #f5c842; /* amber */
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+        .slide-eyebrow::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: #f5c842;
+        }
+
+        .slide-content h1 {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+        .slide-content h1 {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.15;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .slide-content p {
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            margin: 0 auto 36px auto;  /* ← centre le paragraphe */
+            font-size: 1.15rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .slide-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .slide-actions .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .slide-actions .btn-primary {
+            background: #4caf70;
+            color: #fff;
+            border: none;
+        }
+        .slide-actions .btn-primary:hover {
+            background: #2e7d45;
+            transform: translateY(-2px);
+        }
+        .slide-actions .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        .slide-actions .btn-outline-light:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .hero-stats .stat-item .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f5c842;
+            line-height: 1.2;
+        }
+        .hero-stats .stat-item .label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Contrôles */
+        .slider-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .slider-control:hover {
+            background: #2e7d45;
+            border-color: #2e7d45;
+        }
+        .slider-control.prev { left: 24px; }
+        .slider-control.next { right: 24px; }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+        .slider-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        .slider-dots .dot.active {
+            background: #f5c842;
+            width: 28px;
+            border-radius: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-slider { height: 100vh; min-height: 500px; }
+            .slider-control { width: 36px; height: 36px; font-size: 1.2rem; }
+            .slider-control.prev { left: 10px; }
+            .slider-control.next { right: 10px; }
+            .slide-content { padding: 20px 0; }
+            .hero-stats { gap: 1.5rem; }
+            .hero-stats .stat-item .number { font-size: 1.6rem; }
+        }
+        @media (max-width: 480px) {
+            .slide-content h1 { font-size: 1.8rem; }
+            .slide-actions .btn { padding: 10px 20px; font-size: 0.85rem; }
+        }
 
         /* Hero (single image + particles) */
         .hero {
@@ -16,7 +232,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url({{  asset('assets/img/student.jpg') }}) center/cover no-repeat;
+            background: url({{  asset('assets/img/solaire.jpeg') }}) center/cover no-repeat;
             opacity: 0.18;
         }
         .hero-particles {
@@ -614,8 +830,8 @@
                 <span class="particle"></span><span class="particle"></span>
             </div>
             <div class="container py-5">
-                <div class="row align-items-center gy-5">
-                    <div class="col-lg-6 hero-content">
+                <div class="d-flex justify-content-center align-items-center gy-5">
+                    <div class="hero-content">
                         <h1 class="hero-title">
                             Formez-vous aux métiers<br>
                             <span>de l'agropastoral</span>
@@ -638,7 +854,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 offset-lg-1">
+                    <!-- <div class="col-lg-5 offset-lg-1">
                         <div class="hero-card">
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <h6 class="text-black">Nos programmes</h6>
@@ -652,12 +868,14 @@
                             </ul>
                             <!-- <a href="{{ route('inscription') }}" class="btn card-btn w-100 justify-content-center mt-3">
                                 S'inscrire maintenant <i class="bi bi-arrow-right"></i>
-                            </a> -->
+                            </a> --
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
+
+        
 
         <!-- ─── ABOUT SECTION (style modernisé) ─── -->
         <section class="about-section py-5">
@@ -1096,16 +1314,12 @@
                 if (content) {
                     content.style.opacity = '';
                     content.style.transform = '';
-                    content.style.visibility = 'hidden';
-                    content.style.transition = 'none';
                 }
 
                 // Reset text elements
                 animatables.forEach(el => {
                     el.style.opacity = '0';
                     el.style.transform = 'translateY(30px)';
-                    el.style.visibility = 'hidden';
-                    el.style.transition = 'none';
                 });
             });
 
@@ -1179,6 +1393,7 @@
 </script>
 
 <script>
+    
     // Testimonials Carousel
     $('.testimonial-carousel').owlCarousel({
         loop: true,
