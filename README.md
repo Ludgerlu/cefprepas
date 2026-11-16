@@ -1,66 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CEFPREPAS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+CEFPREPAS is a professional training center focused on livestock, fish farming and agriculture. The project is built as a Laravel website that presents the institution, promotes its training programs, and allows prospective students to discover opportunities, submit applications, and contact the school.
 
-## About Laravel
+Founded in 2018 and recognized by the Cameroonian Ministry of Employment and Vocational Training (MINEFOP), CEFPREPAS aims to train skilled professionals for the agricultural and rural economy while supporting youth employment and sustainable development.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Project overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This application includes:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- a modern public-facing landing page and institutional presentation
+- training and field program listings
+- student testimonials and partner showcase
+- news and events sections
+- online registration form for future students
+- contact and document management
+- an admin dashboard for managing formations, inscriptions, events, resources and partners
+- multilingual support for French and English content
 
-## Learning Laravel
+## Key features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Dynamic course catalog for agricultural, livestock and fish farming programs
+- Student registration workflow with form validation
+- Contact form for inquiries and support requests
+- Event and news management for public communication
+- Gallery and document management
+- Admin panel to manage content and registrations
+- Responsive design for desktop and mobile users
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Tech stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP 8.1+
+- Laravel 10
+- MySQL / database-driven content
+- Blade templating engine
+- Vite for frontend assets
+- Bootstrap-based frontend design
 
-## Laravel Sponsors
+## Main project structure
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- `app/` - business logic, controllers, models, middleware
+- `config/` - application configuration
+- `database/` - migrations and seeders
+- `public/` - public assets and entry point
+- `resources/` - Blade views, CSS, JS and language files
+- `routes/` - application routes
+- `storage/` - generated files and uploads
+- `tests/` - automated tests
 
-### Premium Partners
+## Local setup
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. Clone the repository
+2. Install PHP dependencies:
+   ```bash
+   composer install
+   ```
+3. Create a local environment file:
+   ```bash
+   cp .env.example .env
+   ```
+4. Generate the application key:
+   ```bash
+   php artisan key:generate
+   ```
+5. Configure your database connection in `.env`
+6. Run the migrations:
+   ```bash
+   php artisan migrate
+   ```
+7. Install frontend dependencies:
+   ```bash
+   npm install
+   ```
+8. Start the asset watcher:
+   ```bash
+   npm run dev
+   ```
+9. Start the Laravel app:
+   ```bash
+   php artisan serve
+   ```
 
-## Contributing
+Then open the application in your browser at the URL displayed by Artisan.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Production notes
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Ensure the `.env` file contains the correct production database and mail credentials.
+- Use `php artisan optimize` for improved performance in production.
+- Secure the admin routes and keep all uploaded media in protected directories.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT license.
